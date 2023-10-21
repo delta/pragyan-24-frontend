@@ -18,6 +18,10 @@ A website for the Pragyan 2024
   yarn prepare
   ```
 
+- Initialize the web-client submodule
+  ```
+  git submodule update --init
+  ```
 - Copy config.example.ts to config.ts
   ```
   cp ./src/config/config.example.ts ./src/config/config.ts
@@ -29,8 +33,7 @@ A website for the Pragyan 2024
   ```
 
 - Run
-  ````
-   yarn run dev
-   ```
+  ```
+  yarn run dev
   *Your site will be running in port 3000*
-  ````
+  ```

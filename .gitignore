@@ -35,7 +35,8 @@ next-env.d.ts
 # submodules
 /fest-web-client
 
-/openapitools.json
+# openapi
+openapitools.json
 
 # config
 /src/config/config.ts
