@@ -35,5 +35,5 @@ A website for the Pragyan 2024
 - Run
   ```
   yarn run dev
-  *Your site will be running in port 3000*
   ```
+  _Your site will be running in port 3000_
