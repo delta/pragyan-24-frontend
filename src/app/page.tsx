@@ -1,12 +1,24 @@
+'use client';
+
+import wingman from '@/assets/images/wingman.png';
 import { NavBar } from '@/components';
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-slate-600">
-      <div className="flex flex-col items-center justify-center">
+    <>
+      <div className="min-h-screen w-full text-center p-7 home">
         <NavBar />
-        Pragyan Inductions
+        <p className="font-ROG text-9xl mt-24">AD INFINITUM</p>
+        <Image
+          src={wingman}
+          alt="Wingman"
+          draggable={false}
+          className="wingman w-48 absolute inset-0 m-auto bottom-1/3"
+        />
+        <p className="font-ROG text-5xl">A TIMELESS ODYSSEY</p>
       </div>
-    </main>
+      {/* <About /> */}
+    </>
   );
 }

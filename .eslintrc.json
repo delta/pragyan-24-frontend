@@ -20,7 +20,9 @@
     ".*",
     "*.json",
     "README.md",
-    "*.lock"
+    "*.lock",
+    "src/assets/*",
+    "**/**/*.css"
   ],
   "rules": {
     "prettier/prettier": "error",
