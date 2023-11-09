@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <div className="min-h-screen w-full text-center p-7 home">
         <NavBar />
-        <p className="font-ROG text-9xl mt-24">AD INFINITUM</p>
+        <p className="font-ROG text-9xl mt-24">CHRONOCLE</p>
         <Image
           src={wingman}
           alt="Wingman"
