@@ -7,7 +7,7 @@ import hamburgerIcon from '../../assets/images/hamburgerMenu.svg';
 const NavBar = () => {
   return (
     <div className="w-full flex h-14">
-      <div className="flex basis-1/2 justify-start items-center px-5">
+      <div className="flex basis-1/2 justify-start items-center lg:px-5">
         <Image
           src={pragyanlogo}
           alt="Pragyan Logo"
@@ -15,17 +15,17 @@ const NavBar = () => {
           className="w-40"
         />
       </div>
-      <div className="flex basis-1/2 justify-between items-center pl-16 pr-7 font-Orbitron">
-        <Link href="/" className="text-xl">
+      <div className="flex basis-1/2 lg:justify-between justify-end items-center pl-16 lg:pr-7 font-Orbitron xl:text-xl lg:text-lg text-sm">
+        <Link href="/" className="max-lg:hidden">
           HOME
         </Link>
-        <Link href="/contact" className="text-xl">
+        <Link href="/contact" className="max-lg:hidden">
           CONTACT US
         </Link>
-        <Link href="/faqs" className="text-xl">
+        <Link href="/faqs" className="max-lg:hidden">
           FAQs
         </Link>
-        <Link href="/login" className="text-xl">
+        <Link href="/login" className="max-lg:hidden">
           LOGIN
         </Link>
         <Image
