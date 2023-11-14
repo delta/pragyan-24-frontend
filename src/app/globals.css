@@ -51,7 +51,7 @@ body {
 
 .about {
   background: url('../assets/images/aboutBG.png');
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #070b12;
@@ -64,6 +64,38 @@ body {
   background-position: center;
 }
 
+.scrolled {
+  animation: fadeout 1.5s;
+  -moz-animation: fadeout 1.5s;
+  -webkit-animation: fadeout 1.5s;
+  -o-animation: fadeout 1.5s;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.trasitioned {
+  animation: fadein 5s;
+  -moz-animation: fadein 5s;
+  -webkit-animation: fadein 5s; 
+  -o-animation: fadein 5s; 
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .wingman {
   animation: float 5s ease-in-out infinite;
 }
@@ -71,7 +103,7 @@ body {
 @keyframes float {
   0% {
     transform: translatey(0px);
-  }
+  }   
 
   50% {
     transform: translatey(-20px);
@@ -79,5 +111,20 @@ body {
 
   100% {
     transform: translatey(0px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home {
+    background: url('../assets/images/homeBGMOB.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .AboutCard {
+    background: url('../assets/images/aboutCardMOB.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
   }
 }
