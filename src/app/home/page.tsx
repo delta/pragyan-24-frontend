@@ -1,7 +1,7 @@
 'use client';
 
 import wingman from '@/assets/images/wingman.png';
-import { NavBar } from '@/components';
+import { NavBar, SideBar } from '@/components';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -28,7 +28,8 @@ export default function Home() {
     <>
       <div
         className={
-          'min-h-screen w-full text-center lg:p-7 p-5 home ' +
+          'h-screen w-full text-center lg:p-7 p-5 home' +
+          ' ' +
           (isScrolled ? 'scrolled' : '')
         }
         onWheel={simulateScroll}
@@ -49,7 +50,7 @@ export default function Home() {
           A TIMELESS ODYSSEY
         </p>
       </div>
-      {/* <About /> */}
+      <SideBar content={'The Future'} number={'01'} />
     </>
   );
 }

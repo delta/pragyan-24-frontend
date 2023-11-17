@@ -19,7 +19,7 @@
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-  -ms-user-select: none;
+  -ms-user-select: none;  
 }
 
 html {
@@ -80,7 +80,7 @@ body {
   }
 }
 
-.trasitioned {
+.transitioned {
   animation: fadein 5s;
   -moz-animation: fadein 5s;
   -webkit-animation: fadein 5s; 

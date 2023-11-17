@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import bigmascot from '../../assets/images/bigmascot.png';
 import { motion } from 'framer-motion';
-import { NavBar } from '@/components';
+import { NavBar, SideBar } from '@/components';
 import AboutCard from '@/components/AboutCard/AboutCard';
 import { WheelEvent, TouchEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -27,8 +27,9 @@ const About = () => {
   return (
     <div
       className={
-        'h-screen w-full text-center p-7 about flex flex-col trasitioned ' +
-        (isScrolled ? 'scrolled' : '')
+        'h-screen w-full text-center p-7 about flex flex-col' +
+        ' ' +
+        (isScrolled ? 'scrolled' : 'transitioned')
       }
       onWheel={simulateScroll}
       onTouchStart={simulateScroll}
@@ -56,6 +57,7 @@ const About = () => {
         </div>
         <AboutCard />
       </div>
+      <SideBar number={'02'} content={'The Present'} />
     </div>
   );
 };
