@@ -9,7 +9,7 @@ const Footer = () => {
         <Clock />
       </div>
       <div className="lg:basis-3/5 flex justify-center items-center">
-        <p className="lg:text-lg sm:text-sm text-xs text-justify">
+        <p className="lg:text-lg sm:text-sm text-xs text-center">
           {footerText}
         </p>
       </div>
