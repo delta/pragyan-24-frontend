@@ -3,128 +3,128 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'ROG';
-  src: url('../assets/fonts/7032-fontps.ttf');
+    font-family: 'ROG';
+    src: url('../assets/fonts/7032-fontps.ttf');
 }
 
 @font-face {
-  font-family: 'Orbitron';
-  src: url('../assets/fonts/Orbitron-Regular.ttf');
+    font-family: 'Orbitron';
+    src: url('../assets/fonts/Orbitron-Regular.ttf');
 }
 
 * {
-  -moz-user-drag: none;
-  -webkit-user-drag: none;
-  -ms-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;  
+    -moz-user-drag: none;
+    -webkit-user-drag: none;
+    -ms-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 html {
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 #root,
 body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: white;
 }
 
 .footer-bg {
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .home {
-  background: url('../assets/images/kamartaj.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #070b12;
+    background: url('../assets/images/kamartaj.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #070b12;
 }
 
 .about {
-  background: url('../assets/images/aboutBG.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #070b12;
-}
-
-.AboutCard {
-  background: url('../assets/images/aboutCard.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.scrolled {
-  animation: fadeout 1.5s;
-  -moz-animation: fadeout 1.5s;
-  -webkit-animation: fadeout 1.5s;
-  -o-animation: fadeout 1.5s;
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.transitioned {
-  animation: fadein 5s;
-  -moz-animation: fadein 5s;
-  -webkit-animation: fadein 5s; 
-  -o-animation: fadein 5s; 
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.wingman {
-  animation: float 5s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translatey(0px);
-  }   
-
-  50% {
-    transform: translatey(-20px);
-  }
-
-  100% {
-    transform: translatey(0px);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .home {
-    background: url('../assets/images/homeBGMOB.png');
+    background: url('../assets/images/aboutBG.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  }
-  .AboutCard {
-    background: url('../assets/images/aboutCardMOB.png');
+    background-color: #070b12;
+}
+
+.AboutCard {
+    background: url('../assets/images/aboutCard.png');
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: contain;
     background-position: center;
-  }
+}
+
+.scrolled {
+    animation: fadeout 1.5s;
+    -moz-animation: fadeout 1.5s;
+    -webkit-animation: fadeout 1.5s;
+    -o-animation: fadeout 1.5s;
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.transitioned {
+    animation: fadein 5s;
+    -moz-animation: fadein 5s;
+    -webkit-animation: fadein 5s;
+    -o-animation: fadein 5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.wingman {
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .home {
+        background: url('../assets/images/homeBGMOB.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .AboutCard {
+        background: url('../assets/images/aboutCardMOB.png');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center;
+    }
 }

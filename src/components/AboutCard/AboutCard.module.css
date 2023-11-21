@@ -1,0 +1,48 @@
+.parent {
+    position: relative;
+    width: 90%;
+    height: 75%;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+.parent div {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background-color: transparent;
+}
+
+.topLeft {
+    top: 0;
+    left: 0;
+    background: url('../../assets/images/abouttopleft.png');
+    background-size: cover;
+}
+
+.topRight {
+    top: 0;
+    right: 0;
+    background: url('../../assets/images/abouttopright.png');
+    background-size: cover;
+}
+
+.bottomLeft {
+    bottom: 0;
+    left: 0;
+    background: url('../../assets/images/aboutbottomleft.png');
+    background-size: cover;
+}
+
+.bottomRight {
+    bottom: 0;
+    right: 0;
+    background: url('../../assets/images/aboutbottomright.png');
+    background-size: cover;
+}
+
+.content {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}

@@ -1,0 +1,3 @@
+type GlitchTextProps = {
+    text: string;
+};

@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write 'src/**/*.{ts,tsx,css,json}' --config ./.prettierrc"
   },
   "dependencies": {
     "eslint-config-prettier": "^9.0.0",
@@ -43,11 +44,13 @@
     }
   },
   "prettier": {
+    "semi": true,
+    "tabWidth": 4,
+    "printWidth": 100,
     "singleQuote": true,
-    "arrowParens": "avoid",
-    "printWidth": 80,
-    "tabWidth": 2,
     "trailingComma": "all",
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
     "useTabs": false
   },
   "lint-staged": {
