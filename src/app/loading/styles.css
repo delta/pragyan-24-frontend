@@ -230,4 +230,26 @@
 
 .press {
   width: 130px;
+  filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(150%);
+  transition: filter 0.3s ease;
+}
+
+
+.press:hover {
+  filter: hue-rotate(1deg) drop-shadow(0 0 20px red) brightness(150%);
+  transition: filter 0.3s ease;
+}
+
+.press:active {
+  transform: scale(0.9);
+  filter: none;
+}
+
+@keyframes animate {
+  0%, 100% {
+    filter: hue-rotate(137deg) brightness(1); /* Initial and final state with full brightness */
+  }
+  50% {
+    filter: hue-rotate(137deg) brightness(1.5); /* Brighten the glow at 50% */
+  }
 }

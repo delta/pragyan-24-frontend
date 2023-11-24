@@ -12,16 +12,22 @@ const loadingPage = () => {
 
   const [button1, setButton1] = useState(false);
   const [button2, setButton2] = useState(true);
+  const [currentTime, setCurrentTime] = useState<Date>(new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {
       setButton1(prevButton1 => !prevButton1);
       setButton2(prevButton2 => !prevButton2);
+      setCurrentTime(new Date());
     }, 800);
 
     // Clear the interval when the component unmounts
     return () => clearInterval(interval);
   }, []);
+
+  const formatTime = (time: number): string => {
+    return time < 10 ? '0' + time : time.toString();
+  };
 
   return (
     <>
@@ -51,51 +57,29 @@ const loadingPage = () => {
           <div className="middle-row">
             <div className="mdy-text">
               <div className="month-div">
-                <div className="m-text">
-                  NOV
-                </div>
-                <div className="m-bg-text">
-                  888
-                </div>
+                <div className="m-text">{currentTime.toLocaleString('default', { month: 'short' }).toUpperCase()}</div>
+                <div className="m-bg-text">888</div>
               </div>
               <div className="date-div">
-                <div className="d-text">
-                  20
-                </div>
-                <div className="d-bg-text">
-                  88
-                </div>
+                <div className="d-text">{formatTime(currentTime.getDate())}</div>
+                <div className="d-bg-text">88</div>
               </div>
               <div className="year-div">
-                <div className="y-text">
-                  2023
-                </div>
-                <div className="y-bg-text">
-                  8888
-                </div>
+                <div className="y-text">{currentTime.getFullYear()}</div>
+                <div className="y-bg-text">8888</div>
               </div>
             </div>
             <div className="time-text">
               <div className="hours-div">
-                <div className="h-text">
-                  23
-                </div>
-                <div className="h-bg-text">
-                  88
-                </div>
+                <div className="h-text">{formatTime(currentTime.getHours())}</div>
+                <div className="h-bg-text">88</div>
               </div>
               <div className="colon-div">
-                <div className="colon-text">
-                  :
-                </div>
+                <div className="colon-text">:</div>
               </div>
               <div className="min-div">
-                <div className="mi-text">
-                  45
-                </div>
-                <div className="mi-bg-text">
-                  88
-                </div>
+                <div className="mi-text">{formatTime(currentTime.getMinutes())}</div>
+                <div className="mi-bg-text">88</div>
               </div>
             </div>
           </div>
