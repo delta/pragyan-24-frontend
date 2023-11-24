@@ -1,0 +1,233 @@
+@font-face {
+  font-family: 'sevenseg';
+  src: url('../../assets/fonts/7segment.ttf');
+}
+
+.fake-body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle-portion {
+  display: flex;
+  width: 83.5vw;
+  height: 40vh;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+
+.top-row {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.middle-row {
+  display: flex;
+  justify-content: center;
+  height: 254px;
+  align-items: center;
+}
+
+.bottom-row {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* PRESENT TIME ROW CSS IS HERE */
+
+.present-time {
+  display: flex;
+  align-items: center;
+  width: 1250px;
+  height: 100px;
+}
+
+.present-text {
+  display: flex;
+  color: #FFF;
+  text-align: center;
+  font-family: Open Sans Condensed;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.05em;
+  margin-left: 625px;
+}
+
+.blink-buttons {
+  display: flex;
+  height: 100px;
+  width: 261px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.on-button,
+.off-button {
+  width: 100px;
+}
+
+/* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+
+.mdy-text {
+  display: flex;
+  width: 1076px;
+  height: 141px;
+  align-items: center;
+}
+
+.month-div {
+  display: flex;
+  width: 307px;
+  align-items: center;
+  height: 141px;
+  background: #1D1D1D;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  align-items: center;
+  justify-content: center;
+  margin-right: 67px;
+  position: relative;
+}
+
+.m-text,
+.m-bg-text,
+.d-text,
+.y-text,
+.h-text,
+.mi-text,
+.d-bg-text,
+.y-bg-text,
+.h-bg-text,
+.mi-bg-text {
+  position: absolute;
+}
+
+.m-bg-text,
+.d-bg-text,
+.y-bg-text,
+.h-bg-text,
+.mi-bg-text {
+  opacity: 0.1;
+}
+
+.m-text,
+.d-text,
+.y-text,
+.h-text,
+.mi-text,
+.m-bg-text,
+.d-bg-text,
+.y-bg-text,
+.h-bg-text,
+.mi-bg-text {
+  font-family: 'sevenseg';
+  letter-spacing: 0.1em;
+  font-size: 7em;
+  color: #FF0E0E;
+}
+
+.colon-text {
+  font-family: 'sevenseg';
+  font-size: 10em;
+  color: #656565;
+}
+
+.date-div {
+  display: flex;
+  width: 186px;
+  height: 141px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: #1D1D1D;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  margin-right: 67px;
+  position: relative;
+}
+
+.year-div {
+  display: flex;
+  width: 378px;
+  height: 141px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: #1D1D1D;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  margin-right: 67px;
+  position: relative;
+}
+
+.time-text {
+  display: flex;
+  width: 435px;
+  height: 141px;
+  align-items: center;
+}
+
+.colon-div {
+  display: flex;
+  height: 141px;
+  width: 67px;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-left: 20px;
+}
+
+.hours-div,
+.min-div,
+.date-div {
+  display: flex;
+  width: 186px;
+  height: 141px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: #1D1D1D;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  position: relative;
+}
+
+/* READY TO TRAVEL ROW CSS IS HERE */
+
+.ready-to {
+  display: flex;
+  align-items: center;
+  width: 1250px;
+  height: 100px;
+}
+
+.ready-text {
+  display: flex;
+  color: #FFF;
+  text-align: center;
+  font-family: Open Sans Condensed;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.05em;
+  margin-left: 505px;
+}
+
+.press-button {
+  display: flex;
+  height: 100px;
+  width: 261px;
+  align-items: center;
+  justify-content: start;
+}
+
+.press {
+  width: 130px;
+}
