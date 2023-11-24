@@ -1,0 +1,21 @@
+.event {
+    background: url('../../assets/images/EventBG.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #070b12;
+  }
+
+.Back{
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.Back:active{
+  transform: scale(0.9); 
+}
+
+.slide{
+  height: 60vh;
+}
+    

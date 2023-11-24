@@ -17,6 +17,7 @@ const config: Config = {
     fontFamily: {
       Orbitron: ['Orbitron', 'sans-serif'],
       ROG: ['ROG', 'sans-serif'],
+      Nunito: ['Nunito'],
     },
   },
   plugins: [],

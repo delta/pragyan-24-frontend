@@ -12,6 +12,11 @@
     src: url('../assets/fonts/Orbitron-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Nunito';
+  src : url('../assets/fonts/Nunito-VariableFont_wght.ttf');
+}
+
 * {
     -moz-user-drag: none;
     -webkit-user-drag: none;

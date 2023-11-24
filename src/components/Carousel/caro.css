@@ -1,0 +1,158 @@
+.rightArrow{
+    background: url(../../assets/images/rightArrow.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    left: auto;
+    right: 10px;
+    transition: 0.3s all;
+}
+
+.leftArrow{
+    background: url(../../assets/images/leftArrow.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    left: 10px;
+    right: auto;
+    transition: 0.3s all;
+}
+
+.leftArrow:hover{
+    background: url(../../assets/images/leftArrowGlow.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    left: 10px;
+    right: auto;
+}
+
+.rightArrow:hover{
+    background: url(../../assets/images/rightArrowGlow.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    left: auto;
+    right: 10px;
+}
+
+.leftArrow:active , .rightArrow:active{
+    transform: scale(0.75);
+}
+
+.slideElem{
+    width: 70%;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainSlide{
+    background: url(../../assets/images/Slide.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.95;
+    width: 94%;
+    height: 100%;
+}
+
+.leftSC{
+    background: url(../../assets/images/leftSandClock.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3%;
+    height: 100%;
+}
+
+.rightSC{
+    background: url(../../assets/images/rightSandClock.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3%;
+    height: 100%;
+}
+
+.registerBlock{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.registerButton{
+    background: url(../../assets/images/RegisterButton.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 50%;
+    height: 36%;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+    transition: 0.2s;
+}
+
+.tabs{
+    height: 42%;
+    transition: color 0.3s ease-in-out;
+}
+
+.active{
+    border-bottom: 2px solid white;
+}
+
+.content{
+    overflow-x:hidden;
+    overflow-y: scroll;
+    text-align: justify;
+    word-wrap: normal;
+}
+
+@media screen and (max-width : 600px){
+    
+}
