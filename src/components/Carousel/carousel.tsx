@@ -13,6 +13,8 @@ import SlideData from './slideData';
 SwiperCore.use([Navigation, Keyboard]);
 
 const Carousel = () => {
+  const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   return (
     <Swiper
       spaceBetween={50}
@@ -24,60 +26,14 @@ const Carousel = () => {
       keyboard={{ enabled: true }}
       className="w-full h-full flex justify-center"
     >
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SlideData />
-      </SwiperSlide>
+      {slides.map(slide => (
+        <SwiperSlide key={slide} className="">
+          <SlideData />
+        </SwiperSlide>
+      ))}
 
-      <div className=" rightArrow"></div>
-      <div className=" leftArrow"></div>
+      <div className="rightArrow"></div>
+      <div className="leftArrow"></div>
     </Swiper>
   );
 };

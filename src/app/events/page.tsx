@@ -12,7 +12,9 @@ const events = () => {
     >
       <NavBar />
       <ImageChanger defaultImage={Back} hoverImage={BackEnlarge} />
-      <p className="font-ROG 2xl:text-6xl xl:text-5xl lg:text-4.5xl sm:text-4xl text-3xl mt-12 transition-all">
+      <p
+        className={`${styles.eventClusterName} font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 transition-all`}
+      >
         CLUSTER NAME
       </p>
       <div className={`mt-12 w-full ${styles.slide}`}>

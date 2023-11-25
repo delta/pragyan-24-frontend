@@ -112,82 +112,107 @@ const SlideData = () => {
 
   return (
     <div className="slideElem flex justify-center align-middle">
-      <div className="leftSC flex justify-center align-middle leftSC"></div>
-      <div className="mainSlide flex justify-center flex-col align-middle">
-        <div className="flex justify-center w-full h-5/6">
-          <div className="flex justify-center flex-col w-1/3 h-full p-7">
-            <div className="font-ROG 2xl:text-3xl xl:text-2xl lg:text-xl sm:text-base text-md h-1/6 transition-all">
-              EVENT NAME
-            </div>
-            <Image
-              src={EventImage}
-              alt="image about event"
-              className="h-5/6 "
-            />
+      <div className="leftSC flex justify-center align-middle leftSC max-lg:hidden"></div>
+      <div className="flex justify-center flex-col h-auto eventSlide">
+        <div className="flex justify-center flex-col items-center w-1/3 h-full p-7 slideIntro1">
+          <div className="font-ROG 2xl:text-2xl xl:text-xl lg:text-lg md:text-base sm:text-md text-md h-1/6 transition-all">
+            EVENT NAME
           </div>
-          <div className="flex justify-center flex-col w-2/3 h-full p-10">
-            <div className="flex justify-evenly align-middle w-full h-1/5">
-              <div
-                className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-md xs:text-xs text-base cursor-pointer tabs ${
-                  isActive == 1 ? 'active' : ''
-                }`}
-                onClick={() => setIndex(1)}
-              >
-                Description
-              </div>
-              <div
-                className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-md xs:text-xs text-base cursor-pointer tabs ${
-                  isActive == 2 ? 'active' : ''
-                }`}
-                onClick={() => setIndex(2)}
-              >
-                Judging Criteria
-              </div>
-              <div
-                className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-md xs:text-xs text-base cursor-pointer tabs ${
-                  isActive == 3 ? 'active' : ''
-                }`}
-                onClick={() => setIndex(3)}
-              >
-                Rules
-              </div>
-              <div
-                className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-md xs:text-xs text-base cursor-pointer tabs ${
-                  isActive == 4 ? 'active' : ''
-                }`}
-                onClick={() => setIndex(4)}
-              >
-                Contact
-              </div>
+          <Image
+            src={EventImage}
+            alt="image about event"
+            className="h-5/6 w-full rounded-xl eventImg"
+          />
+        </div>
+        <div className="flex justify-between w-full eventI">
+          <div className="flex justify-center items-center w-1/2 h-full">
+            <div className="flex justify-begin items-center mt-auto mb-auto font-Orbitron 2xl:text-sm xl:text-xs lg:text-xs sm:text-xs text-xs w-full">
+              11/09/2001
             </div>
-            <div className="w-full h-4/5 font-Nunito 2xl:text-base xl:text-md lg:text-sm sm:text-sm text-base p-3 content">
-              {data}
-            </div>
+          </div>
+          <div className="flex justify-end items-center mt-auto mb-auto font-Orbitron 2xl:text-sm xl:text-xs lg:text-xs sm:text-xs text-xs w-1/2">
+            <span>
+              <Image src={MapDrop} alt="Location" width={13} height={13} />
+            </span>
+            <span className="ml-2"> ORION </span>
           </div>
         </div>
-        <div className="flex justify-center h-1/6 m-0 p-0">
-          <div className="flex justify-center align-middle flex-col w-1/4 h-full">
-            <div className="flex justify-center align-middle mt-auto mb-auto font-ROG 2xl:text-md xl:text-base lg:text-sm sm:text-sm text-base w-full">
-              <span>11/09/2001</span>
+        <div className="mainSlide flex justify-center flex-col align-middle">
+          <div className="flex justify-center w-full h-5/6 slideInfo">
+            <div className="flex justify-center items-center flex-col w-1/3 h-full p-7 max-lg:hidden slideIntro">
+              <div className="font-ROG 2xl:text-2xl xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs h-1/6 transition-all">
+                EVENT NAME
+              </div>
+              <Image
+                src={EventImage}
+                alt="image about event"
+                className="h-5/6 w-full rounded-xl"
+              />
             </div>
-            <div className="flex justify-center align-middle mt-auto mb-auto font-ROG 2xl:text-md xl:text-base lg:text-sm sm:text-sm text-base w-full">
-              <span>
-                <Image src={MapDrop} alt="Location" width={13} height={13} />
-              </span>{' '}
-              <span className="ml-2"> ORION </span>
+            <div className="flex justify-center flex-col w-full h-full p-4 eventDes">
+              <div className="flex justify-around items-center w-full h-1/5">
+                <div
+                  className={`font-Orbitron 2xl:text-2xl xl:text-xl lg:text-lg md-text-md sm-text-xs text-xs cursor-pointer tabs ${
+                    isActive == 1 ? 'active' : ''
+                  }`}
+                  onClick={() => setIndex(1)}
+                >
+                  Description
+                </div>
+                <div
+                  className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-md md-text-sm sm-text-xs  text-xs cursor-pointer tabs ${
+                    isActive == 2 ? 'active' : ''
+                  }`}
+                  onClick={() => setIndex(2)}
+                >
+                  Judging Criteria
+                </div>
+                <div
+                  className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-md  md-text-sm sm-text-xs text-xs cursor-pointer tabs ${
+                    isActive == 3 ? 'active' : ''
+                  }`}
+                  onClick={() => setIndex(3)}
+                >
+                  Rules
+                </div>
+                <div
+                  className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-md md-text-sm sm-text-xs  text-xs cursor-pointer tabs ${
+                    isActive == 4 ? 'active' : ''
+                  }`}
+                  onClick={() => setIndex(4)}
+                >
+                  Contact
+                </div>
+              </div>
+              <div className="w-full h-4/5 font-Nunito 2xl:text-base xl:text-md lg:text-sm sm:text-xs text-base p-3 content">
+                {data}
+              </div>
             </div>
           </div>
-          <div className="flex justify-center w-2/3 h-full p-0 registerBlock">
-            <div className="flex justify-center registerButton"></div>
-          </div>
-          <div className="flex justify-center align-bottom w-1/4 h-full">
-            <div className="font-ROG 2xl:text-md xl:text-base lg:text-sm sm:text-sm text-base mt-auto mb-auto">
-              PRIZE MONEY : $100,000
+          <div className="flex justify-center h-1/6 m-0 p-0 slideEnd">
+            <div className="flex justify-center align-middle flex-col w-1/4 h-full max-lg:hidden">
+              <div className="flex justify-center align-middle mt-auto mb-auto font-Orbitron 2xl:text-md xl:text-base lg:text-sm sm:text-sm text-base w-full">
+                <span>11/09/2001</span>
+              </div>
+              <div className="flex justify-center align-middle mt-auto mb-auto font-Orbitron 2xl:text-md xl:text-base lg:text-sm sm:text-sm text-base w-full">
+                <span>
+                  <Image src={MapDrop} alt="Location" width={13} height={13} />
+                </span>{' '}
+                <span className="ml-2"> ORION </span>
+              </div>
+            </div>
+            <div className="flex justify-center w-2/3 h-full p-0 registerBlock">
+              <div className="flex justify-center registerButton"></div>
+            </div>
+            <div className="flex justify-center align-bottom w-1/4 h-full max-lg:hidden">
+              <div className="font-OrbitronG 2xl:text-md xl:text-base lg:text-sm sm:text-sm text-base mt-auto mb-auto">
+                PRIZE MONEY : $100,000
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="rightSC flex justify-center align-middle"></div>
+      <div className="rightSC flex justify-center align-middle max-lg:hidden"></div>
     </div>
   );
 };

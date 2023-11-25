@@ -16,7 +16,7 @@ const ImageChanger = (props: ImageChangerProps) => {
     <Image
       src={isHovered ? props.hoverImage : props.defaultImage}
       alt="Back to cluster"
-      className={`${styles.Back} xl:w-52 lg:w-44 md:w-32 sm:w-24 w-16 absolute left-28 top-32 max-sm:hidden`}
+      className={`${styles.Back} xl:w-52 lg:w-44 md:w-32 sm:w-24 w-16 absolute left-28 top-32 max-md:hidden`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     />

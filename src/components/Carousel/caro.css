@@ -10,10 +10,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px;
-    height: 75px;
+    width: 12%;
+    height: 12%;
     left: auto;
-    right: 10px;
+    right: 0%;
     transition: 0.3s all;
 }
 
@@ -22,8 +22,6 @@
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 75px;
-    height: 75px;
     position: absolute;
     top: 40%;
     z-index: 10;
@@ -31,9 +29,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px;
-    height: 75px;
-    left: 10px;
+    width: 12%;
+    height: 12%;
+    left: 0%;
     right: auto;
     transition: 0.3s all;
 }
@@ -43,8 +41,6 @@
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 75px;
-    height: 75px;
     position: absolute;
     top: 40%;
     z-index: 10;
@@ -52,9 +48,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px;
-    height: 75px;
-    left: 10px;
+    width: 12%;
+    height: 12%;
+    left: 0%;
     right: auto;
 }
 
@@ -63,8 +59,6 @@
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 75px;
-    height: 75px;
     position: absolute;
     top: 40%;
     z-index: 10;
@@ -72,10 +66,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px;
-    height: 75px;
+    width: 12%;
+    height: 12%;
     left: auto;
-    right: 10px;
+    right: 0%;
 }
 
 .leftArrow:active , .rightArrow:active{
@@ -95,8 +89,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.95;
-    width: 94%;
     height: 100%;
+    margin-top: 5%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.eventSlide{
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .leftSC{
@@ -104,8 +104,8 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 3%;
-    height: 100%;
+    width: 7%;
+    height: 108%;
 }
 
 .rightSC{
@@ -113,8 +113,8 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 3%;
-    height: 100%;
+    width: 7%;
+    height: 108%;
 }
 
 .registerBlock{
@@ -129,21 +129,32 @@
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
+    position: sticky;
     width: 50%;
-    height: 36%;
+    height: 45%;
     margin: 0px;
     padding: 0px;
+    margin-top: auto;
     margin-bottom: 0px;
     transition: 0.2s;
 }
 
 .tabs{
-    height: 42%;
+    height: 35%;
     transition: color 0.3s ease-in-out;
 }
 
 .active{
     border-bottom: 2px solid white;
+}
+
+@media screen and (min-width : 1024px) {
+    .slideIntro1{
+        display: none;
+    }   
+    .eventI{
+        display: none;
+    }
 }
 
 .content{
@@ -153,6 +164,66 @@
     word-wrap: normal;
 }
 
-@media screen and (max-width : 600px){
-    
+@media screen and (max-width : 1024px){
+    .slideInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .slideIntro1{
+        width: 100%;
+        padding:0%;
+        margin: 0%;
+    }
+    .slideEnd{
+        position: sticky;
+        margin-top: auto;
+        margin-bottom: 0px;
+    }
+    .eventImg{
+        width: 75%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .slideElem{
+        width: 85%;
+        height: 100%;
+    }
+    .rightArrow{
+        top: 22.5%;
+    }
+    .leftArrow{
+        top:22.5%;
+    }
+    .rightArrow:hover{
+        top: 22.5%;
+    }
+    .leftArrow:hover{
+        top:22.5%;
+    }
+    .tabs{
+        height: 50%;
+        font-size: 60%;
+    }
+    .content{
+        font-size: 14px;
+    }
+    .eventDes{
+        padding: 8px;
+    }
+    .registerBlock{
+        width: 100%;
+    }
+    .mainSlide{
+        margin-top: 5%;
+    }
+    .eventI{
+        margin-top: 1%;
+    }
 }
+
