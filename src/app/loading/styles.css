@@ -245,6 +245,10 @@
   filter: none;
 }
 
+.press-after{
+  width: 130px;
+}
+
 @keyframes animate {
   0%, 100% {
     filter: hue-rotate(137deg) brightness(1); /* Initial and final state with full brightness */
