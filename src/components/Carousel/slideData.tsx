@@ -145,7 +145,7 @@ const SlideData = () => {
                         <div className="flex justify-center flex-col w-full h-full p-4 eventDes">
                             <div className="flex justify-around items-center w-full h-1/5">
                                 <div
-                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-base md-text-sm sm-text-xs text-xs cursor-pointer tabs ${
+                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs text-xs cursor-pointer tabs ${
                                         isActive == 1 ? 'active' : ''
                                     }`}
                                     onClick={() => setIndex(1)}
@@ -153,7 +153,7 @@ const SlideData = () => {
                                     Description
                                 </div>
                                 <div
-                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-base md-text-sm sm-text-xs  text-xs cursor-pointer tabs ${
+                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs  text-xs cursor-pointer tabs ${
                                         isActive == 2 ? 'active' : ''
                                     }`}
                                     onClick={() => setIndex(2)}
@@ -161,7 +161,7 @@ const SlideData = () => {
                                     Judging Criteria
                                 </div>
                                 <div
-                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-base  md-text-sm sm-text-xs text-xs cursor-pointer tabs ${
+                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm  md-text-xs sm-text-xs text-xs cursor-pointer tabs ${
                                         isActive == 3 ? 'active' : ''
                                     }`}
                                     onClick={() => setIndex(3)}
@@ -169,7 +169,7 @@ const SlideData = () => {
                                     Rules
                                 </div>
                                 <div
-                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-base md-text-sm sm-text-xs  text-xs cursor-pointer tabs ${
+                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs  text-xs cursor-pointer tabs ${
                                         isActive == 4 ? 'active' : ''
                                     }`}
                                     onClick={() => setIndex(4)}
@@ -177,7 +177,7 @@ const SlideData = () => {
                                     Contact
                                 </div>
                             </div>
-                            <div className="w-full h-4/5 font-Nunito 2xl:text-base xl:text-sm lg:text-xs sm:text-xs text-base p-3 content">
+                            <div className="w-full h-4/5 font-Nunito 2xl:text-base xl:text-sm lg:text-sm sm:text-xs text-sm p-3 content">
                                 {data}
                             </div>
                         </div>
