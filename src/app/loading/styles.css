@@ -5,39 +5,42 @@
 
 .fake-body {
   display: flex;
-  height: 100vh;
-  width: 100vw;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .middle-portion {
   display: flex;
-  width: 83.5vw;
-  height: 40vh;
   flex-shrink: 0;
   flex-direction: column;
+  width: 80vw;
+  height: 60vh;
 }
 
 .top-row {
   display: flex;
-  height: 100px;
   justify-content: center;
   align-items: center;
+  height: 10vh;
+  width: 80vw;
 }
 
 .middle-row {
   display: flex;
   justify-content: center;
-  height: 254px;
   align-items: center;
+  height: 30vh;
+  width: 80vw;
 }
 
 .bottom-row {
   display: flex;
-  height: 100px;
   justify-content: center;
   align-items: center;
+  height: 20vh;
+  width: 80vw;
 }
 
 
@@ -46,8 +49,8 @@
 .present-time {
   display: flex;
   align-items: center;
-  width: 1250px;
-  height: 100px;
+  height: 15vh;
+  width: 70vw;
 }
 
 .present-text {
@@ -55,48 +58,54 @@
   color: #FFF;
   text-align: center;
   font-family: Open Sans Condensed;
-  font-size: 30px;
+  font-size: 2em;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: 0.05em;
-  margin-left: 625px;
+  margin-left: 32vw;
 }
 
 .blink-buttons {
   display: flex;
-  height: 100px;
-  width: 261px;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 1vh;
 }
 
 .on-button,
 .off-button {
-  width: 100px;
+  width: 6vw;
 }
 
 /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
 
 .mdy-text {
   display: flex;
-  width: 1076px;
-  height: 141px;
   align-items: center;
+  height: 15vh;
+  width: 62vw;
 }
 
 .month-div {
   display: flex;
-  width: 307px;
+  height: 15vh;
+  width: 15vw;
   align-items: center;
-  height: 141px;
   background: #1D1D1D;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.80) inset;
   align-items: center;
   justify-content: center;
-  margin-right: 67px;
+  margin-right: 4vw;
   position: relative;
+}
+
+.m-text, .m-bg-text{
+  margin-left: 1vw;
+}
+
+.y-bg-text, .y-text{
+  margin-left: 1vw;
 }
 
 .m-text,
@@ -110,6 +119,7 @@
 .h-bg-text,
 .mi-bg-text {
   position: absolute;
+  margin-top: 1.5vh;
 }
 
 .m-bg-text,
@@ -144,57 +154,61 @@
 
 .date-div {
   display: flex;
-  width: 186px;
-  height: 141px;
+  height: 15vh;
+  width: 10vw;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   background: #1D1D1D;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.80) inset;
-  margin-right: 67px;
+  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  margin-right: 4vw;
   position: relative;
+}
+
+.d-text, .h-text, .mi-text, .h-bg-text, .mi-bg-text, .d-bg-text{
+  margin-left: 1vw;
 }
 
 .year-div {
   display: flex;
-  width: 378px;
-  height: 141px;
+  height: 15vh;
+  width: 18vw;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   background: #1D1D1D;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.80) inset;
-  margin-right: 67px;
+  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  margin-right: 4vw;
   position: relative;
 }
 
 .time-text {
   display: flex;
-  width: 435px;
-  height: 141px;
+  height: 15vh;
+  width: 25vw;
   align-items: center;
 }
 
 .colon-div {
   display: flex;
-  height: 141px;
-  width: 67px;
+  height: 15vh;
+  width: 4vw;
   align-items: center;
-  margin-bottom: 50px;
-  margin-left: 20px;
+  margin-bottom: 7vh;
+  margin-left: 1.75vw;
 }
 
 .hours-div,
 .min-div,
 .date-div {
   display: flex;
-  width: 186px;
-  height: 141px;
+  height: 15vh;
+  width: 10vw;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   background: #1D1D1D;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.80) inset;
   position: relative;
 }
 
@@ -203,8 +217,8 @@
 .ready-to {
   display: flex;
   align-items: center;
-  width: 1250px;
-  height: 100px;
+  height: 15vh;
+  width: 80vw;
 }
 
 .ready-text {
@@ -212,48 +226,295 @@
   color: #FFF;
   text-align: center;
   font-family: Open Sans Condensed;
-  font-size: 45px;
+  font-size: 4em;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: 0.05em;
-  margin-left: 505px;
+  margin-left: 20vw;
 }
 
 .press-button {
   display: flex;
-  height: 100px;
-  width: 261px;
+ height: 15vh;
+ width: 20vw;
   align-items: center;
   justify-content: start;
 }
 
 .press {
-  width: 130px;
-  filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(150%);
+  width: 8vw;
+  filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
   transition: filter 0.3s ease;
-}
-
-
-.press:hover {
-  filter: hue-rotate(1deg) drop-shadow(0 0 20px red) brightness(150%);
+ }
+ 
+ .after {
+  filter: hue-rotate(0deg) brightness(100%);
   transition: filter 0.3s ease;
-}
+ }
+ 
+ .press:hover {
+  filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(150%);
+  transition: filter 0.3s ease;
+  transition: 0.1s ease;
+ }
 
-.press:active {
-  transform: scale(0.9);
-  filter: none;
-}
 
-.press-after{
-  width: 130px;
-}
-
-@keyframes animate {
-  0%, 100% {
-    filter: hue-rotate(137deg) brightness(1); /* Initial and final state with full brightness */
+@media screen and (max-width: 600px){
+  .fake-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
   }
-  50% {
-    filter: hue-rotate(137deg) brightness(1.5); /* Brighten the glow at 50% */
+  
+  .middle-portion {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    width: 80vw;
+    height: 40vh;
+    margin-right: 2.3vw;
+  }
+  
+  .top-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 80vw;
+  }
+  
+  .middle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 80vw;
+  }
+  
+  .bottom-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 80vw;
+  }
+  
+  
+  /* PRESENT TIME ROW CSS IS HERE */
+  
+  .present-time {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    width: 70vw;
+  }
+  
+  .present-text {
+    display: flex;
+    color: #FFF;
+    text-align: center;
+    font-family: Open Sans Condensed;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    margin-left: 23vw;
+  }
+  
+  .blink-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vh;
+  }
+  
+  .on-button,
+  .off-button {
+    width: 8vw;
+  }
+  
+  /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+  
+  .mdy-text {
+    display: flex;
+    align-items: center;
+    height: 6vh;
+    width: 62vw;
+  }
+  
+  .month-div {
+    display: flex;
+    height: 6vh;
+    width: 18vw;
+    align-items: center;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2vw;
+    position: relative;
+  }
+  
+  .m-text, .m-bg-text{
+    margin-left: 1vw;
+  }
+  
+  .m-text,
+  .m-bg-text,
+  .d-text,
+  .y-text,
+  .h-text,
+  .mi-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    position: absolute;
+  }
+  
+  .m-bg-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    opacity: 0.1;
+  }
+  
+  .m-text,
+  .d-text,
+  .y-text,
+  .h-text,
+  .mi-text,
+  .m-bg-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    font-family: 'sevenseg';
+    letter-spacing: 0.1em;
+    font-size: 1.8em;
+    color: #FF0E0E;
+    margin-top: 1vh;
+  }
+  
+  .colon-text {
+    font-family: 'sevenseg';
+    font-size: 2em;
+    color: #656565;
+  }
+  
+  .date-div {
+    display: flex;
+    height: 6vh;
+    width: 12vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 2vw;
+    position: relative;
+  }
+  
+  .d-text, .h-text, .mi-text, .h-bg-text, .mi-bg-text, .d-bg-text{
+    margin-left: 1.5vw;
+  }
+  
+  .year-div {
+    display: flex;
+    height: 6vh;
+    width: 22vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 2vw;
+    position: relative;
+  }
+
+  .y-text, .y-bg-text{
+    margin-left: 2vw;
+  }
+  
+  .time-text {
+    display: flex;
+    height: 6vh;
+    width: 25vw;
+    align-items: center;
+  }
+  
+  .colon-div {
+    display: flex;
+    height: 6vh;
+    width: 2vw;
+    align-items: center;
+    margin-bottom: 1vh;
+    margin-left: 0.5vw;
+  }
+  
+  .hours-div,
+  .min-div,
+  .date-div {
+    display: flex;
+    height: 6vh;
+    width: 12vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    position: relative;
+  }
+  
+  /* READY TO TRAVEL ROW CSS IS HERE */
+  
+  .ready-to {
+    display: flex;
+    align-items: center;
+    height: 6vh;
+    width: 80vw;
+  }
+  
+  .ready-text {
+    display: flex;
+    color: #FFF;
+    text-align: center;
+    font-family: Open Sans Condensed;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    margin-left: 15vw;
+  }
+  
+  .press-button {
+    display: flex;
+   height: 6vh;
+   width: 20vw;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .press {
+    width: 12vw;
+    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(60%);
+    transition: filter 0.3s ease;
+  }
+  
+  
+  .press:hover {
+    filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(60%);
+    transition: filter 0.3s ease;
+    transition: 0.1s ease;
+  }
+
+  .after{
+    width: 10vw;
   }
 }
