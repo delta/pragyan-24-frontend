@@ -219,6 +219,9 @@
     .registerBlock{
         width: 100%;
     }
+    .registerButton{
+        width: 75%;
+    }
     .mainSlide{
         margin-top: 5%;
     }
