@@ -1,24 +1,51 @@
 'use client';
 
 import wingman from '@/assets/images/wingman.png';
+import anim from '@/assets/images/fullrings.svg';
+import rings from '@/assets/images/rings.svg';
 import { NavBar, SideBar } from '@/components';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
-import { WheelEvent, TouchEvent, useState } from 'react';
+import { WheelEvent, TouchEvent, useState, useRef } from 'react';
 
 export default function Home() {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const router = useRouter();
-    const simulateScroll = (event: WheelEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
-        event.stopPropagation();
-        event.preventDefault();
-        setIsScrolled(true);
-        if (event.isPropagationStopped()) {
-            console.log(event.isPropagationStopped());
+    const ringsParDiv = useRef<HTMLDivElement>(null);
+    const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
+        if (!isScrolled) {
+            event.stopPropagation();
+            if (event.deltaY > 0) {
+                setTimeout(() => {
+                    router.push('/about');
+                }, 2000);
+                setIsScrolled(true);
+            }
+        }
+    };
+
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+        setTouchEnd(null);
+        setTouchStart(event.targetTouches[0].clientY);
+    };
+
+    const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+        setTouchEnd(event.targetTouches[0].clientY);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStart === null || touchEnd === null) {
+            return;
+        }
+        const distance = touchStart - touchEnd;
+        if (distance > 0) {
             setTimeout(() => {
                 router.push('/about');
-            }, 1100);
+            }, 2000);
+            setIsScrolled(true);
         }
     };
 
@@ -26,17 +53,54 @@ export default function Home() {
         <>
             <div
                 className={
-                    'h-screen w-full text-center lg:p-7 p-5 home' +
-                    ' ' +
-                    (isScrolled ? 'scrolled' : '')
+                    'absolute h-[100vh] w-[100vw] z-50 ' + (isScrolled ? ' blue-scroll' : ' hidden')
                 }
+            ></div>
+            <div
+                className={'h-screen w-full text-center lg:p-7 p-5 home'}
                 onWheel={simulateScroll}
-                onTouchStart={simulateScroll}
-                onTouchMove={simulateScroll}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
             >
                 <NavBar />
+                <div
+                    className={
+                        'max-lg:w-[60%] max-xl:w-[45%] max-2xl:w-[35%] w-[22%] h-[50%] absolute left-1/2 -translate-x-1/2 flex justify-center top-[15%]' +
+                        (isScrolled ? '' : ' hidden')
+                    }
+                    ref={ringsParDiv}
+                >
+                    <Image
+                        src={anim}
+                        alt="Animation"
+                        draggable={false}
+                        className={
+                            'w-[100%] md:bottom-[45%] bottom-[45%] absolute inset-0 m-auto' +
+                            (isScrolled ? ' fullrings' : '')
+                        }
+                    />
+                    <Image
+                        src={rings}
+                        alt="Rings"
+                        draggable={false}
+                        className={
+                            'w-[100%] md:bottom-[18%] bottom-[18%] absolute inset-0 m-auto' +
+                            (isScrolled ? ' rings' : '')
+                        }
+                    />
+                    <Image
+                        src={rings}
+                        alt="Rings"
+                        draggable={false}
+                        className={
+                            'w-[100%] md:bottom-[100%] bottom-[80%]  absolute inset-0 m-auto' +
+                            (isScrolled ? ' rings2' : '')
+                        }
+                    />
+                </div>
                 <p className="font-ROG 2xl:text-9xl xl:text-8xl lg:text-7xl sm:text-5xl text-3xl mt-24">
-                    CHRONOCLE
+                    AD INFINITUM
                 </p>
                 <Image
                     src={wingman}
