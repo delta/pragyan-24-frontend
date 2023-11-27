@@ -1,0 +1,88 @@
+.clusterBG {
+    background: url('../../assets/images/ClusterBG.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portal{
+    width: 30rem;
+    position: absolute;
+    top: 5rem;
+    animation: portalAnim 0.3s;
+}
+
+@keyframes portalAnim {
+    0%{
+        top: -1rem;
+        opacity: 0;
+    }
+    100%{
+        top: 5rem;
+        opacity: 1;
+    }
+}
+
+.title{
+    margin-top: 7rem;
+}
+
+.hourglass{
+    width: 8rem;
+}
+
+.textBox{
+    min-width: 14rem;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeIn 0.3s;
+    transition: 0.3s;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.clusterName{
+    font-family: 'Orbitron';
+    z-index: 100;
+    position: absolute;
+    font-size: 1.4rem;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+}
+
+.cover:hover > div .clusterName {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 30px white;
+    bottom: 4.5rem;
+}
+
+.cover:hover > div .textBox {
+    min-width: 15rem;
+    bottom: 3.3rem;
+}
+
+@media only screen and (max-width:  992px) {
+    .cover{
+        transform: scale(0.7);
+    }
+    .portal{
+        width: 15rem;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 2rem;
+    }
+    .hourCover{
+        padding-right: 10rem;
+    }
+  }
