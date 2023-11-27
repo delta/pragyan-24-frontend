@@ -4,33 +4,77 @@ import Image from 'next/image';
 import bigmascot from '../../assets/images/bigmascot.png';
 import { motion } from 'framer-motion';
 import { AboutCard, AboutCardMob, NavBar, SideBar } from '@/components';
-import { WheelEvent, TouchEvent, useState } from 'react';
+import { WheelEvent, TouchEvent, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 const About = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [scrollAllowed, setScrollAllowed] = useState<boolean>(true);
     const router = useRouter();
-    const simulateScroll = (event: WheelEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
-        event.stopPropagation();
-        event.preventDefault();
-        setIsScrolled(true);
-        if (event.isPropagationStopped()) {
-            console.log(event.isPropagationStopped());
+    const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
+        if (!isScrolled) {
+            event.stopPropagation();
+            if (event.deltaY > 0) {
+                setTimeout(() => {
+                    router.push('/gallery');
+                }, 1100);
+                setIsScrolled(true);
+            } else if (event.deltaY < 0) {
+                setTimeout(() => {
+                    router.push('/home');
+                }, 1100);
+                setIsScrolled(true);
+            }
+        }
+    };
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+        console.log('hello');
+        setTouchEnd(null);
+        setTouchStart(event.targetTouches[0].clientY);
+    };
+
+    const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+        setTouchEnd(event.targetTouches[0].clientY);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStart === null || touchEnd === null) {
+            return;
+        }
+        const distance = touchStart - touchEnd;
+        if (distance < 0) {
+            setTimeout(() => {
+                router.push('/home');
+            }, 1100);
+            setIsScrolled(true);
+        } else if (distance > 0) {
             setTimeout(() => {
                 router.push('/gallery');
             }, 1100);
+            setIsScrolled(true);
         }
     };
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setScrollAllowed(true);
+        }, 1100);
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [scrollAllowed]);
     return (
         <div
             className={
-                'h-screen w-full text-center p-7 about flex flex-col' +
-                ' ' +
-                (isScrolled ? 'scrolled' : 'transitioned')
+                'h-screen w-full text-center p-7 about flex flex-col overflow-y-hidden ' +
+                (isScrolled ? ' scrolled' : ' transitioned')
             }
-            onWheel={simulateScroll}
-            onTouchStart={simulateScroll}
-            onTouchMove={simulateScroll}
+            onWheel={scrollAllowed ? simulateScroll : undefined}
+            onTouchStart={scrollAllowed ? handleTouchStart : undefined}
+            onTouchMove={scrollAllowed ? handleTouchMove : undefined}
+            onTouchEnd={scrollAllowed ? handleTouchEnd : undefined}
         >
             <div className="flex w-full relative z-10">
                 <NavBar />

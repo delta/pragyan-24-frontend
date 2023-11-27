@@ -76,6 +76,23 @@ body {
     -o-animation: fadeout 1.5s;
 }
 
+.blue-scroll{
+    animation: blue-glow 0.5s;
+    -moz-animation: blue-glow 1.5s;
+    -webkit-animation: blue-glow 1.5s;
+    -o-animation: blue-glow 1.5s;
+    animation-delay: 0.8s;
+}
+
+@keyframes blue-glow {
+    from{
+        background-color: initial;
+    }
+    to{
+        background-color: #7EFBFE;
+    }
+}
+
 @keyframes fadeout {
     from {
         opacity: 1;
@@ -134,10 +151,81 @@ body {
     }
 }
 
-/* 
-@media screen and (max-height: 720px) {
-    .footer-bg{
-        position: relative;
-        bottom: 1.5rem;
+.carousel-torch:hover {
+    animation: torch 1s;
+}
+
+.rings{
+    animation: rings 0.7s;
+
+}
+.rings2{
+    animation: rings2 0.7s ;
+
+
+}
+.fullrings{
+    animation: fullrings 0.7s;
+
+}
+
+@keyframes torch {
+    0% {
+        opacity: 0.3;
     }
-} */
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rings {
+    0%{
+        transform: translateY(-30vh);
+    }
+    90%{
+        transform: translateY(20vh);
+    }
+
+}
+
+@keyframes rings2 {
+    0%{
+        transform: translateY(-60vh);
+    }   
+
+    90%{
+        transform: translateY(20vh);
+    }
+    
+}
+
+@keyframes fullrings {
+    0%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}
+
+@keyframes anim {
+    0% {
+        mask-image: radial-gradient(circle, #000 90%,transparent 90%);
+        mask-position: 0% 0%;
+    }
+    80% {
+        mask-position: 0% 800px;
+    }    
+    81% {
+        mask-image: none;
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

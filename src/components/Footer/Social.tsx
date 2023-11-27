@@ -9,11 +9,27 @@ import Image from 'next/image';
 const Social = () => {
     return (
         <div className="flex justify-around items-center">
-            <Image src={twitter} alt="Twitter" className="w-6 hover:cursor-pointer" />
-            <Image src={medium} alt="Medium" className="w-7 hover:cursor-pointer" />
-            <Image src={instagram} alt="Instagram" className="w-7 hover:cursor-pointer" />
-            <Image src={youtube} alt="YouTube" className="w-7 hover:cursor-pointer" />
-            <Image src={facebook} alt="Facebook" className="w-7 hover:cursor-pointer" />
+            <Image
+                src={twitter}
+                alt="Twitter"
+                className="w-6 hover:cursor-pointer hover:scale-125"
+            />
+            <Image src={medium} alt="Medium" className="w-7 hover:cursor-pointer hover:scale-125" />
+            <Image
+                src={instagram}
+                alt="Instagram"
+                className="w-7 hover:cursor-pointer hover:scale-125"
+            />
+            <Image
+                src={youtube}
+                alt="YouTube"
+                className="w-7 hover:cursor-pointer hover:scale-125"
+            />
+            <Image
+                src={facebook}
+                alt="Facebook"
+                className="w-7 hover:cursor-pointer hover:scale-125"
+            />
         </div>
     );
 };
