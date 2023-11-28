@@ -3,7 +3,22 @@
   src: url('../../assets/fonts/7segment.ttf');
 }
 
+@font-face {
+  font-family: 'rog';
+  src: url('../../assets/fonts/rog.ttf');
+}
+
 .fake-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.bg {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,18 +27,31 @@
 }
 
 .middle-portion {
+  position: absolute;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
   width: 80vw;
-  height: 60vh;
+  height: 64vh;
+  top: 20%;
+  left: 10%;
+  margin-left: 0.4vw;
+  margin-bottom: 1vh;
+}
+
+.button-row {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 12vh;
+  width: 80vw;
 }
 
 .top-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  height: 6vh;
   width: 80vw;
 }
 
@@ -31,25 +59,46 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30vh;
   width: 80vw;
+  height: 25vh;
 }
 
 .bottom-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh;
+  width: 80vw;
+  height: 6vh;
+}
+
+.pause-row {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 15vh;
   width: 80vw;
 }
 
+/*BUTTON ROW CSS */
+
+.blink-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12vh;
+}
+
+.on-button,
+.off-button {
+  width: 6vw;
+}
 
 /* PRESENT TIME ROW CSS IS HERE */
 
 .present-time {
   display: flex;
   align-items: center;
-  height: 15vh;
+  height: 6vh;
   width: 70vw;
 }
 
@@ -57,25 +106,14 @@
   display: flex;
   color: #FFF;
   text-align: center;
-  font-family: Open Sans Condensed;
-  font-size: 2em;
+  font-family: rog;
+  font-size: 3em;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: 0.05em;
-  margin-left: 32vw;
-}
-
-.blink-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1vh;
-}
-
-.on-button,
-.off-button {
-  width: 6vw;
+  margin-left: 22vw;
+  margin-top: 6.6vh;
 }
 
 /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
@@ -100,11 +138,13 @@
   position: relative;
 }
 
-.m-text, .m-bg-text{
+.m-text,
+.m-bg-text {
   margin-left: 1vw;
 }
 
-.y-bg-text, .y-text{
+.y-bg-text,
+.y-text {
   margin-left: 1vw;
 }
 
@@ -122,19 +162,18 @@
   margin-top: 1.5vh;
 }
 
-.m-bg-text,
-.d-bg-text,
-.y-bg-text,
-.h-bg-text,
-.mi-bg-text {
-  opacity: 0.1;
-}
-
 .m-text,
 .d-text,
 .y-text,
 .h-text,
-.mi-text,
+.mi-text{
+  font-family: 'sevenseg';
+  letter-spacing: 0.1em;
+  font-size: 7em;
+  color: #FFFFFF;
+  filter: drop-shadow(0 0 4px #FFFFFF) brightness(100%);
+}
+
 .m-bg-text,
 .d-bg-text,
 .y-bg-text,
@@ -143,9 +182,9 @@
   font-family: 'sevenseg';
   letter-spacing: 0.1em;
   font-size: 7em;
-  color: #FF0E0E;
+  color: #6E6E6EB2;
+  opacity: 0.1;
 }
-
 .colon-text {
   font-family: 'sevenseg';
   font-size: 10em;
@@ -165,7 +204,12 @@
   position: relative;
 }
 
-.d-text, .h-text, .mi-text, .h-bg-text, .mi-bg-text, .d-bg-text{
+.d-text,
+.h-text,
+.mi-text,
+.h-bg-text,
+.mi-bg-text,
+.d-bg-text {
   margin-left: 1vw;
 }
 
@@ -187,6 +231,7 @@
   height: 15vh;
   width: 25vw;
   align-items: center;
+  margin-right: 0.5vw;
 }
 
 .colon-div {
@@ -225,42 +270,57 @@
   display: flex;
   color: #FFF;
   text-align: center;
-  font-family: Open Sans Condensed;
-  font-size: 4em;
+  font-family: rog;
+  font-size: 3em;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: 0.05em;
-  margin-left: 20vw;
+  margin-left: 23vw;
+  margin-bottom: 4vh;
 }
+
+
+/* PAUSE BUTTON ROW CSS */
 
 .press-button {
   display: flex;
- height: 15vh;
- width: 20vw;
+  width: 80vw;
+  height: 15vh;
   align-items: center;
-  justify-content: start;
+  justify-content: end;
 }
 
 .press {
-  width: 8vw;
+  width: 12vw;
+  margin-bottom: 1vh;
   filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
-  transition: filter 0.3s ease;
- }
- 
- .after {
+  transition: filter 0.3s ease;;
+}
+
+.after {
+  width: 12vw;
+  height: 12vh;
+  margin-bottom: 1vh;
   filter: hue-rotate(0deg) brightness(100%);
   transition: filter 0.3s ease;
- }
- 
- .press:hover {
+}
+
+.press:hover {
   filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(150%);
   transition: filter 0.3s ease;
   transition: 0.1s ease;
- }
+}
 
 
-@media screen and (max-width: 600px){
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
   .fake-body {
     display: flex;
     align-items: center;
@@ -268,101 +328,143 @@
     height: 100vh;
     width: 100vw;
   }
-  
+
+  .bg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../../assets/images/mobileBG.svg');
+    background-size: contain;
+    margin-left: 3.2vw;
+  }
+
+  .bg-image {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+  }
+
   .middle-portion {
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
-    width: 80vw;
-    height: 40vh;
-    margin-right: 2.3vw;
+    width: 75vw;
+    height: 20vh;
+    margin-top: 22vh;
+    margin-left: 1.6vw;
   }
-  
+
+  .button-row {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 1vh;
+    width: 75vw;
+  }
+
   .top-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
-    width: 80vw;
+    height: 2vh;
+    width: 75vw;
+    margin-top: 1.2vh;
   }
-  
+
   .middle-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
-    width: 80vw;
+    height: 7vh;
+    width: 75vw;
+    margin-top: 0.5vh;
   }
-  
+
   .bottom-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
-    width: 80vw;
+    height: 2vh;
+    width: 75vw;
   }
   
-  
+  .pause-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 75vw;
+  }
+
+
   /* PRESENT TIME ROW CSS IS HERE */
-  
+
   .present-time {
     display: flex;
     align-items: center;
-    height: 10vh;
+    height: 2vh;
     width: 70vw;
   }
-  
+
   .present-text {
     display: flex;
     color: #FFF;
     text-align: center;
-    font-family: Open Sans Condensed;
-    font-size: 1em;
+    font-family: rog;
+    font-size: 0.6em;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.05em;
     margin-left: 23vw;
+    margin-bottom: 6.5vh;
   }
-  
+
   .blink-buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1vh;
+    margin-top: 9vh;
   }
-  
+
   .on-button,
   .off-button {
     width: 8vw;
   }
-  
+
   /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
-  
+
   .mdy-text {
     display: flex;
     align-items: center;
-    height: 6vh;
+    height: 4vh;
     width: 62vw;
+    margin-left: 1vw;
   }
-  
+
   .month-div {
     display: flex;
-    height: 6vh;
-    width: 18vw;
+    height: 4vh;
+    width: 15vw;
     align-items: center;
     background: #1D1D1D;
     box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
     align-items: center;
     justify-content: center;
-    margin-right: 2vw;
     position: relative;
-  }
-  
-  .m-text, .m-bg-text{
     margin-left: 1vw;
+    margin-right: 1.5vw;
   }
-  
+
+  .m-text,
+  .m-bg-text {
+    margin-left: 1vw;
+    margin-bottom: 0.5vh;
+  }
+
   .m-text,
   .m-bg-text,
   .d-text,
@@ -375,7 +477,7 @@
   .mi-bg-text {
     position: absolute;
   }
-  
+
   .m-bg-text,
   .d-bg-text,
   .y-bg-text,
@@ -383,7 +485,7 @@
   .mi-bg-text {
     opacity: 0.1;
   }
-  
+
   .m-text,
   .d-text,
   .y-text,
@@ -397,72 +499,81 @@
     font-family: 'sevenseg';
     letter-spacing: 0.1em;
     font-size: 1.8em;
-    color: #FF0E0E;
+    color: white;
     margin-top: 1vh;
   }
-  
+
   .colon-text {
     font-family: 'sevenseg';
     font-size: 2em;
     color: #656565;
   }
-  
+
   .date-div {
     display: flex;
-    height: 6vh;
-    width: 12vw;
+    height: 4vh;
+    width: 10vw;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     background: #1D1D1D;
     box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
-    margin-right: 2vw;
-    position: relative;
-  }
-  
-  .d-text, .h-text, .mi-text, .h-bg-text, .mi-bg-text, .d-bg-text{
-    margin-left: 1.5vw;
-  }
-  
-  .year-div {
-    display: flex;
-    height: 6vh;
-    width: 22vw;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    background: #1D1D1D;
-    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
-    margin-right: 2vw;
+    margin-right: 1.5vw;
     position: relative;
   }
 
-  .y-text, .y-bg-text{
-    margin-left: 2vw;
+  .d-text,
+  .h-text,
+  .mi-text,
+  .h-bg-text,
+  .mi-bg-text,
+  .d-bg-text {
+    margin-left: 1.5vw;
+    margin-bottom: 0.5vh;
   }
-  
+
+  .year-div {
+    display: flex;
+    height: 4vh;
+    width: 20vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 1.5vw;
+    position: relative;
+  }
+
+  .y-text,
+  .y-bg-text {
+    margin-left: 2vw;
+    margin-bottom: 0.5vh;
+  }
+
   .time-text {
     display: flex;
-    height: 6vh;
+    height: 4vh;
     width: 25vw;
     align-items: center;
+    margin-right: 1.9vw;
   }
-  
+
   .colon-div {
     display: flex;
     height: 6vh;
-    width: 2vw;
+    width: 1.5vw;
     align-items: center;
     margin-bottom: 1vh;
     margin-left: 0.5vw;
   }
-  
+
   .hours-div,
   .min-div,
   .date-div {
     display: flex;
-    height: 6vh;
-    width: 12vw;
+    height: 4vh;
+    width: 10vw;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
@@ -470,51 +581,53 @@
     box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
     position: relative;
   }
-  
+
   /* READY TO TRAVEL ROW CSS IS HERE */
-  
+
   .ready-to {
     display: flex;
     align-items: center;
-    height: 6vh;
+    height: 2vh;
     width: 80vw;
   }
-  
+
   .ready-text {
     display: flex;
     color: #FFF;
     text-align: center;
-    font-family: Open Sans Condensed;
-    font-size: 1em;
+    font-family: rog;
+    font-size: 0.7em;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.05em;
-    margin-left: 15vw;
+    margin-left: 18vw;
+    margin-top: 4vh;
   }
-  
+
   .press-button {
     display: flex;
-   height: 6vh;
-   width: 20vw;
+    height: 6vh;
+    width: 20vw;
+    margin-top: 5vh;
     align-items: center;
     justify-content: center;
   }
-  
+
   .press {
-    width: 12vw;
-    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(60%);
+    width: 15vw;
+    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(160%);
     transition: filter 0.3s ease;
   }
-  
-  
+
+
   .press:hover {
     filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(60%);
     transition: filter 0.3s ease;
     transition: 0.1s ease;
   }
 
-  .after{
+  .after {
     width: 10vw;
   }
 }

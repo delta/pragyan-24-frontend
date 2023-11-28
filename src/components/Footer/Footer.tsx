@@ -8,7 +8,6 @@ const Footer = () => {
     const domain = headersList.get('host') || "";
     const fullUrl = headersList.get('referer') || "";
     const [, pathname] = fullUrl.match(new RegExp(`https?:\/\/${domain}(.*)`)) || [];
-
     return (
         <>
             {pathname == '/loading' ? <></> :

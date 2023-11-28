@@ -6,6 +6,7 @@ import on from '@/assets/images/on-button.svg';
 import press from '@/assets/images/press-button.svg'
 import green from '@/assets/images/press-green.svg'
 import Image from 'next/image';
+import bg from '@/assets/images/backgroundL.svg'
 
 import './styles.css'
 
@@ -84,7 +85,7 @@ const loadingPage = () => {
         setHours("--");
         setMinutes("--");
         var ready = document.getElementById('ready-text')
-        ready!.innerHTML = '?????? ?????? ??????'
+        ready!.innerHTML = '???????? ???????? ????????'
       }, 1690);
     } else if (!buttonClicked && intervalId) {
       clearInterval(intervalId);
@@ -108,20 +109,27 @@ const loadingPage = () => {
     <>
       <div className="fake-body">
 
+        <div className="bg">
+          <Image src={bg} alt='' className='bg-image'/>
+        </div>
+
         <div className="middle-portion">
 
-          <div className="top-row">
-            <div className="present-time">
-              <div className="present-text">
-                PRESENT TIME
-              </div>
-            </div>
+          <div className="button-row">
             <div className="blink-buttons">
               <div className="on-button">
                 <Image src={button1 ? off : on} alt="Button 1" suppressHydrationWarning />
               </div>
               <div className="off-button">
                 <Image src={button2 ? off : on} alt="Button 2" suppressHydrationWarning />
+              </div>
+            </div>
+          </div>
+
+          <div className="top-row">
+            <div className="present-time">
+              <div className="present-text">
+                PRESENT TIME
               </div>
             </div>
           </div>
@@ -169,6 +177,9 @@ const loadingPage = () => {
                 READY TO TRAVEL ?
               </div>
             </div>
+          </div>
+
+          <div className="pause-row">
             <div className="press-button">
               <button id='press' className={buttonClicked1 ? 'after' : 'press'} onClick={handlePress} >
                 <Image src={buttonClicked1 ? press : green} alt='' />
