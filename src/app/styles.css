@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'sevenseg';
-  src: url('../../assets/fonts/7segment.ttf');
+  src: url('../assets/fonts/7segment.ttf');
 }
 
 @font-face {
   font-family: 'rog';
-  src: url('../../assets/fonts/rog.ttf');
+  src: url('../assets/fonts/rog.ttf');
 }
 
 .fake-body {
@@ -112,8 +112,8 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: 0.05em;
-  margin-left: 22vw;
-  margin-top: 6.6vh;
+  margin-left: 26.2vw;
+  margin-bottom: 1vh;
 }
 
 /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
@@ -131,7 +131,7 @@
   width: 15vw;
   align-items: center;
   background: #1D1D1D;
-  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
   align-items: center;
   justify-content: center;
   margin-right: 4vw;
@@ -199,7 +199,7 @@
   align-items: center;
   flex-shrink: 0;
   background: #1D1D1D;
-  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
   margin-right: 4vw;
   position: relative;
 }
@@ -221,7 +221,7 @@
   align-items: center;
   flex-shrink: 0;
   background: #1D1D1D;
-  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
   margin-right: 4vw;
   position: relative;
 }
@@ -253,7 +253,7 @@
   align-items: center;
   flex-shrink: 0;
   background: #1D1D1D;
-  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.80) inset;
+  box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
   position: relative;
 }
 
@@ -276,8 +276,8 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: 0.05em;
-  margin-left: 23vw;
-  margin-bottom: 4vh;
+  margin-left: 29vw;
+  margin-bottom: 2vh;
 }
 
 
@@ -336,7 +336,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-image: url('../../assets/images/mobileBG.svg');
+    background-image: url('../assets/images/mobileBG.svg');
     background-size: contain;
     margin-left: 3.2vw;
   }
@@ -414,20 +414,20 @@
     color: #FFF;
     text-align: center;
     font-family: rog;
-    font-size: 0.6em;
+    font-size: 1em;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.05em;
-    margin-left: 23vw;
-    margin-bottom: 6.5vh;
+    margin-left: 20.5vw;
+    margin-bottom: 4vh;
   }
 
   .blink-buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 9vh;
+    margin-top: 8vh;
   }
 
   .on-button,
@@ -589,6 +589,7 @@
     align-items: center;
     height: 2vh;
     width: 80vw;
+    margin-top: 1vh;
   }
 
   .ready-text {
@@ -596,13 +597,13 @@
     color: #FFF;
     text-align: center;
     font-family: rog;
-    font-size: 0.7em;
+    font-size: 1em;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.05em;
-    margin-left: 18vw;
-    margin-top: 4vh;
+    margin-left: 19vw;
+    margin-top: 6vh;
   }
 
   .press-button {
@@ -612,12 +613,14 @@
     margin-top: 5vh;
     align-items: center;
     justify-content: center;
+    margin-left: 1.5vw;
   }
 
   .press {
     width: 15vw;
     filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(160%);
     transition: filter 0.3s ease;
+    margin-top: 8vh;
   }
 
 
@@ -629,5 +632,6 @@
 
   .after {
     width: 10vw;
+    margin-top: 6vh;
   }
 }

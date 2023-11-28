@@ -10,7 +10,7 @@ const Footer = () => {
     const [, pathname] = fullUrl.match(new RegExp(`https?:\/\/${domain}(.*)`)) || [];
     return (
         <>
-            {pathname == '/loading' ? <></> :
+            {pathname == '/' ? <></> :
                 <div className="absolute w-[90vw] h-14 bottom-4 left-1/2 -translate-x-1/2 flex justify-center lg:justify-between items-center px-10 footer-bg font-Orbitron">
                     <div className="lg:basis-1/5 max-lg:hidden">
                         <Clock />
