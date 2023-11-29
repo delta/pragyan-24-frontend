@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import EventImage from '../../assets/images/randomEventPic.jpg';
 import MapDrop from '../../assets/images/MapDrop.png';
+import styles from './caro.module.css';
 
 const SlideData = () => {
     const [index, setIndex] = useState(1);
@@ -104,20 +105,24 @@ const SlideData = () => {
     }, [index]);
 
     return (
-        <div className="slideElem flex justify-center align-middle">
-            <div className="leftSC flex justify-center align-middle leftSC max-lg:hidden"></div>
-            <div className="flex justify-center flex-col w-full  h-auto eventSlide">
-                <div className="flex justify-center flex-col items-center w-1/3 h-full p-7 slideIntro1">
+        <div className={`${styles.slideElem} flex justify-center align-middle`}>
+            <div
+                className={`${styles.leftSC} flex justify-center align-middle max-lg:hidden`}
+            ></div>
+            <div className={`flex justify-center flex-col w-full  h-auto ${styles.eventSlide}`}>
+                <div
+                    className={`flex justify-center flex-col items-center w-1/3 h-full p-7 ${styles.slideIntro1}`}
+                >
                     <div className="font-ROG 2xl:text-2xl xl:text-xl lg:text-lg md:text-base sm:text-xs text-xs h-1/6 transition-all">
                         EVENT NAME
                     </div>
                     <Image
                         src={EventImage}
                         alt="image about event"
-                        className="h-5/6 w-full rounded-xl eventImg"
+                        className={`h-5/6 w-full rounded-xl ${styles.eventImg}`}
                     />
                 </div>
-                <div className="flex justify-between w-full eventI">
+                <div className={`flex justify-between w-full ${styles.eventI}`}>
                     <div className="flex justify-center items-center w-1/2 h-full">
                         <div className="flex justify-begin items-center mt-auto mb-auto font-Orbitron 2xl:text-sm xl:text-xs lg:text-xs sm:text-xs text-xs w-full">
                             11/09/2001
@@ -130,9 +135,11 @@ const SlideData = () => {
                         <span className="ml-2"> ORION </span>
                     </div>
                 </div>
-                <div className="mainSlide flex justify-center flex-col align-middle">
-                    <div className="flex justify-center w-full h-5/6 slideInfo">
-                        <div className="flex justify-center items-center flex-col w-1/3 h-full p-7 max-lg:hidden slideIntro">
+                <div className={`${styles.mainSlide} flex justify-center flex-col align-middle`}>
+                    <div className={`flex justify-center w-full h-5/6 ${styles.slideInfo}`}>
+                        <div
+                            className={`flex justify-center items-center flex-col w-1/3 h-full p-7 max-lg:hidden ${styles.slideIntro}`}
+                        >
                             <div className="font-ROG 2xl:text-2xl xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs h-1/6 transition-all">
                                 EVENT NAME
                             </div>
@@ -142,47 +149,51 @@ const SlideData = () => {
                                 className="h-5/6 w-full rounded-xl"
                             />
                         </div>
-                        <div className="flex justify-center flex-col w-full h-full p-4 eventDes">
+                        <div
+                            className={`flex justify-center flex-col w-full h-full p-4 ${styles.eventDes}`}
+                        >
                             <div className="flex justify-around items-center w-full h-1/5">
                                 <div
-                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs text-xs cursor-pointer tabs ${
-                                        isActive == 1 ? 'active' : ''
-                                    }`}
+                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs text-xs cursor-pointer ${
+                                        styles.tabs
+                                    } ${isActive == 1 ? `${styles.active}` : ''}`}
                                     onClick={() => setIndex(1)}
                                 >
                                     Description
                                 </div>
                                 <div
-                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs  text-xs cursor-pointer tabs ${
-                                        isActive == 2 ? 'active' : ''
-                                    }`}
+                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs text-xs cursor-pointer ${
+                                        styles.tabs
+                                    } ${isActive == 2 ? `${styles.active}` : ''}`}
                                     onClick={() => setIndex(2)}
                                 >
                                     Judging Criteria
                                 </div>
                                 <div
-                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm  md-text-xs sm-text-xs text-xs cursor-pointer tabs ${
-                                        isActive == 3 ? 'active' : ''
-                                    }`}
+                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs text-xs cursor-pointer ${
+                                        styles.tabs
+                                    } ${isActive == 3 ? `${styles.active}` : ''}`}
                                     onClick={() => setIndex(3)}
                                 >
                                     Rules
                                 </div>
                                 <div
-                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs  text-xs cursor-pointer tabs ${
-                                        isActive == 4 ? 'active' : ''
-                                    }`}
+                                    className={`font-Orbitron 2xl:text-lg xl:text-base lg:text-sm md-text-xs sm-text-xs  text-xs cursor-pointer ${
+                                        styles.tabs
+                                    } ${isActive == 4 ? `${styles.active}` : ''}`}
                                     onClick={() => setIndex(4)}
                                 >
                                     Contact
                                 </div>
                             </div>
-                            <div className="w-full h-4/5 font-Nunito 2xl:text-base xl:text-sm lg:text-sm sm:text-xs text-sm p-3 content">
+                            <div
+                                className={`w-full h-4/5 font-Nunito 2xl:text-base xl:text-sm lg:text-sm sm:text-xs text-sm p-3 ${styles.content}`}
+                            >
                                 {data}
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-center h-1/6 m-0 p-0 slideEnd">
+                    <div className={`flex justify-center h-1/6 m-0 p-0 ${styles.slideEnd}`}>
                         <div className="flex justify-center align-middle flex-col w-1/4 h-full max-lg:hidden">
                             <div className="flex justify-center align-middle mt-auto mb-auto font-Orbitron 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm w-full">
                                 <span>11/09/2001</span>
@@ -194,8 +205,10 @@ const SlideData = () => {
                                 <span className="ml-2"> ORION </span>
                             </div>
                         </div>
-                        <div className="flex justify-center w-2/3 h-full p-0 registerBlock">
-                            <div className="flex justify-center registerButton"></div>
+                        <div
+                            className={`flex justify-center w-2/3 h-full p-0 ${styles.registerBlock}`}
+                        >
+                            <div className={`flex justify-center ${styles.registerButton}`}></div>
                         </div>
                         <div className="flex justify-center align-bottom w-1/4 h-full max-lg:hidden">
                             <div className="font-OrbitronG 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm mt-auto mb-auto">
@@ -205,7 +218,9 @@ const SlideData = () => {
                     </div>
                 </div>
             </div>
-            <div className="rightSC flex justify-center align-middle max-lg:hidden"></div>
+            <div
+                className={`${styles.rightSC} flex justify-center align-middle max-lg:hidden`}
+            ></div>
         </div>
     );
 };

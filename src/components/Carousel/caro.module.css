@@ -159,7 +159,7 @@
 
 .content{
     overflow-x:hidden;
-    overflow-y:hidden;
+    overflow-y:scroll;
     text-align: justify;
     word-wrap: normal;
 }
