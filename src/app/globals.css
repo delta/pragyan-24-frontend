@@ -17,6 +17,11 @@
   src : url('../assets/fonts/Nunito-VariableFont_wght.ttf');
 }
 
+@font-face {
+    font-family: 'sevenseg';
+    src: url('../assets/fonts/7segment.ttf');
+}
+
 * {
     -moz-user-drag: none;
     -webkit-user-drag: none;
@@ -76,7 +81,7 @@ body {
     -o-animation: fadeout 1.5s;
 }
 
-.blue-scroll{
+.blue-scroll {
     animation: blue-glow 0.5s;
     -moz-animation: blue-glow 1.5s;
     -webkit-animation: blue-glow 1.5s;
@@ -85,11 +90,11 @@ body {
 }
 
 @keyframes blue-glow {
-    from{
+    from {
         background-color: initial;
     }
-    to{
-        background-color: #7EFBFE;
+    to {
+        background-color: #7efbfe;
     }
 }
 
@@ -155,18 +160,14 @@ body {
     animation: torch 1s;
 }
 
-.rings{
+.rings {
     animation: rings 0.7s;
-
 }
-.rings2{
-    animation: rings2 0.7s ;
-
-
+.rings2 {
+    animation: rings2 0.7s;
 }
-.fullrings{
+.fullrings {
     animation: fullrings 0.7s;
-
 }
 
 @keyframes torch {
@@ -179,47 +180,44 @@ body {
 }
 
 @keyframes rings {
-    0%{
+    0% {
         transform: translateY(-30vh);
     }
-    90%{
+    90% {
         transform: translateY(20vh);
     }
-
 }
 
 @keyframes rings2 {
-    0%{
+    0% {
         transform: translateY(-60vh);
-    }   
+    }
 
-    90%{
+    90% {
         transform: translateY(20vh);
     }
-    
 }
 
 @keyframes fullrings {
-    0%{
+    0% {
         opacity: 0;
     }
-    90%{
+    90% {
         opacity: 0;
     }
-    100%{
+    100% {
         opacity: 1;
     }
-    
 }
 
 @keyframes anim {
     0% {
-        mask-image: radial-gradient(circle, #000 90%,transparent 90%);
+        mask-image: radial-gradient(circle, #000 90%, transparent 90%);
         mask-position: 0% 0%;
     }
     80% {
         mask-position: 0% 800px;
-    }    
+    }
     81% {
         mask-image: none;
         opacity: 0.4;
@@ -229,3 +227,31 @@ body {
     }
 }
 
+.loadingBg {
+    background: url('../assets/images/loadingBg.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sevensegtext{
+    font-family: 'sevenseg';
+    font-size: 4rem;
+}
+
+@media screen and (max-width: 1240px) and (height > 800px) {
+    .loadingdivs {
+        height: 19%;
+    }
+}
+
+.rogfont{
+    font-family: 'ROG';
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 1240px) {
+    .rogfont{
+        font-size: 1rem;
+    }
+}
