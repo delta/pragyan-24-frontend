@@ -316,12 +316,330 @@
 
 
 
+@media only screen 
+and (device-width: 280px) 
+and (device-height: 653px){
+  .fake-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .bg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../assets/images/mobileBG.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-left: 2.2vw;
+  }
+
+  .bg-image {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+  }
+
+  .middle-portion {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    width: 75vw;
+    height: 20vh;
+    margin-top: 21vh;
+    margin-left: 2.5vw;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 1vh;
+    width: 75vw;
+  }
+
+  .top-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2vh;
+    width: 75vw;
+    margin-top: 1.2vh;
+  }
+
+  .middle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 75vw;
+    margin-bottom: 9vh;
+  }
+
+  .bottom-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2vh;
+    width: 75vw;
+  }
+  
+  .pause-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 75vw;
+  }
+
+
+  /* PRESENT TIME ROW CSS IS HERE */
+
+  .present-time {
+    display: flex;
+    align-items: center;
+    height: 2vh;
+    width: 70vw;
+  }
+
+  .present-text {
+    display: flex;
+    color: #FFF;
+    text-align: center;
+    font-family: rog;
+    font-size: 0.9em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    margin-left: 19vw;
+    margin-bottom: 8vh;
+  }
+
+  .blink-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3vh;
+  }
+
+  .on-button,
+  .off-button {
+    width: 8vw;
+  }
+
+  /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+
+  .mdy-text {
+    display: flex;
+    align-items: center;
+    height: 4vh;
+    width: 62vw;
+    margin-left: 1vw;
+  }
+
+  .month-div {
+    display: flex;
+    height: 4vh;
+    width: 15vw;
+    align-items: center;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 1vw;
+    margin-right: 1.5vw;
+  }
+
+  .m-text,
+  .m-bg-text {
+    margin-left: 1vw;
+    margin-bottom: 0.5vh;
+  }
+
+  .m-text,
+  .m-bg-text,
+  .d-text,
+  .y-text,
+  .h-text,
+  .mi-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    position: absolute;
+  }
+
+  .m-bg-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    opacity: 0.1;
+  }
+
+  .m-text,
+  .d-text,
+  .y-text,
+  .h-text,
+  .mi-text,
+  .m-bg-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    font-family: 'sevenseg';
+    letter-spacing: 0.1em;
+    font-size: 1.3em;
+    color: white;
+    margin-top: 1vh;
+  }
+
+  .colon-text {
+    font-family: 'sevenseg';
+    font-size: 2em;
+    color: #656565;
+  }
+
+  .date-div {
+    display: flex;
+    height: 4vh;
+    width: 10vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 1.5vw;
+    position: relative;
+  }
+
+  .d-text,
+  .h-text,
+  .mi-text,
+  .h-bg-text,
+  .mi-bg-text,
+  .d-bg-text {
+    margin-left: 1.5vw;
+    margin-bottom: 0.5vh;
+  }
+
+  .year-div {
+    display: flex;
+    height: 4vh;
+    width: 20vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 1.5vw;
+    position: relative;
+  }
+
+  .y-text,
+  .y-bg-text {
+    margin-left: 2vw;
+    margin-bottom: 0.5vh;
+  }
+
+  .time-text {
+    display: flex;
+    height: 4vh;
+    width: 25vw;
+    align-items: center;
+    margin-right: 1.9vw;
+  }
+
+  .colon-div {
+    display: flex;
+    height: 6vh;
+    width: 1.5vw;
+    align-items: center;
+    margin-bottom: 1vh;
+    margin-left: 0.5vw;
+  }
+
+  .hours-div,
+  .min-div,
+  .date-div {
+    display: flex;
+    height: 4vh;
+    width: 10vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    position: relative;
+  }
+
+  /* READY TO TRAVEL ROW CSS IS HERE */
+
+  .ready-to {
+    display: flex;
+    align-items: center;
+    height: 2vh;
+    width: 80vw;
+    margin-top: 1vh;
+  }
+
+  .ready-text {
+    display: flex;
+    color: #FFF;
+    text-align: center;
+    font-family: rog;
+    font-size: 0.7em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    margin-left: 21vw;
+    margin-bottom: 13vh;
+  }
+
+  .press-button {
+    display: flex;
+    height: 6vh;
+    width: 20vw;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.5vw;
+    margin-bottom: 10vh;
+  }
+
+  .press {
+    width: 15vw;
+    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(160%);
+    transition: filter 0.3s ease;
+    margin-top: 8vh;
+  }
+
+
+  .press:hover {
+    filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(60%);
+    transition: filter 0.3s ease;
+    transition: 0.1s ease;
+  }
+
+  .after {
+    width: 10vw;
+    margin-top: 6vh;
+  }
+}
 
 
 
 
 
-@media (max-width: 320px) {
+@media (min-width: 281px) and (max-width: 320px){
   .fake-body {
     display: flex;
     align-items: center;
@@ -646,7 +964,7 @@
 
 
 
-@media (min-width: 321px) and (max-width: 375px) {
+@media (min-width: 321px) and (max-width: 376px) {
   .fake-body {
     display: flex;
     align-items: center;
@@ -928,7 +1246,6 @@
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.05em;
-    margin-left: 16vw;
     margin-top: 6vh;
   }
 
@@ -963,11 +1280,7 @@
 }
 
 
-
-
-
-
-@media (min-width: 375px) and (max-width: 425px) {
+@media (min-width: 359px) and (max-width: 374px){
   .fake-body {
     display: flex;
     align-items: center;
@@ -1147,7 +1460,7 @@
   .mi-bg-text {
     font-family: 'sevenseg';
     letter-spacing: 0.1em;
-    font-size: 1.4em;
+    font-size: 1.3em;
     color: white;
     margin-top: 1vh;
   }
@@ -1292,12 +1605,1919 @@
 
 
 
+@media (min-width: 375px) and (max-width: 450px) {
+  .fake-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .bg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../assets/images/mobileBG.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 2.1vw;
+    background-position: center;
+  }
+
+  .bg-image {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+  }
+
+  .middle-portion {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    width: 70vw;
+    height: 20vh;
+    margin-top: 21vh;
+    margin-left: 6vw;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 1vh;
+    width: 70vw;
+  }
+
+  .top-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2vh;
+    width: 70vw;
+    margin-top: 1.2vh;
+  }
+
+  .middle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 70vw;
+    margin-top: 1.5vh;
+  }
+
+  .bottom-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2vh;
+    width: 70vw;
+  }
+  
+  .pause-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 70vw;
+  }
+
+
+  /* PRESENT TIME ROW CSS IS HERE */
+
+  .present-time {
+    display: flex;
+    align-items: center;
+    height: 2vh;
+    width: 70vw;
+  }
+
+  .present-text {
+    display: flex;
+    color: #FFF;
+    text-align: center;
+    font-family: rog;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    margin-left: 22.5vw;
+    margin-bottom: 4vh;
+  }
+
+  .blink-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    margin-right: 6vw;
+  }
+
+  .on-button,
+  .off-button {
+    width: 8vw;
+  }
+
+  /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+
+  .mdy-text {
+    display: flex;
+    align-items: center;
+    height: 4vh;
+    width: 53vw;
+    margin-left: 6vw;
+  }
+
+  .month-div {
+    display: flex;
+    height: 4vh;
+    width: 12vw;
+    align-items: center;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 1vw;
+  }
+
+  .m-text,
+  .m-bg-text {
+    margin-left: 1vw;
+    margin-bottom: 0.5vh;
+  }
+
+  .m-text,
+  .m-bg-text,
+  .d-text,
+  .y-text,
+  .h-text,
+  .mi-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    position: absolute;
+  }
+
+  .m-bg-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    opacity: 0.1;
+  }
+
+  .m-text,
+  .d-text,
+  .y-text,
+  .h-text,
+  .mi-text,
+  .m-bg-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    font-family: 'sevenseg';
+    letter-spacing: 0.1em;
+    font-size: 1.3em;
+    color: white;
+    margin-top: 1vh;
+  }
+
+  .colon-text {
+    font-family: 'sevenseg';
+    font-size: 2em;
+    color: #656565;
+  }
+
+  .date-div {
+    display: flex;
+    height: 4vh;
+    width: 7vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 1vw;
+    position: relative;
+  }
+
+  .d-text,
+  .h-text,
+  .mi-text,
+  .h-bg-text,
+  .mi-bg-text,
+  .d-bg-text {
+    margin-left: 1.5vw;
+    margin-bottom: 0.5vh;
+  }
+
+  .year-div {
+    display: flex;
+    height: 4vh;
+    width: 17vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 1vw;
+    position: relative;
+  }
+
+  .y-text,
+  .y-bg-text {
+    margin-left: 2vw;
+    margin-bottom: 0.5vh;
+  }
+
+  .time-text {
+    display: flex;
+    height: 4vh;
+    width: 19vw;
+    align-items: center;
+    margin-right: 8vw;
+  }
+
+  .colon-div {
+    display: flex;
+    height: 6vh;
+    width: 1vw;
+    align-items: center;
+    margin-bottom: 1.2vh;
+    margin-left: 0.5vw;
+  }
+
+  .hours-div{
+    margin-right: 1vw;
+  }
+
+  .hours-div,
+  .min-div,
+  .date-div {
+    display: flex;
+    height: 4vh;
+    width: 7vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    position: relative;
+    margin-right: 1vw;
+  }
+
+  /* READY TO TRAVEL ROW CSS IS HERE */
+
+  .ready-to {
+    display: flex;
+    align-items: center;
+    height: 2vh;
+    width: 80vw;
+    margin-top: 1vh;
+  }
+
+  .ready-text {
+    display: flex;
+    color: #FFF;
+    text-align: center;
+    font-family: rog;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    margin-left: 18vw;
+    margin-top: 6vh;
+  }
+
+  .press-button {
+    display: flex;
+    height: 6vh;
+    width: 20vw;
+    margin-top: 5vh;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1vw;
+  }
+
+  .press {
+    width: 15vw;
+    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(160%);
+    transition: filter 0.3s ease;
+    margin-top: 8vh;
+  }
+
+
+  .press:hover {
+    filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(60%);
+    transition: filter 0.3s ease;
+    transition: 0.1s ease;
+  }
+
+  .after {
+    width: 10vw;
+    margin-top: 6vh;
+  }
+}
+
+
+
+@media only screen 
+  and (device-width: 768px) 
+  and (device-height: 1024px){
+    .fake-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    
+    .bg {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      margin-right: 1vw;
+    }
+    
+    .middle-portion {
+      position: absolute;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      width: 80vw;
+      height: 10vh;
+      margin-top: 12vh;
+      margin-right: 4vw;
+    }
+    
+    .button-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 6vh;
+      width: 80vw;
+    }
+    
+    .top-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.5vh;
+      width: 80vw;
+    }
+    
+    .middle-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 4vh;
+      margin-top: 0.4vh;
+    }
+    
+    .bottom-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 6vh;
+    }
+    
+    .pause-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+    }
+    
+    /*BUTTON ROW CSS */
+    
+    .blink-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 12vh;
+      margin-top: 2vh;
+    }
+    
+    .on-button,
+    .off-button {
+      width: 6vw;
+      margin-top: 8vh;
+    }
+    
+    /* PRESENT TIME ROW CSS IS HERE */
+    
+    .present-time {
+      display: flex;
+      align-items: center;
+      height: 6vh;
+      width: 70vw;
+      margin-top: 5vh;
+    }
+    
+    .present-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 1em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 28.3vw;
+      margin-top: 2vh;
+    }
+    
+    /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+    
+    .mdy-text {
+      display: flex;
+      align-items: center;
+      height: 7vh;
+      width: 62vw;
+    }
+    
+    .month-div {
+      display: flex;
+      height: 5vh;
+      width: 15vw;
+      align-items: center;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      align-items: center;
+      justify-content: center;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .m-text,
+    .m-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .y-bg-text,
+    .y-text {
+      margin-left: 1vw;
+    }
+    
+    .m-text,
+    .m-bg-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      position: absolute;
+      margin-top: 1.5vh;
+    }
+    
+    .m-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text{
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 3.5em;
+      color: #FFFFFF;
+      filter: drop-shadow(0 0 4px #FFFFFF) brightness(100%);
+    }
+    
+    .m-bg-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 3.5em;
+      color: #6E6E6EB2;
+      opacity: 0.1;
+    }
+    .colon-text {
+      font-family: 'sevenseg';
+      font-size: 5em;
+      color: #656565;
+      margin-top: 3.5vh;
+    }
+    
+    .date-div {
+      display: flex;
+      height: 10vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .d-text,
+    .h-text,
+    .mi-text,
+    .h-bg-text,
+    .mi-bg-text,
+    .d-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .year-div {
+      display: flex;
+      height: 10vh;
+      width: 18vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .time-text {
+      display: flex;
+      height: 15vh;
+      width: 25vw;
+      align-items: center;
+      margin-right: 0.5vw;
+    }
+    
+    .colon-div {
+      display: flex;
+      height: 11vh;
+      width: 4vw;
+      align-items: center;
+      margin-bottom: 7vh;
+      margin-left: 1.75vw;
+    }
+    
+    .hours-div,
+    .min-div,
+    .date-div {
+      display: flex;
+      height: 10vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      position: relative;
+    }
+    
+    /* READY TO TRAVEL ROW CSS IS HERE */
+    
+    .ready-to {
+      display: flex;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+      margin-bottom: 6vh;
+    }
+    
+    .ready-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 1em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 31vw;
+      margin-bottom: 2vh;
+    }
+    
+    
+    /* PAUSE BUTTON ROW CSS */
+    
+    .press-button {
+      display: flex;
+      width: 80vw;
+      height: 15vh;
+      align-items: center;
+      justify-content: end;
+      margin-bottom: 9vh;;
+    }
+    
+    .press {
+      width: 9vw;
+      margin-bottom: 12vh;
+      filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+      transition: filter 0.3s ease;;
+    }
+    
+    .after {
+      width: 9vw;
+      height: 12vh;
+      margin-bottom: 12vh;
+      filter: hue-rotate(0deg) brightness(100%);
+      transition: filter 0.3s ease;
+    }
+    
+    .press:hover {
+      filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(150%);
+      transition: filter 0.3s ease;
+      transition: 0.1s ease;
+    }
+  }
 
 
 
 
 
-@media (min-width: 426px) and (max-width: 768px){
+
+  @media only screen 
+  and (device-width: 820px) 
+  and (device-height: 1180px){
+    .fake-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    
+    .bg {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      margin-right: 1vw;
+    }
+    
+    .middle-portion {
+      position: absolute;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      width: 80vw;
+      height: 10vh;
+      margin-top: 12vh;
+      margin-right: 4vw;
+    }
+    
+    .button-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 6vh;
+      width: 80vw;
+    }
+    
+    .top-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.5vh;
+      width: 80vw;
+    }
+    
+    .middle-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 25vh;
+      margin-top: 0.4vh;
+    }
+    
+    .bottom-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 6vh;
+    }
+    
+    .pause-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+    }
+    
+    /*BUTTON ROW CSS */
+    
+    .blink-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 12vh;
+      margin-top: 3.5vh;
+    }
+    
+    .on-button,
+    .off-button {
+      width: 6vw;
+      margin-top: 8vh;
+    }
+    
+    /* PRESENT TIME ROW CSS IS HERE */
+    
+    .present-time {
+      display: flex;
+      align-items: center;
+      height: 6vh;
+      width: 70vw;
+      margin-top: 5vh;
+    }
+    
+    .present-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 1.5em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 28vw;
+      margin-top: 4vh;
+    }
+    
+    /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+    
+    .mdy-text {
+      display: flex;
+      align-items: center;
+      height: 7vh;
+      width: 62vw;
+    }
+    
+    .month-div {
+      display: flex;
+      height: 6vh;
+      width: 15vw;
+      align-items: center;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      align-items: center;
+      justify-content: center;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .m-text,
+    .m-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .y-bg-text,
+    .y-text {
+      margin-left: 1vw;
+    }
+    
+    .m-text,
+    .m-bg-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      position: absolute;
+      margin-bottom: 0.7vh;
+    }
+    
+    .m-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text{
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 3.5em;
+      color: #FFFFFF;
+      filter: drop-shadow(0 0 4px #FFFFFF) brightness(100%);
+    }
+    
+    .m-bg-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 3.5em;
+      color: #6E6E6EB2;
+      opacity: 0.1;
+    }
+    .colon-text {
+      font-family: 'sevenseg';
+      font-size: 5em;
+      color: #656565;
+      margin-top: 3.5vh;
+    }
+    
+    .date-div {
+      display: flex;
+      height: 6vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .d-text,
+    .h-text,
+    .mi-text,
+    .h-bg-text,
+    .mi-bg-text,
+    .d-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .year-div {
+      display: flex;
+      height: 6vh;
+      width: 18vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .time-text {
+      display: flex;
+      height: 15vh;
+      width: 25vw;
+      align-items: center;
+      margin-right: 0.5vw;
+    }
+    
+    .colon-div {
+      display: flex;
+      height: 11vh;
+      width: 4vw;
+      align-items: center;
+      margin-bottom: 7vh;
+      margin-left: 1.75vw;
+    }
+    
+    .hours-div,
+    .min-div,
+    .date-div {
+      display: flex;
+      height: 6vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      position: relative;
+    }
+    
+    /* READY TO TRAVEL ROW CSS IS HERE */
+    
+    .ready-to {
+      display: flex;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+      margin-bottom: 6vh;
+    }
+    
+    .ready-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 1.5em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 30vw;
+      margin-bottom: 4vh;
+    }
+    
+    
+    /* PAUSE BUTTON ROW CSS */
+    
+    .press-button {
+      display: flex;
+      width: 80vw;
+      height: 15vh;
+      align-items: center;
+      justify-content: end;
+      margin-bottom: 11vh;;
+    }
+    
+    .press {
+      width: 9vw;
+      margin-bottom: 12vh;
+      filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+      transition: filter 0.3s ease;;
+    }
+    
+    .after {
+      width: 9vw;
+      height: 12vh;
+      margin-bottom: 12vh;
+      filter: hue-rotate(0deg) brightness(100%);
+      transition: filter 0.3s ease;
+    }
+    
+    .press:hover {
+      filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(150%);
+      transition: filter 0.3s ease;
+      transition: 0.1s ease;
+    }
+  }
+
+
+
+
+
+  @media only screen 
+  and (device-width: 1024px) 
+  and (device-height: 1366px){
+    .fake-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    
+    .bg {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      margin-right: 1vw;
+    }
+    
+    .middle-portion {
+      position: absolute;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      width: 80vw;
+      height: 10vh;
+      margin-top: 12vh;
+      margin-right: 4vw;
+    }
+    
+    .button-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 6vh;
+      width: 80vw;
+    }
+    
+    .top-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.5vh;
+      width: 80vw;
+    }
+    
+    .middle-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 25vh;
+      margin-top: 0.4vh;
+    }
+    
+    .bottom-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 6vh;
+    }
+    
+    .pause-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+    }
+    
+    /*BUTTON ROW CSS */
+    
+    .blink-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 12vh;
+      margin-top: 3.5vh;
+    }
+    
+    .on-button,
+    .off-button {
+      width: 6vw;
+      margin-top: 7vh;
+    }
+    
+    /* PRESENT TIME ROW CSS IS HERE */
+    
+    .present-time {
+      display: flex;
+      align-items: center;
+      height: 6vh;
+      width: 70vw;
+      margin-top: 5vh;
+    }
+    
+    .present-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 2em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 27vw;
+      margin-top: 4vh;
+    }
+    
+    /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+    
+    .mdy-text {
+      display: flex;
+      align-items: center;
+      height: 7vh;
+      width: 62vw;
+    }
+    
+    .month-div {
+      display: flex;
+      height: 6vh;
+      width: 15vw;
+      align-items: center;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      align-items: center;
+      justify-content: center;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .m-text,
+    .m-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .y-bg-text,
+    .y-text {
+      margin-left: 1vw;
+    }
+    
+    .m-text,
+    .m-bg-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      position: absolute;
+      margin-bottom: 0.7vh;
+    }
+    
+    .m-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text{
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 4em;
+      color: #FFFFFF;
+      filter: drop-shadow(0 0 4px #FFFFFF) brightness(100%);
+    }
+    
+    .m-bg-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 4em;
+      color: #6E6E6EB2;
+      opacity: 0.1;
+    }
+    .colon-text {
+      font-family: 'sevenseg';
+      font-size: 5em;
+      color: #656565;
+      margin-top: 3.5vh;
+    }
+    
+    .date-div {
+      display: flex;
+      height: 6vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .d-text,
+    .h-text,
+    .mi-text,
+    .h-bg-text,
+    .mi-bg-text,
+    .d-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .year-div {
+      display: flex;
+      height: 6vh;
+      width: 18vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .time-text {
+      display: flex;
+      height: 15vh;
+      width: 25vw;
+      align-items: center;
+      margin-right: 0.5vw;
+    }
+    
+    .colon-div {
+      display: flex;
+      height: 11vh;
+      width: 4vw;
+      align-items: center;
+      margin-bottom: 7vh;
+      margin-left: 1.75vw;
+    }
+    
+    .hours-div,
+    .min-div,
+    .date-div {
+      display: flex;
+      height: 6vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      position: relative;
+    }
+    
+    /* READY TO TRAVEL ROW CSS IS HERE */
+    
+    .ready-to {
+      display: flex;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+      margin-bottom: 6vh;
+    }
+    
+    .ready-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 2em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 29vw;
+      margin-bottom: 4vh;
+    }
+    
+    
+    /* PAUSE BUTTON ROW CSS */
+    
+    .press-button {
+      display: flex;
+      width: 80vw;
+      height: 15vh;
+      align-items: center;
+      justify-content: end;
+      margin-bottom: 10vh;;
+    }
+    
+    .press {
+      width: 9vw;
+      margin-bottom: 12vh;
+      filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+      transition: filter 0.3s ease;;
+    }
+    
+    .after {
+      width: 9vw;
+      height: 12vh;
+      margin-bottom: 12vh;
+      filter: hue-rotate(0deg) brightness(100%);
+      transition: filter 0.3s ease;
+    }
+    
+    .press:hover {
+      filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(150%);
+      transition: filter 0.3s ease;
+      transition: 0.1s ease;
+    }
+  }
+
+
+
+
+
+
+  @media only screen 
+  and (device-width: 912px) 
+  and (device-height: 1368px){
+    .fake-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    
+    .bg {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      margin-right: 1vw;
+    }
+    
+    .middle-portion {
+      position: absolute;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      width: 80vw;
+      height: 10vh;
+      margin-top: 12vh;
+      margin-right: 4vw;
+    }
+    
+    .button-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 6vh;
+      width: 80vw;
+    }
+    
+    .top-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.5vh;
+      width: 80vw;
+    }
+    
+    .middle-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 25vh;
+      margin-top: 0.4vh;
+    }
+    
+    .bottom-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 6vh;
+    }
+    
+    .pause-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+    }
+    
+    /*BUTTON ROW CSS */
+    
+    .blink-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 12vh;
+      margin-top: 4.5vh;
+    }
+    
+    .on-button,
+    .off-button {
+      width: 6vw;
+      margin-top: 8vh;
+    }
+    
+    /* PRESENT TIME ROW CSS IS HERE */
+    
+    .present-time {
+      display: flex;
+      align-items: center;
+      height: 6vh;
+      width: 70vw;
+      margin-top: 5vh;
+    }
+    
+    .present-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 1.5em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 26.5vw;
+      margin-top: 4vh;
+    }
+    
+    /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+    
+    .mdy-text {
+      display: flex;
+      align-items: center;
+      height: 7vh;
+      width: 62vw;
+    }
+    
+    .month-div {
+      display: flex;
+      height: 6vh;
+      width: 15vw;
+      align-items: center;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      align-items: center;
+      justify-content: center;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .m-text,
+    .m-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .y-bg-text,
+    .y-text {
+      margin-left: 1vw;
+    }
+    
+    .m-text,
+    .m-bg-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      position: absolute;
+      margin-bottom: 0.7vh;
+    }
+    
+    .m-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text{
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 3.5em;
+      color: #FFFFFF;
+      filter: drop-shadow(0 0 4px #FFFFFF) brightness(100%);
+    }
+    
+    .m-bg-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 3.5em;
+      color: #6E6E6EB2;
+      opacity: 0.1;
+    }
+    .colon-text {
+      font-family: 'sevenseg';
+      font-size: 5em;
+      color: #656565;
+      margin-top: 3.5vh;
+    }
+    
+    .date-div {
+      display: flex;
+      height: 6vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .d-text,
+    .h-text,
+    .mi-text,
+    .h-bg-text,
+    .mi-bg-text,
+    .d-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .year-div {
+      display: flex;
+      height: 6vh;
+      width: 18vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .time-text {
+      display: flex;
+      height: 15vh;
+      width: 25vw;
+      align-items: center;
+      margin-right: 0.5vw;
+    }
+    
+    .colon-div {
+      display: flex;
+      height: 11vh;
+      width: 4vw;
+      align-items: center;
+      margin-bottom: 7vh;
+      margin-left: 1.75vw;
+    }
+    
+    .hours-div,
+    .min-div,
+    .date-div {
+      display: flex;
+      height: 6vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      position: relative;
+    }
+    
+    /* READY TO TRAVEL ROW CSS IS HERE */
+    
+    .ready-to {
+      display: flex;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+      margin-bottom: 7vh;
+    }
+    
+    .ready-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 1.5em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 29vw;
+      margin-bottom: 4vh;
+    }
+    
+    
+    /* PAUSE BUTTON ROW CSS */
+    
+    .press-button {
+      display: flex;
+      width: 80vw;
+      height: 15vh;
+      align-items: center;
+      justify-content: end;
+      margin-bottom: 12vh;;
+    }
+    
+    .press {
+      width: 9vw;
+      margin-bottom: 12vh;
+      filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+      transition: filter 0.3s ease;;
+    }
+    
+    .after {
+      width: 9vw;
+      height: 12vh;
+      margin-bottom: 12vh;
+      filter: hue-rotate(0deg) brightness(100%);
+      transition: filter 0.3s ease;
+    }
+    
+    .press:hover {
+      filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(150%);
+      transition: filter 0.3s ease;
+      transition: 0.1s ease;
+    }
+  }
+
+
+
+
+  @media only screen 
+  and (device-width: 912px) 
+  and (device-height: 1368px){
+    .fake-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    
+    .bg {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      margin-right: 1vw;
+    }
+    
+    .middle-portion {
+      position: absolute;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      width: 80vw;
+      height: 10vh;
+      margin-top: 12vh;
+      margin-right: 4vw;
+    }
+    
+    .button-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 6vh;
+      width: 80vw;
+    }
+    
+    .top-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.5vh;
+      width: 80vw;
+    }
+    
+    .middle-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 25vh;
+      margin-top: 0.4vh;
+    }
+    
+    .bottom-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 6vh;
+    }
+    
+    .pause-row {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+    }
+    
+    /*BUTTON ROW CSS */
+    
+    .blink-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 12vh;
+      margin-top: 4.5vh;
+    }
+    
+    .on-button,
+    .off-button {
+      width: 6vw;
+      margin-top: 8vh;
+    }
+    
+    /* PRESENT TIME ROW CSS IS HERE */
+    
+    .present-time {
+      display: flex;
+      align-items: center;
+      height: 6vh;
+      width: 70vw;
+      margin-top: 5vh;
+    }
+    
+    .present-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 1.5em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 26.5vw;
+      margin-top: 4vh;
+    }
+    
+    /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+    
+    .mdy-text {
+      display: flex;
+      align-items: center;
+      height: 7vh;
+      width: 62vw;
+    }
+    
+    .month-div {
+      display: flex;
+      height: 6vh;
+      width: 15vw;
+      align-items: center;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      align-items: center;
+      justify-content: center;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .m-text,
+    .m-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .y-bg-text,
+    .y-text {
+      margin-left: 1vw;
+    }
+    
+    .m-text,
+    .m-bg-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      position: absolute;
+      margin-bottom: 0.7vh;
+    }
+    
+    .m-text,
+    .d-text,
+    .y-text,
+    .h-text,
+    .mi-text{
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 3.5em;
+      color: #FFFFFF;
+      filter: drop-shadow(0 0 4px #FFFFFF) brightness(100%);
+    }
+    
+    .m-bg-text,
+    .d-bg-text,
+    .y-bg-text,
+    .h-bg-text,
+    .mi-bg-text {
+      font-family: 'sevenseg';
+      letter-spacing: 0.1em;
+      font-size: 3.5em;
+      color: #6E6E6EB2;
+      opacity: 0.1;
+    }
+    .colon-text {
+      font-family: 'sevenseg';
+      font-size: 5em;
+      color: #656565;
+      margin-top: 3.5vh;
+    }
+    
+    .date-div {
+      display: flex;
+      height: 6vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .d-text,
+    .h-text,
+    .mi-text,
+    .h-bg-text,
+    .mi-bg-text,
+    .d-bg-text {
+      margin-left: 1vw;
+    }
+    
+    .year-div {
+      display: flex;
+      height: 6vh;
+      width: 18vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      margin-right: 4vw;
+      position: relative;
+    }
+    
+    .time-text {
+      display: flex;
+      height: 15vh;
+      width: 25vw;
+      align-items: center;
+      margin-right: 0.5vw;
+    }
+    
+    .colon-div {
+      display: flex;
+      height: 11vh;
+      width: 4vw;
+      align-items: center;
+      margin-bottom: 7vh;
+      margin-left: 1.75vw;
+    }
+    
+    .hours-div,
+    .min-div,
+    .date-div {
+      display: flex;
+      height: 6vh;
+      width: 10vw;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background: #1D1D1D;
+      box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+      position: relative;
+    }
+    
+    /* READY TO TRAVEL ROW CSS IS HERE */
+    
+    .ready-to {
+      display: flex;
+      align-items: center;
+      height: 15vh;
+      width: 80vw;
+      margin-bottom: 7vh;
+    }
+    
+    .ready-text {
+      display: flex;
+      color: #FFF;
+      text-align: center;
+      font-family: rog;
+      font-size: 1.5em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.05em;
+      margin-left: 29vw;
+      margin-bottom: 4vh;
+    }
+    
+    
+    /* PAUSE BUTTON ROW CSS */
+    
+    .press-button {
+      display: flex;
+      width: 80vw;
+      height: 15vh;
+      align-items: center;
+      justify-content: end;
+      margin-bottom: 12vh;;
+    }
+    
+    .press {
+      width: 9vw;
+      margin-bottom: 12vh;
+      filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+      transition: filter 0.3s ease;;
+    }
+    
+    .after {
+      width: 9vw;
+      height: 12vh;
+      margin-bottom: 12vh;
+      filter: hue-rotate(0deg) brightness(100%);
+      transition: filter 0.3s ease;
+    }
+    
+    .press:hover {
+      filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(150%);
+      transition: filter 0.3s ease;
+      transition: 0.1s ease;
+    }
+  }
+
+@media (min-width: 500px) and (max-width: 900px){
   .fake-body {
     display: flex;
     align-items: center;
@@ -1414,13 +3634,13 @@
   .mdy-text {
     display: flex;
     align-items: center;
-    height: 15vh;
+    height: 12vh;
     width: 62vw;
   }
   
   .month-div {
     display: flex;
-    height: 10vh;
+    height: 8vh;
     width: 15vw;
     align-items: center;
     background: #1D1D1D;
@@ -1487,7 +3707,7 @@
   
   .date-div {
     display: flex;
-    height: 10vh;
+    height: 8vh;
     width: 10vw;
     justify-content: center;
     align-items: center;
@@ -1509,7 +3729,7 @@
   
   .year-div {
     display: flex;
-    height: 10vh;
+    height: 8vh;
     width: 18vw;
     justify-content: center;
     align-items: center;
@@ -1541,7 +3761,7 @@
   .min-div,
   .date-div {
     display: flex;
-    height: 10vh;
+    height: 8vh;
     width: 10vw;
     justify-content: center;
     align-items: center;
@@ -1609,8 +3829,323 @@
 
 
 
+@media only screen 
+and (device-width: 540px) 
+and (device-height: 720px){
+  .fake-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+  }
+  
+  .bg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin-right: 1vw;
+  }
+  
+  .middle-portion {
+    position: absolute;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    width: 80vw;
+    height: 40vh;
+    top: 20%;
+    left: 10%;
+    margin-top: 12vh;
+    margin-right: 4vw;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 6vh;
+    width: 80vw;
+  }
+  
+  .top-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.5vh;
+    width: 80vw;
+  }
+  
+  .middle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 20vh;
+    margin-top: 0.4vh;
+  }
+  
+  .bottom-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 6vh;
+  }
+  
+  .pause-row {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 15vh;
+    width: 80vw;
+  }
+  
+  /*BUTTON ROW CSS */
+  
+  .blink-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12vh;
+    margin-top: 10vh;
+  }
+  
+  .on-button,
+  .off-button {
+    width: 6vw;
+  }
+  
+  /* PRESENT TIME ROW CSS IS HERE */
+  
+  .present-time {
+    display: flex;
+    align-items: center;
+    height: 6vh;
+    width: 70vw;
+  }
+  
+  .present-text {
+    display: flex;
+    color: #FFF;
+    text-align: center;
+    font-family: rog;
+    font-size: 0.8em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    margin-left: 27vw;
+    margin-top: 8vh;
+  }
+  
+  /* SEVEN SEGMENT DISPLAY CSS STARTS HERE */
+  
+  .mdy-text {
+    display: flex;
+    align-items: center;
+    height: 12vh;
+    width: 62vw;
+  }
+  
+  .month-div {
+    display: flex;
+    height: 6vh;
+    width: 15vw;
+    align-items: center;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4vw;
+    position: relative;
+  }
+  
+  .m-text,
+  .m-bg-text {
+    margin-left: 1vw;
+  }
+  
+  .y-bg-text,
+  .y-text {
+    margin-left: 1vw;
+  }
+  
+  .m-text,
+  .m-bg-text,
+  .d-text,
+  .y-text,
+  .h-text,
+  .mi-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    position: absolute;
+    margin-top: 1.5vh;
+  }
+  
+  .m-text,
+  .d-text,
+  .y-text,
+  .h-text,
+  .mi-text{
+    font-family: 'sevenseg';
+    letter-spacing: 0.1em;
+    font-size: 2.5em;
+    color: #FFFFFF;
+    filter: drop-shadow(0 0 4px #FFFFFF) brightness(100%);
+  }
+  
+  .m-bg-text,
+  .d-bg-text,
+  .y-bg-text,
+  .h-bg-text,
+  .mi-bg-text {
+    font-family: 'sevenseg';
+    letter-spacing: 0.1em;
+    font-size: 2.5em;
+    color: #6E6E6EB2;
+    opacity: 0.1;
+  }
+  .colon-text {
+    font-family: 'sevenseg';
+    font-size: 5em;
+    color: #656565;
+    margin-top: 3.5vh;
+  }
+  
+  .date-div {
+    display: flex;
+    height: 8vh;
+    width: 10vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 4vw;
+    position: relative;
+  }
+  
+  .d-text,
+  .h-text,
+  .mi-text,
+  .h-bg-text,
+  .mi-bg-text,
+  .d-bg-text {
+    margin-left: 1vw;
+  }
+  
+  .year-div {
+    display: flex;
+    height: 6vh;
+    width: 18vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    margin-right: 4vw;
+    position: relative;
+  }
+  
+  .time-text {
+    display: flex;
+    height: 15vh;
+    width: 25vw;
+    align-items: center;
+    margin-right: 0.5vw;
+  }
+  
+  .colon-div {
+    display: flex;
+    height: 11vh;
+    width: 4vw;
+    align-items: center;
+    margin-bottom: 7vh;
+    margin-left: 1.75vw;
+  }
+  
+  .hours-div,
+  .min-div,
+  .date-div {
+    display: flex;
+    height: 6vh;
+    width: 10vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #1D1D1D;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.80) inset;
+    position: relative;
+  }
+  
+  /* READY TO TRAVEL ROW CSS IS HERE */
+  
+  .ready-to {
+    display: flex;
+    align-items: center;
+    height: 15vh;
+    width: 80vw;
+  }
+  
+  .ready-text {
+    display: flex;
+    color: #FFF;
+    text-align: center;
+    font-family: rog;
+    font-size: 0.7em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    margin-left: 31vw;
+    margin-bottom: 9vh;
+  }
+  
+  
+  /* PAUSE BUTTON ROW CSS */
+  
+  .press-button {
+    display: flex;
+    width: 80vw;
+    height: 15vh;
+    align-items: center;
+    justify-content: end;
+  }
+  
+  .press {
+    width: 9vw;
+    margin-bottom: 21vh;
+    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+    transition: filter 0.3s ease;;
+  }
+  
+  .after {
+    width: 9vw;
+    height: 12vh;
+    margin-bottom: 21vh;
+    filter: hue-rotate(0deg) brightness(100%);
+    transition: filter 0.3s ease;
+  }
+  
+  .press:hover {
+    filter: hue-rotate(137deg) drop-shadow(0 0 30px #23A347) brightness(150%);
+    transition: filter 0.3s ease;
+    transition: 0.1s ease;
+  }
+}
 
-@media (min-width: 769px) and (max-width: 1024px){
+
+
+
+
+@media (min-width: 1001px) and (max-width: 1024px){
   .fake-body {
     display: flex;
     align-items: center;
