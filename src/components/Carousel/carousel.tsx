@@ -9,11 +9,22 @@ import 'swiper/css/navigation';
 import 'swiper/css/keyboard';
 import styles from './caro.module.css';
 import SlideData from './slideData';
+import { getClusterDetails } from '@/utils/events_cms';
+import { useEffect, useState } from 'react';
 
 SwiperCore.use([Navigation, Keyboard]);
 
-const Carousel = () => {
-    const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const Carousel = ({ id }: { id: number }) => {
+    const [details, setDetails] = useState([]);
+
+    const getDetails = async () => {
+        const res = await getClusterDetails(id);
+        setDetails(res);
+    };
+
+    useEffect(() => {
+        getDetails();
+    }, [getDetails]);
 
     return (
         <Swiper
@@ -26,9 +37,9 @@ const Carousel = () => {
             keyboard={{ enabled: true }}
             className="w-full h-full flex justify-center"
         >
-            {slides.map(slide => (
-                <SwiperSlide key={slide} className="">
-                    <SlideData />
+            {details.map((slide, ind) => (
+                <SwiperSlide key={ind} className="">
+                    <SlideData details={slide} />
                 </SwiperSlide>
             ))}
 

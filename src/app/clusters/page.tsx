@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 'use client';
 import { NavBar } from '@/components';
 import Image from 'next/image';
@@ -7,9 +9,10 @@ import hourglassBlue from '@/assets/images/HourGlass_blue.svg';
 import hourglassYellow from '@/assets/images/HourGlass_yellow.svg';
 import textBox from '@/assets/images/clusterTextBox.png';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import MediaQuery from 'react-responsive';
+import { getClusterNames } from '@/utils/events_cms';
 
 const Clusters = () => {
     const router = useRouter();
@@ -34,6 +37,18 @@ const Clusters = () => {
         { x: '60%', y: '65%', opacity: 1 },
         { x: '35%', y: '80%', opacity: 1 },
     ]);
+
+    //@ts-ignore
+    const [details, setDetails] = useState<any>([]);
+
+    const getDetails = async () => {
+        let res = await getClusterNames();
+        setDetails(res);
+    };
+
+    useEffect(() => {
+        getDetails();
+    }, []);
 
     return (
         <div className={styles.clusterBG + ' ' + 'h-screen w-screen p-0 flex justify-center '}>
@@ -67,7 +82,11 @@ const Clusters = () => {
                                     dummy[ind] = { x: '45%', y: '30%', opacity: 0 };
                                     setPositon(dummy);
                                     setTimeout(() => {
-                                        router.push('/clusterCarousel');
+                                        router.push(
+                                            `/events/${
+                                                details.length > ind ? details[ind].id : 0
+                                            }/${details.length > ind ? details[ind].name : ''}`,
+                                        );
                                     }, 1000);
                                 }}
                                 initial={{ left: '45%', opacity: 0 }}
@@ -87,7 +106,9 @@ const Clusters = () => {
                                         draggable={false}
                                         className={styles.textBox}
                                     />
-                                    <p className={styles.clusterName}>ROBOREX</p>
+                                    <p className={styles.clusterName}>
+                                        {details.length > ind ? details[ind].name : 'ROBOREX'}
+                                    </p>
                                 </motion.div>
 
                                 {isHovering == ind ? (
@@ -123,7 +144,11 @@ const Clusters = () => {
                                     dummy[ind] = { x: '45%', y: '30%', opacity: 0 };
                                     setPositonMobile(dummy);
                                     setTimeout(() => {
-                                        router.push('/clusterCarousel');
+                                        router.push(
+                                            `/events/${
+                                                details.length > ind ? details[ind].id : 0
+                                            }/${details.length > ind ? details[ind].name : ''}`,
+                                        );
                                     }, 1000);
                                 }}
                                 initial={{ left: '45%', opacity: 0 }}
@@ -143,7 +168,9 @@ const Clusters = () => {
                                         draggable={false}
                                         className={styles.textBox}
                                     />
-                                    <p className={styles.clusterName}>ROBOREX</p>
+                                    <p className={styles.clusterName}>
+                                        {details.length > ind ? details[ind].name : 'ROBOREX'}
+                                    </p>
                                 </motion.div>
 
                                 {isHovering == ind ? (
