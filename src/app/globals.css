@@ -133,3 +133,11 @@ body {
         background-position: center;
     }
 }
+
+/* 
+@media screen and (max-height: 720px) {
+    .footer-bg{
+        position: relative;
+        bottom: 1.5rem;
+    }
+} */

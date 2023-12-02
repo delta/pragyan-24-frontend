@@ -113,7 +113,7 @@ const SlideData = () => {
                 <div
                     className={`flex justify-center flex-col items-center w-1/3 h-full p-7 ${styles.slideIntro1}`}
                 >
-                    <div className="font-ROG 2xl:text-2xl xl:text-xl lg:text-lg md:text-base sm:text-xs text-xs h-1/6 transition-all">
+                    <div className="font-ROG 2xl:text-2xl xl:text-xl lg:text-lg md:text-base sm:text-xs max-lg:mt-4 text-xs h-1/6 transition-all">
                         EVENT NAME
                     </div>
                     <Image
