@@ -2,11 +2,38 @@
 
 import Image from 'next/image';
 import offLight from '@/assets/images/OffLight.svg';
-import { useState, useEffect } from 'react';
+import onlight from '@/assets/images/OnLight.svg'
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import greenbutton from "@/assets/images/P.svg"
+
+const generateRandomCharacters = (length: number) => {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+};
+
+const generateRandomNumber = (length: number) => {
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += Math.floor(Math.random() * 10).toString();
+    }
+    return result;
+};
+
+interface LoadingProps {
+    month:string,
+    date: string,
+    year: string,
+    hours:string,
+    minutes:string,
+    isButtonClicked: boolean,
+    setClicked: Dispatch<SetStateAction<boolean>>
+}
 
 function useWindowSize() {
-    // Initialize state with undefined width/height so server and client renders match
-    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
     const [windowSize, setWindowSize] = useState<{
         width: number | undefined;
         height: number | undefined;
@@ -16,29 +43,20 @@ function useWindowSize() {
     });
 
     useEffect(() => {
-        // only execute all the code below in client side
-        // Handler to call on window resize
         function handleResize() {
-            // Set window width/height to state
             setWindowSize({
                 width: window.innerWidth,
                 height: window.innerHeight,
             });
         }
-
-        // Add event listener
         window.addEventListener('resize', handleResize);
-
-        // Call handler right away so state gets updated with initial window size
         handleResize();
-
-        // Remove event listener on cleanup
         return () => window.removeEventListener('resize', handleResize);
-    }, []); // Empty array ensures that effect is only run on mount
+    }, []);
     return windowSize;
 }
 
-function LoadingWebView() {
+const LoadingWebView = ({month,date,year,hours,minutes,isButtonClicked,setClicked}: LoadingProps) => {
     return (
         <>
             <div className="w-[100vw] h-[100vh] bg-[#0D0D0D] relative">
@@ -50,30 +68,30 @@ function LoadingWebView() {
                         </div>
                     </div>
                     <div className=" w-[80%] h-[45%] loadingdivs flex flex-col relative">
-                        <div className="h-[20%] text-center w-[100%] xl:mt-0 rogfont">
+                        <div className="h-[20%] text-center w-[100%] rogfont">
                             PRESENT TIME
                         </div>
                         <div className="h-[60%] w-[98%] flex relative justify-evenly mt-[5%]">
                             <div className="h-[60%] w-[15%] bg-[#1D1D1D] flex items-center justify-center sevensegtext">
-                                666
+                                {month}
                             </div>
                             <div className="h-[60%] w-[10%] bg-[#1D1D1D] flex items-center justify-center sevensegtext">
-                                66
+                                {date}
                             </div>
                             <div className="h-[60%] w-[20%] bg-[#1D1D1D] flex items-center justify-center sevensegtext">
-                                6666
+                                {year}
                             </div>
                             <div className="h-[60%] w-[10%] bg-[#1D1D1D] flex items-center justify-center sevensegtext">
-                                66
+                                {hours}
                             </div>
                             <div className="h-[60%] w-[10%] bg-[#1D1D1D] flex items-center justify-center sevensegtext">
-                                66
+                                {minutes}
                             </div>
                         </div>
                         <div className="h-[20%] text-center w-[100%] rogfont">READY TO TRAVEL?</div>
                     </div>
-                    <div className=" w-[80%] h-[27%] loadingdivs flex justify-end relative">
-                        {/* <Image src={greenPress} alt='button' className=' h-[60%] w-[20%]'/> */}
+                    <div className=" w-[80%] h-[27%] loadingdivs flex justify-end relative ml-[5%] items-start xl:pt-[1%]">
+                        <Image src={greenbutton} onClick={()=>{if(!isButtonClicked){setClicked(true)}}} alt='button' className=' h-[30%] xl:h-[50%] w-[20%] hover:cursor-pointer'/>
                     </div>
                 </div>
             </div>
@@ -81,27 +99,27 @@ function LoadingWebView() {
     );
 }
 
-function LoadingMobileView() {
+const LoadingMobileView = ({month,date,year,hours,minutes,isButtonClicked,setClicked}:LoadingProps) => {
     return (
         <>
             <div className="w-[100vw] h-[100vh] bg-[#0D0D0D] relative flex flex-col items-center justify-center bg-[url('../assets/images/loadingBgMobile.png')] bg-contain bg-center bg-no-repeat">
                 <div className=" h-[20%] w-[80%] relative flex flex-col items-center justify-center">
                     <div className="w-[100%] h-[20%] text-center font-['ROG']">PRESENT TIME</div>
-                    <div className="relative w-[100%] h-[50%] flex items-center justify-evenly">
+                    <div className="relative w-[100%] h-[50%] flex items-center justify-evenly max-w-[300px]">
                         <div className="w-[15%] h-[40%] bg-[#1D1D1D] font-['sevenseg'] flex items-center justify-center">
-                            666
+                            {month}
                         </div>
                         <div className="w-[10%] h-[40%] bg-[#1D1D1D] font-['sevenseg'] flex items-center justify-center">
-                            66
+                            {date}
                         </div>
                         <div className="w-[20%] h-[40%] bg-[#1D1D1D] font-['sevenseg'] flex items-center justify-center">
-                            6666
+                            {year}
                         </div>
                         <div className="w-[10%] h-[40%] bg-[#1D1D1D] font-['sevenseg'] flex items-center justify-center">
-                            66
+                            {hours}
                         </div>
                         <div className="w-[10%] h-[40%] bg-[#1D1D1D] font-['sevenseg'] flex items-center justify-center">
-                            66
+                            {minutes}
                         </div>
                     </div>
                     <div className="w-[100%] h-[20%] text-center font-['ROG']">
@@ -115,9 +133,55 @@ function LoadingMobileView() {
 
 export default function Loading() {
     const size = useWindowSize();
+    const curr_date = new Date()
+    const [animationStarted,setAnimationStarted] = useState<boolean>(false)
+    const [year, setYear] = useState(String(curr_date.getFullYear()).padStart(4, '0'));
+    const [month, setMonth] = useState(curr_date.toLocaleString('default', { month: 'short' }));
+    const [date, setDate] = useState(String(curr_date.getDate()).padStart(2, '0'));
+    const [hours, setHours] = useState(String(curr_date.getHours()).padStart(2, '0'));
+    const [minutes, setMinutes] = useState(String(curr_date.getMinutes()).padStart(2, '0'));
+
+
+    useEffect(()=>{
+        if(!animationStarted){
+            const new_date = new Date()
+            const getNewDate = setInterval(()=>{
+                setYear(String(new_date.getFullYear()).padStart(4, '0'));
+                setMonth(new_date.toLocaleString('default', { month: 'short' }));
+                setDate(String(new_date.getDate()).padStart(2, '0'));
+                setHours(String(new_date.getHours()).padStart(2, '0'));
+                setMinutes(String(new_date.getMinutes()).padStart(2, '0'));
+            },60000)
+            return ()=>{
+                clearInterval(getNewDate)
+            }
+        }
+        else{
+            const generateRandomChars = setInterval(()=>{
+                setYear(generateRandomNumber(4))
+                setMonth(generateRandomCharacters(3))
+                setDate(generateRandomNumber(2))
+                setHours(generateRandomNumber(2))
+                setMinutes(generateRandomNumber(2))
+            },50)
+            const fiishAnimationTimer = setTimeout(()=>{
+                setYear('----')
+                setMonth('--')
+                setDate('--')
+                setHours('--')
+                setMinutes('--')
+                clearInterval(generateRandomChars)
+            },5000)
+            return ()=>{
+                clearInterval(generateRandomChars)
+                clearTimeout(fiishAnimationTimer)
+            }
+        }
+    },[animationStarted])
+
     return size.width !== undefined && size.width < 700 ? (
-        <LoadingMobileView />
+        <LoadingMobileView month={month} year={year} date={date} hours={hours} minutes={minutes} isButtonClicked={animationStarted} setClicked={setAnimationStarted} />
     ) : (
-        <LoadingWebView />
+        <LoadingWebView month={month} year={year} date={date} hours={hours} minutes={minutes} isButtonClicked={animationStarted} setClicked={setAnimationStarted} />
     );
 }
