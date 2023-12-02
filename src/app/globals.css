@@ -227,12 +227,6 @@ body {
     }
 }
 
-.loadingBg {
-    background: url('../assets/images/loadingBg.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 .sevensegtext{
     font-family: 'sevenseg';
@@ -254,4 +248,8 @@ body {
     .rogfont{
         font-size: 1rem;
     }
+}
+
+.phonesevensegfont{
+
 }
