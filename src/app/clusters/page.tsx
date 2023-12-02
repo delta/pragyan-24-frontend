@@ -9,7 +9,7 @@ import textBox from '@/assets/images/clusterTextBox.png';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { BrowserView, MobileView } from 'react-device-detect';
+import MediaQuery from 'react-responsive';
 
 const Clusters = () => {
     const router = useRouter();
@@ -53,7 +53,7 @@ const Clusters = () => {
                     <Image src={portal} alt="portal" draggable={false} className={styles.portal} />
                 </motion.div>
                 <div className={styles.hourCover}>
-                    <BrowserView>
+                    <MediaQuery minDeviceWidth={768}>
                         {position.map((e, ind) => (
                             <motion.div
                                 key={ind}
@@ -107,9 +107,9 @@ const Clusters = () => {
                                 )}
                             </motion.div>
                         ))}
-                    </BrowserView>
+                    </MediaQuery>
 
-                    <MobileView>
+                    <MediaQuery maxDeviceWidth={767}>
                         {positionMobile.map((e, ind) => (
                             <motion.div
                                 key={ind}
@@ -163,7 +163,7 @@ const Clusters = () => {
                                 )}
                             </motion.div>
                         ))}
-                    </MobileView>
+                    </MediaQuery>
                 </div>
             </div>
         </div>
