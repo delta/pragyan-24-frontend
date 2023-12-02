@@ -1,6 +1,7 @@
 'use client';
 
 import { LoadingMobileView, LoadingWebView } from '@/components';
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 const generateRandomCharacters = (length: number) => {
@@ -52,6 +53,8 @@ export default function Loading() {
     const [date, setDate] = useState(String(currDate.getDate()).padStart(2, '0'));
     const [hours, setHours] = useState(String(currDate.getHours()).padStart(2, '0'));
     const [minutes, setMinutes] = useState(String(currDate.getMinutes()).padStart(2, '0'));
+    const [isLeftLightOn, setIsLeftLightOn] = useState<boolean>(true);
+    const router = useRouter();
 
     useEffect(() => {
         if (!animationStarted) {
@@ -81,13 +84,21 @@ export default function Loading() {
                 setHours('--');
                 setMinutes('--');
                 clearInterval(generateRandomChars);
+                clearInterval(lightTimer);
+                setTimeout(() => {
+                    router.push('/home');
+                }, 1000);
             }, 5000);
+            const lightTimer = setInterval(() => {
+                setIsLeftLightOn(prev => !prev);
+            }, 100);
             return () => {
+                clearInterval(lightTimer);
                 clearInterval(generateRandomChars);
                 clearTimeout(fiishAnimationTimer);
             };
         }
-    }, [animationStarted]);
+    }, [animationStarted, router]);
 
     return size.width !== undefined && size.width < 700 ? (
         <LoadingMobileView
@@ -98,6 +109,7 @@ export default function Loading() {
             minutes={minutes}
             isButtonClicked={animationStarted}
             setClicked={setAnimationStarted}
+            isLeftLightOn={isLeftLightOn}
         />
     ) : (
         <LoadingWebView
@@ -108,6 +120,7 @@ export default function Loading() {
             minutes={minutes}
             isButtonClicked={animationStarted}
             setClicked={setAnimationStarted}
+            isLeftLightOn={isLeftLightOn}
         />
     );
 }

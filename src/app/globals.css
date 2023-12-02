@@ -8,6 +8,11 @@
 }
 
 @font-face {
+    font-family: 'ROGG';
+    src: url('../assets/fonts/rog.ttf');
+}
+
+@font-face {
     font-family: 'Orbitron';
     src: url('../assets/fonts/Orbitron-Regular.ttf');
 }
@@ -240,8 +245,8 @@ body {
 }
 
 .rogfont{
-    font-family: 'ROG';
-    font-size: 2rem;
+    font-family: 'ROGG';
+    font-size: 2.5rem;
 }
 
 @media screen and (max-width: 1240px) {
@@ -250,6 +255,6 @@ body {
     }
 }
 
-.phonesevensegfont{
-
+.greenbutton{
+    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
 }

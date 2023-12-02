@@ -5,5 +5,6 @@ interface LoadingProps {
     hours: string;
     minutes: string;
     isButtonClicked: boolean;
+    isLeftLightOn: boolean;
     setClicked: Dispatch<SetStateAction<boolean>>;
 }

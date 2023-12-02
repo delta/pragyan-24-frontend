@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import offLight from '@/assets/images/OffLight.svg';
-// import onlight from '@/assets/images/OnLight.svg';
-import greenbutton from '@/assets/images/P.svg';
+import onlight from '@/assets/images/OnLight.svg';
+import greenbutton from '@/assets/images/PressButton.svg';
 
 const LoadingWebView = ({
     month,
@@ -11,6 +11,7 @@ const LoadingWebView = ({
     minutes,
     isButtonClicked,
     setClicked,
+    isLeftLightOn,
 }: LoadingProps) => {
     return (
         <>
@@ -18,8 +19,8 @@ const LoadingWebView = ({
                 <div className="relative left-[50%] top-[50%] transform -translate-x-1/2 -translate-y-1/2 h-[90%] w-[100%] flex flex-col items-center justify-center bg-[url('../assets/images/loadingBg.png')] bg-contain bg-center bg-no-repeat">
                     <div className=" w-[80%] h-[28%] loadingdivs relative flex items-center justify-end">
                         <div className=" mr-[2%] flex w-[10%] h-[100%] items-end 2xl:h-[100%] lights">
-                            <Image src={offLight} alt="light" />
-                            <Image src={offLight} alt="light" />
+                            <Image src={isLeftLightOn ? onlight : offLight} alt="light" />
+                            <Image src={isLeftLightOn ? offLight : onlight} alt="light" />
                         </div>
                     </div>
                     <div className=" w-[80%] h-[45%] loadingdivs flex flex-col relative">
@@ -41,7 +42,9 @@ const LoadingWebView = ({
                                 {minutes}
                             </div>
                         </div>
-                        <div className="h-[20%] text-center w-[100%] rogfont">READY TO TRAVEL?</div>
+                        <div className="h-[20%] text-center w-[100%] rogfont max-[900px]:mb-[0%] mb-[5%]">
+                            {isButtonClicked ? `????????????` : 'READY TO TRAVEL?'}
+                        </div>
                     </div>
                     <div className=" w-[80%] h-[27%] loadingdivs flex justify-end relative ml-[5%] items-start xl:pt-[1%]">
                         <Image
@@ -52,7 +55,10 @@ const LoadingWebView = ({
                                 }
                             }}
                             alt="button"
-                            className=" h-[30%] xl:h-[50%] w-[20%] hover:cursor-pointer"
+                            className={
+                                ' h-[30%] xl:h-[50%] w-[20%] hover:cursor-pointer ' +
+                                (isButtonClicked ? ' ' : 'greenbutton')
+                            }
                         />
                     </div>
                 </div>
