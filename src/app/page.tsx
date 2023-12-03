@@ -1,26 +1,126 @@
-import wingman from '@/assets/images/wingman.png';
-import { NavBar } from '@/components';
-import Image from 'next/image';
+'use client';
 
-export default function Home() {
-    return (
-        <>
-            <div className="min-h-screen w-full text-center lg:p-7 p-5 home ">
-                <NavBar />
-                <p className="font-ROG 2xl:text-9xl xl:text-8xl lg:text-7xl sm:text-5xl text-3xl mt-24">
-                    CHRONOCLE
-                </p>
-                <Image
-                    src={wingman}
-                    alt="Wingman"
-                    draggable={false}
-                    className="wingman lg:w-48 md:w-32 w-20 absolute inset-0 m-auto bottom-1/3"
-                />
-                <p className="font-ROG xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl">
-                    A TIMELESS ODYSSEY
-                </p>
-            </div>
-            {/* <About /> */}
-        </>
+import { LoadingMobileView, LoadingWebView } from '@/components';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+
+const generateRandomCharacters = (length: number) => {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+};
+
+const generateRandomNumber = (length: number) => {
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += Math.floor(Math.random() * 10).toString();
+    }
+    return result;
+};
+
+function useWindowSize() {
+    const [windowSize, setWindowSize] = useState<{
+        width: number | undefined;
+        height: number | undefined;
+    }>({
+        width: undefined,
+        height: undefined,
+    });
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    return windowSize;
+}
+
+export default function Loading() {
+    const size = useWindowSize();
+    const currDate = new Date();
+    const [animationStarted, setAnimationStarted] = useState<boolean>(false);
+    const [year, setYear] = useState(String(currDate.getFullYear()).padStart(4, '0'));
+    const [month, setMonth] = useState(currDate.toLocaleString('default', { month: 'short' }));
+    const [date, setDate] = useState(String(currDate.getDate()).padStart(2, '0'));
+    const [hours, setHours] = useState(String(currDate.getHours()).padStart(2, '0'));
+    const [minutes, setMinutes] = useState(String(currDate.getMinutes()).padStart(2, '0'));
+    const [isLeftLightOn, setIsLeftLightOn] = useState<boolean>(true);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (!animationStarted) {
+            const newDate = new Date();
+            const getNewDate = setInterval(() => {
+                setYear(String(newDate.getFullYear()).padStart(4, '0'));
+                setMonth(newDate.toLocaleString('default', { month: 'short' }));
+                setDate(String(newDate.getDate()).padStart(2, '0'));
+                setHours(String(newDate.getHours()).padStart(2, '0'));
+                setMinutes(String(newDate.getMinutes()).padStart(2, '0'));
+            }, 60000);
+            return () => {
+                clearInterval(getNewDate);
+            };
+        } else {
+            const generateRandomChars = setInterval(() => {
+                setYear(generateRandomNumber(4));
+                setMonth(generateRandomCharacters(3));
+                setDate(generateRandomNumber(2));
+                setHours(generateRandomNumber(2));
+                setMinutes(generateRandomNumber(2));
+            }, 50);
+            const fiishAnimationTimer = setTimeout(() => {
+                setYear('----');
+                setMonth('--');
+                setDate('--');
+                setHours('--');
+                setMinutes('--');
+                clearInterval(generateRandomChars);
+                clearInterval(lightTimer);
+                setTimeout(() => {
+                    router.push('/home');
+                }, 1000);
+            }, 5000);
+            const lightTimer = setInterval(() => {
+                setIsLeftLightOn(prev => !prev);
+            }, 100);
+            return () => {
+                clearInterval(lightTimer);
+                clearInterval(generateRandomChars);
+                clearTimeout(fiishAnimationTimer);
+            };
+        }
+    }, [animationStarted, router]);
+
+    return size.width !== undefined && size.width < 700 ? (
+        <LoadingMobileView
+            month={month}
+            year={year}
+            date={date}
+            hours={hours}
+            minutes={minutes}
+            isButtonClicked={animationStarted}
+            setClicked={setAnimationStarted}
+            isLeftLightOn={isLeftLightOn}
+        />
+    ) : (
+        <LoadingWebView
+            month={month}
+            year={year}
+            date={date}
+            hours={hours}
+            minutes={minutes}
+            isButtonClicked={animationStarted}
+            setClicked={setAnimationStarted}
+            isLeftLightOn={isLeftLightOn}
+        />
     );
 }

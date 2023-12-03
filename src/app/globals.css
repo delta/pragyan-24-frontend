@@ -8,6 +8,11 @@
 }
 
 @font-face {
+    font-family: 'ROGG';
+    src: url('../assets/fonts/rog.ttf');
+}
+
+@font-face {
     font-family: 'Orbitron';
     src: url('../assets/fonts/Orbitron-Regular.ttf');
 }
@@ -15,6 +20,11 @@
 @font-face {
   font-family: 'Nunito';
   src : url('../assets/fonts/Nunito-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'sevenseg';
+    src: url('../assets/fonts/7segment.ttf');
 }
 
 * {
@@ -76,6 +86,23 @@ body {
     -o-animation: fadeout 1.5s;
 }
 
+.blue-scroll {
+    animation: blue-glow 0.5s;
+    -moz-animation: blue-glow 1.5s;
+    -webkit-animation: blue-glow 1.5s;
+    -o-animation: blue-glow 1.5s;
+    animation-delay: 0.8s;
+}
+
+@keyframes blue-glow {
+    from {
+        background-color: initial;
+    }
+    to {
+        background-color: #7efbfe;
+    }
+}
+
 @keyframes fadeout {
     from {
         opacity: 1;
@@ -134,10 +161,100 @@ body {
     }
 }
 
-/* 
-@media screen and (max-height: 720px) {
-    .footer-bg{
-        position: relative;
-        bottom: 1.5rem;
+.carousel-torch:hover {
+    animation: torch 1s;
+}
+
+.rings {
+    animation: rings 0.7s;
+}
+.rings2 {
+    animation: rings2 0.7s;
+}
+.fullrings {
+    animation: fullrings 0.7s;
+}
+
+@keyframes torch {
+    0% {
+        opacity: 0.3;
     }
-} */
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rings {
+    0% {
+        transform: translateY(-30vh);
+    }
+    90% {
+        transform: translateY(20vh);
+    }
+}
+
+@keyframes rings2 {
+    0% {
+        transform: translateY(-60vh);
+    }
+
+    90% {
+        transform: translateY(20vh);
+    }
+}
+
+@keyframes fullrings {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes anim {
+    0% {
+        mask-image: radial-gradient(circle, #000 90%, transparent 90%);
+        mask-position: 0% 0%;
+    }
+    80% {
+        mask-position: 0% 800px;
+    }
+    81% {
+        mask-image: none;
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.sevensegtext{
+    font-family: 'sevenseg';
+    font-size: 4rem;
+}
+
+@media screen and (max-width: 1240px) and (height > 800px) {
+    .loadingdivs {
+        height: 19%;
+    }
+}
+
+.rogfont{
+    font-family: 'ROGG';
+    font-size: 2.5rem;
+}
+
+@media screen and (max-width: 1240px) {
+    .rogfont{
+        font-size: 1rem;
+    }
+}
+
+.greenbutton{
+    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+}
