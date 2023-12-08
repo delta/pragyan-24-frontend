@@ -24,7 +24,7 @@ const Carousel = ({ id }: { id: number }) => {
 
     useEffect(() => {
         getDetails();
-    }, [getDetails]);
+    }, []);
 
     return (
         <Swiper

@@ -7,29 +7,30 @@ import EventImage from '../../assets/images/randomEventPic.jpg';
 import MapDrop from '../../assets/images/MapDrop.png';
 import styles from './caro.module.css';
 import { CMS_URL } from '@/config/config';
+import Markdown from 'react-markdown';
 
 //@ts-ignore
 const SlideData = ({ details }: { details: any }) => {
     const [index, setIndex] = useState(1);
     const [isActive, setIsActive] = useState(1);
-    const [data, setData] = useState(<p>{details.content[0]}</p>);
+    const [data, setData] = useState(details.content[0]);
 
     useEffect(() => {
         switch (index) {
             case 1:
-                setData(<p>{details.content[0]}</p>);
+                setData(details.content[0]);
                 setIsActive(1);
                 break;
             case 2:
-                setData(<p>{details.content[1]}</p>);
+                setData(details.content[1]);
                 setIsActive(2);
                 break;
             case 3:
-                setData(<p>{details.content[2]}</p>);
+                setData(details.content[2]);
                 setIsActive(3);
                 break;
             case 4:
-                setData(<p>{details.content[3]}</p>);
+                setData(details.content[3]);
                 setIsActive(4);
                 break;
         }
@@ -128,7 +129,7 @@ const SlideData = ({ details }: { details: any }) => {
                             <div
                                 className={`w-full h-4/5 font-Nunito 2xl:text-base xl:text-sm lg:text-sm sm:text-xs text-sm p-3 ${styles.content}`}
                             >
-                                {data}
+                                <Markdown>{data}</Markdown>
                             </div>
                         </div>
                     </div>
