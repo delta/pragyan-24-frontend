@@ -1,14 +1,18 @@
-import React from 'react';
+'use client';
+import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import pragyanlogo from '../../assets/images/main-logo-22-white.svg';
 import pragyanlogomobile from '../../assets/images/main-logo-mobile.png';
 import hamburgerIcon from '../../assets/images/hamburgerMenu.svg';
 import LoginButton from '../LoginButton/LoginButton';
+import Link from 'next/link';
+import Menu from '@/components/Menu/Menu';
 
 const NavBar = () => {
+    const [isOpened, setIsOpened] = useState(false);
     return (
-        <div className="w-full flex h-14">
+        <div className="w-full flex h-14 box-border px-5 lg:px-7 z-10">
+            <Menu isOpened={isOpened} setIsOpened={setIsOpened} />
             <div className="flex basis-1/2 justify-start items-center lg:px-5">
                 <Image
                     src={pragyanlogo}
@@ -42,6 +46,7 @@ const NavBar = () => {
                     alt="Hamburger Icon"
                     draggable={false}
                     className="md:w-8 w-6 hover:cursor-pointer"
+                    onClick={() => setIsOpened(!isOpened)}
                 />
             </div>
         </div>

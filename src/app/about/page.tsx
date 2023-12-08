@@ -68,7 +68,7 @@ const About = () => {
     return (
         <div
             className={
-                'h-screen w-full text-center p-7 about flex flex-col overflow-y-hidden ' +
+                'h-screen w-full text-center md:p-7 p-5 about flex flex-col overflow-y-hidden ' +
                 (isScrolled ? ' scrolled' : ' transitioned')
             }
             onWheel={scrollAllowed ? simulateScroll : undefined}
@@ -76,9 +76,9 @@ const About = () => {
             onTouchMove={scrollAllowed ? handleTouchMove : undefined}
             onTouchEnd={scrollAllowed ? handleTouchEnd : undefined}
         >
-            <div className="flex w-full relative z-10">
-                <NavBar />
-            </div>
+            {/* <div className="flex w-full relative z-10"> */}
+            <NavBar />
+            {/* </div> */}
             <motion.div
                 z-index={-1}
                 className="flex flex-col justify-center items-center absolute w-screen top-0 left-0 -translate-x-[50%] -translate-y-[50%]"
