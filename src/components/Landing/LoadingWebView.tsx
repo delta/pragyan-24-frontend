@@ -15,7 +15,7 @@ const LoadingWebView = ({
 }: LoadingProps) => {
     return (
         <>
-            <div className="w-[100vw] h-[100vh] bg-[#0D0D0D] relative">
+            <div className="max-md:hidden w-[100vw] h-[100vh] bg-[#0D0D0D] relative">
                 <div className="relative left-[50%] top-[50%] transform -translate-x-1/2 -translate-y-1/2 h-[90%] w-[100%] flex flex-col items-center justify-center bg-[url('../assets/images/loadingBg.png')] bg-contain bg-center bg-no-repeat">
                     <div className=" w-[80%] h-[28%] loadingdivs relative flex items-center justify-end">
                         <div className=" mr-[2%] flex w-[10%] h-[100%] items-end 2xl:h-[100%] lights">

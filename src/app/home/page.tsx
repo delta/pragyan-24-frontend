@@ -57,7 +57,7 @@ export default function Home() {
                 }
             ></div>
             <div
-                className={'h-screen w-full text-center lg:p-7 p-5 home'}
+                className={'h-screen w-full text-center lg:p-7 p-5 home transitioned'}
                 onWheel={simulateScroll}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}

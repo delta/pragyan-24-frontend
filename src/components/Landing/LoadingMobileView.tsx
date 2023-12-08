@@ -15,7 +15,7 @@ const LoadingMobileView = ({
 }: LoadingProps) => {
     return (
         <>
-            <div className="relative w-[100vw] h-[100vh] bg-[#0D0D0D] flex flex-col items-center justify-center bg-[url('../assets/images/loadingBgMobile.png')] bg-contain bg-center bg-no-repeat">
+            <div className="relative md:hidden w-[100vw] h-[100vh] bg-[#0D0D0D] flex flex-col items-center justify-center bg-[url('../assets/images/loadingBgMobile.png')] bg-contain bg-center bg-no-repeat">
                 <div className=" h-[20%] w-[80%] relative flex flex-col items-center justify-center">
                     <div className="absolute flex w-[10%] right-[10vw] top-[4.2vh] max-[380px]:right-[15vw]">
                         <Image src={isLeftLightOn ? onlight : offLight} alt="light" />

@@ -77,7 +77,8 @@ const History = () => {
                 styles.historyBG +
                 ' ' +
                 'h-screen w-screen p-0 flex justify-center items-center overflow-y-hidden' +
-                (isScrolled ? 'scrolled' : '')
+                ' ' +
+                (isScrolled ? ' scrolled' : ' transitioned')
             }
             onWheel={simulateScroll}
             onTouchStart={handleTouchStart}

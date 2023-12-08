@@ -21,31 +21,7 @@ const generateRandomNumber = (length: number) => {
     return result;
 };
 
-function useWindowSize() {
-    const [windowSize, setWindowSize] = useState<{
-        width: number | undefined;
-        height: number | undefined;
-    }>({
-        width: undefined,
-        height: undefined,
-    });
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowSize({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
-        }
-        window.addEventListener('resize', handleResize);
-        handleResize();
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-    return windowSize;
-}
-
 export default function Loading() {
-    const size = useWindowSize();
     const currDate = new Date();
     const [animationStarted, setAnimationStarted] = useState<boolean>(false);
     const [year, setYear] = useState(String(currDate.getFullYear()).padStart(4, '0'));
@@ -87,8 +63,8 @@ export default function Loading() {
                 clearInterval(lightTimer);
                 setTimeout(() => {
                     router.push('/home');
-                }, 1000);
-            }, 5000);
+                }, 500);
+            }, 2000);
             const lightTimer = setInterval(() => {
                 setIsLeftLightOn(prev => !prev);
             }, 100);
@@ -100,27 +76,28 @@ export default function Loading() {
         }
     }, [animationStarted, router]);
 
-    return size.width !== undefined && size.width < 700 ? (
-        <LoadingMobileView
-            month={month}
-            year={year}
-            date={date}
-            hours={hours}
-            minutes={minutes}
-            isButtonClicked={animationStarted}
-            setClicked={setAnimationStarted}
-            isLeftLightOn={isLeftLightOn}
-        />
-    ) : (
-        <LoadingWebView
-            month={month}
-            year={year}
-            date={date}
-            hours={hours}
-            minutes={minutes}
-            isButtonClicked={animationStarted}
-            setClicked={setAnimationStarted}
-            isLeftLightOn={isLeftLightOn}
-        />
+    return (
+        <>
+            <LoadingMobileView
+                month={month}
+                year={year}
+                date={date}
+                hours={hours}
+                minutes={minutes}
+                isButtonClicked={animationStarted}
+                setClicked={setAnimationStarted}
+                isLeftLightOn={isLeftLightOn}
+            />
+            <LoadingWebView
+                month={month}
+                year={year}
+                date={date}
+                hours={hours}
+                minutes={minutes}
+                isButtonClicked={animationStarted}
+                setClicked={setAnimationStarted}
+                isLeftLightOn={isLeftLightOn}
+            />
+        </>
     );
 }
