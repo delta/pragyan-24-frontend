@@ -1,0 +1,3 @@
+type ClusterType = {
+    image: string;
+};

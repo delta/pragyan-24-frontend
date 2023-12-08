@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-.parent div {
+.edge {
     position: absolute;
     width: 55px;
     height: 55px;
@@ -46,3 +46,26 @@
     border: 1px solid #ddd;
     border-radius: 2px;
 }
+
+/* .topWedge {
+    width: 70px;
+    height: 6.9px;
+    left: 50%;
+    transform: translate(-40%,-10%);
+    background: url('../../assets/images/aboutWedge.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(1.2);
+}
+
+.bottomWedge {
+    width: 70px;
+    height: 8px;
+    left: 50%;
+    transform: translate(-40%,-50%);
+    transform: rotate(90deg);
+    background: url('../../assets/images/aboutWedge.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(1.2);
+} */
