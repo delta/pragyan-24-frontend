@@ -53,7 +53,7 @@ body {
 
 .footer-bg {
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.45);
 }
 
 .home {
@@ -77,6 +77,11 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+}
+
+.AboutCardContent {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
 }
 
 .scrolled {
@@ -257,4 +262,10 @@ body {
 
 .greenbutton{
     filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+}
+
+@media screen and (min-width: 1240px) {
+    .about {
+        min-height: max(100vh, 742px);
+    }
 }

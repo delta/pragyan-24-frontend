@@ -10,16 +10,16 @@ const AboutCardMob = () => {
             className={
                 styles.parent +
                 ' ' +
-                'md:hidden flex justify-center items-center p-4 py-10 text-center'
+                'md:hidden flex justify-center items-center p-4 py-10 text-center AboutCardContent z-0'
             }
         >
-            <div className={styles.topLeft}></div>
-            <div className={styles.topRight}></div>
-            <div className={styles.bottomLeft}></div>
-            <div className={styles.bottomRight}></div>
-            <p className={styles.content + ' ' + 'w-full h-full p-3 overflow-y-scroll'}>
+            <div className={styles.topLeft + ' ' + styles.edge}></div>
+            <div className={styles.topRight + ' ' + styles.edge}></div>
+            <div className={styles.bottomLeft + ' ' + styles.edge}></div>
+            <div className={styles.bottomRight + ' ' + styles.edge}></div>
+            <div className={styles.content + ' ' + 'w-full h-full p-3 overflow-y-scroll relative'}>
                 {content} + {content2}
-            </p>
+            </div>
         </div>
     );
 };
