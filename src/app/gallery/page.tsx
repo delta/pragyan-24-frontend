@@ -9,7 +9,7 @@ import 'swiper/css/bundle';
 import { NavBar, SideBar } from '@/components';
 import Image from 'next/image';
 import virat from '../../assets/images/virat.jpg';
-import { WheelEvent, TouchEvent, useState } from 'react';
+import { WheelEvent, TouchEvent, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 const History = () => {
@@ -36,6 +36,7 @@ const History = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const shadowRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
     const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
         if (!isScrolled) {
@@ -52,10 +53,25 @@ const History = () => {
     const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
         setTouchEnd(null);
         setTouchStart(event.targetTouches[0].clientY);
+        const x = event.targetTouches[0].clientX - document.documentElement.clientWidth * 1.5;
+        const y = event.targetTouches[0].clientY - document.documentElement.clientHeight * 1.5;
+        if (!shadowRef.current) return;
+        shadowRef.current.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
     };
 
     const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+        const x = event.targetTouches[0].clientX - document.documentElement.clientWidth * 1.5;
+        const y = event.targetTouches[0].clientY - document.documentElement.clientHeight * 1.5;
+        if (!shadowRef.current) return;
+        shadowRef.current.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
         setTouchEnd(event.targetTouches[0].clientY);
+    };
+
+    const handleMouseMove = (event: React.MouseEvent) => {
+        const x = event.clientX - document.documentElement.clientWidth * 1.5;
+        const y = event.clientY - document.documentElement.clientHeight * 1.5;
+        if (!shadowRef.current) return;
+        shadowRef.current.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
     };
 
     const handleTouchEnd = () => {
@@ -84,7 +100,9 @@ const History = () => {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            onMouseMove={handleMouseMove}
         >
+            <div className={styles.torch} ref={shadowRef}></div>
             <div className="absolute top-0 w-full p-5">
                 <NavBar />
             </div>
@@ -116,7 +134,7 @@ const History = () => {
                                     objectFit="cover"
                                     objectPosition="center"
                                     className={
-                                        'max-sm:rounded-xl md:opacity-20 ' + 'carousel-torch'
+                                        'max-sm:rounded-xl md:opacity-60 ' + 'carousel-torch'
                                     }
                                     alt="history"
                                 />

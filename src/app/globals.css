@@ -18,8 +18,8 @@
 }
 
 @font-face {
-  font-family: 'Nunito';
-  src : url('../assets/fonts/Nunito-VariableFont_wght.ttf');
+    font-family: 'Nunito';
+    src: url('../assets/fonts/Nunito-VariableFont_wght.ttf');
 }
 
 @font-face {
@@ -182,7 +182,7 @@ body {
 
 @keyframes torch {
     0% {
-        opacity: 0.3;
+        opacity: 0.6;
     }
     100% {
         opacity: 1;
@@ -237,8 +237,7 @@ body {
     }
 }
 
-
-.sevensegtext{
+.sevensegtext {
     font-family: 'sevenseg';
     font-size: 4rem;
 }
@@ -249,19 +248,19 @@ body {
     }
 }
 
-.rogfont{
+.rogfont {
     font-family: 'ROGG';
     font-size: 2.5rem;
 }
 
 @media screen and (max-width: 1240px) {
-    .rogfont{
+    .rogfont {
         font-size: 1rem;
     }
 }
 
-.greenbutton{
-    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23A347) brightness(120%);
+.greenbutton {
+    filter: hue-rotate(137deg) drop-shadow(0 0 20px #23a347) brightness(120%);
 }
 
 @media screen and (min-width: 1240px) {
