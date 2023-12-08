@@ -1,0 +1,119 @@
+/* menu.module.css */
+
+#mainContent {
+     animation: fadeInLast 3s ease-in-out;
+ }
+ #disk {
+     animation: fall 3s linear;
+ }
+ #glow {
+     animation: fadeInFirst 3s ease-in-out;
+ }
+
+#menubg {
+    background: url('../../assets/images/menubg.png') no-repeat;
+    background-size: contain;
+    animation: fadeInLast 3s ease-in-out;
+    fill: 0.5;
+}
+
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fadeInFirst {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLast {
+    0% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+#main-content {
+    animation: fadeInLast 3s ease-in-out;
+}
+
+#disk {
+    animation: fall 3s linear;
+    z-index: 20;
+}
+
+#glow {
+    animation: fadeInFirst 3s ease-in-out;
+}
+
+#menubg {
+    animation: fadeInLast 3s ease-in-out;
+    
+}
+
+.li:nth-child(2n+1){
+    margin-top: 5rem;
+}
+.li:nth-child(3n){
+    margin-top: 12rem;
+}
+
+/* 
+@keyframes imagewipe {
+    0% {
+        opacity: 0;
+        width: 0%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%
+    }
+} */
+
+@media (max-width: 1020px) {
+
+    #menubg {
+        background: url('../../assets/images/bgphone.png') no-repeat;
+        background-size: contain;
+        ;
+    }
+
+    .li:nth-child(2n+1){
+        margin-top: 0rem;
+        margin-left: 2rem;
+    }
+    .li:nth-child(3n){
+        margin-top: 0rem;
+        margin-left: 1rem;
+    }
+
+    #disk {
+        width: 100px;
+    }
+}

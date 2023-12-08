@@ -11,3 +11,4 @@ export { default as Carousel } from './Carousel/carousel';
 export { default as LoadingWebView } from './Landing/LoadingWebView';
 export { default as LoadingMobileView } from './Landing/LoadingMobileView';
 export { default as ClusterCarousel } from './ClusterCarousel/ClusterCarousel';
+export { default as Menu } from './Menu/Menu';
