@@ -269,3 +269,9 @@ body {
         min-height: max(100vh, 742px);
     }
 }
+
+@media screen and (min-width: 1540px) {
+    .about {
+        min-height: max(100vh, 860px);
+    }
+}
