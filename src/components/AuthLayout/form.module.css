@@ -11,7 +11,13 @@
     background-size: 100% 100%;
     padding: 6rem;
     font-family: 'Orbitron', sans-serif;
+    min-height: 70%;
 }
+
+.signupFields {
+    margin-bottom: 0.5rem !important;
+}
+
 
 .signUpFormContainer {
     padding-top: 2rem;
@@ -227,7 +233,7 @@ div.formInput {
     .formContainer {
         background: url('../../assets/images/auth-bg-vert.svg');
         background-size: 100% 100%;
-        padding: 4rem;
+        padding: 4.5rem;
     }
     .formLabel {
         font-size: 0.85rem;
@@ -242,5 +248,11 @@ div.formInput {
     }
     .submitButton {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .registerFormContainer {
+        max-width: 80%;
     }
 }

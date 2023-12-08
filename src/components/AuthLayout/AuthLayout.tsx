@@ -2,11 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Login } from './login';
+import { SignUp } from './signup';
 import Arrow from '../../assets/images/arrow_back_auth.svg';
 import PragyanLogo from '../../assets/images/main-logo-22-white.svg';
 import styles from './AuthLayout.module.css';
+// import { userContext } from "../../contexts/UserContext";
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ formType }) => {
+    const [form, setForm] = React.useState<FormType>("SIGN UP");
     return (
         <div className={styles.authWrapper}>
             <div className={styles.authContainer}>
@@ -37,7 +40,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ formType }) => {
                         </div>
                         <div className={styles.formBodyContainer}>
                             <div className={styles.formArea}>
-                                {formType === 'LOGIN' ? <Login></Login> : <></>}
+                                {formType === 'LOGIN' ? <Login></Login> : <SignUp setForm={setForm}></SignUp>}
                             </div>
                         </div>
                     </div>
