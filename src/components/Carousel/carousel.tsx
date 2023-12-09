@@ -22,7 +22,7 @@ const Carousel = ({ id, eventId }: { id: number; eventId: number }) => {
     const getDetails = async () => {
         const res = await getClusterDetails(id);
         setDetails(res);
-        res.forEach((data, ind) => {
+        res.forEach((data: { ind: number }, ind: number) => {
             if (data.ind == eventId) {
                 setInitialSlide(ind);
             }
