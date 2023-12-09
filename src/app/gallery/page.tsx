@@ -9,11 +9,23 @@ import 'swiper/css/bundle';
 import { NavBar, SideBar } from '@/components';
 import Image from 'next/image';
 import virat from '../../assets/images/virat.jpg';
-import { WheelEvent, TouchEvent, useState, useRef } from 'react';
+import { WheelEvent, TouchEvent, useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { getGallery } from '@/utils/events_cms';
+import { CMS_URL } from '@/config/config';
 
 const History = () => {
-    const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const [images, setImages] = useState([]);
+
+    const getImages = async () => {
+        const res = await getGallery();
+        setImages(res);
+    };
+
+    useEffect(() => {
+        getImages();
+    }, []);
+
     const breakpoints = {
         100: {
             slidesPerView: 1,
@@ -129,23 +141,35 @@ const History = () => {
                         breakpoints={breakpoints}
                         className="h-[100%] w-[100%]"
                     >
-                        {slides.map(slide => (
-                            <SwiperSlide
-                                key={slide}
-                                className={`h-[100%] w-[23%] bg-black max-sm:rounded-xl`}
-                            >
-                                <Image
-                                    src={virat}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    objectPosition="center"
-                                    className={
-                                        'max-sm:rounded-xl md:opacity-60 ' + 'carousel-torch'
-                                    }
-                                    alt="history"
-                                />
-                            </SwiperSlide>
-                        ))}
+                        {images.map(
+                            (
+                                data: { url: number; eventId: number; eventName: string },
+                                ind: number,
+                            ) => (
+                                <SwiperSlide
+                                    key={ind}
+                                    className={`h-[100%] w-[23%] bg-black max-sm:rounded-xl`}
+                                >
+                                    <Image
+                                        src={data ? CMS_URL + data.url : virat}
+                                        layout="fill"
+                                        onClick={() => {
+                                            router.push(
+                                                `/eventcluster/${data ? data.eventId : 0}/${
+                                                    data ? data.eventName : ''
+                                                }`,
+                                            );
+                                        }}
+                                        objectFit="cover"
+                                        objectPosition="center"
+                                        className={
+                                            'max-sm:rounded-xl md:opacity-60 ' + 'carousel-torch'
+                                        }
+                                        alt="history"
+                                    />
+                                </SwiperSlide>
+                            ),
+                        )}
                     </Swiper>
                 </div>
             </div>
