@@ -26,7 +26,6 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     const getDetails = async () => {
         let res = await getClusterDetails(id);
         setDetails(res);
-        console.log(res);
     };
     const router = useRouter();
 
