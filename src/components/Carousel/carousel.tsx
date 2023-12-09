@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 'use client';
 import { Keyboard, Navigation } from 'swiper/modules';
 
