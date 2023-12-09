@@ -8,12 +8,33 @@ import MapDrop from '../../assets/images/MapDrop.png';
 import styles from './caro.module.css';
 import { CMS_URL } from '@/config/config';
 import Markdown from 'react-markdown';
+import { EventApi } from '../../../fest-web-client/client/src';
+import { apiConfig } from '@/utils/ApiConfig';
 
 //@ts-ignore
 const SlideData = ({ details }: { details: any }) => {
     const [index, setIndex] = useState(1);
     const [isActive, setIsActive] = useState(1);
     const [data, setData] = useState(details.content[0]);
+    console.log(details);
+    const handleRegister = () => {
+        try {
+            //backend url
+            const authApi = new EventApi(apiConfig);
+            authApi
+                .eventRegister({
+                    event_id: details.id,
+                    team_members: ['TODO'],
+                    tema_name: 'todo',
+                })
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(e => console.log(e));
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     useEffect(() => {
         switch (index) {
@@ -49,11 +70,7 @@ const SlideData = ({ details }: { details: any }) => {
                         {details.name}
                     </div>
                     <Image
-                        src={
-                            details.image
-                                ? 'http://localhost:1337' + details.image?.url
-                                : EventImage
-                        }
+                        src={details.image ? CMS_URL + details.image?.url : EventImage}
                         width={details.image?.width}
                         height={details.image?.height}
                         alt="image about event"
@@ -148,7 +165,10 @@ const SlideData = ({ details }: { details: any }) => {
                         <div
                             className={`flex justify-center w-2/3 h-full p-0 ${styles.registerBlock}`}
                         >
-                            <div className={`flex justify-center ${styles.registerButton}`}></div>
+                            <div
+                                className={`flex justify-center ${styles.registerButton}`}
+                                onClick={() => handleRegister()}
+                            ></div>
                         </div>
                         <div className="flex justify-center align-bottom w-1/4 h-full max-lg:hidden">
                             <div className="font-OrbitronG 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm mt-auto mb-auto">

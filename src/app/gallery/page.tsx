@@ -141,23 +141,35 @@ const History = () => {
                         breakpoints={breakpoints}
                         className="h-[100%] w-[100%]"
                     >
-                        {images.map((data: { url: number }, ind: number) => (
-                            <SwiperSlide
-                                key={ind}
-                                className={`h-[100%] w-[23%] bg-black max-sm:rounded-xl`}
-                            >
-                                <Image
-                                    src={data ? CMS_URL + data.url : virat}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    objectPosition="center"
-                                    className={
-                                        'max-sm:rounded-xl md:opacity-60 ' + 'carousel-torch'
-                                    }
-                                    alt="history"
-                                />
-                            </SwiperSlide>
-                        ))}
+                        {images.map(
+                            (
+                                data: { url: number; eventId: number; eventName: string },
+                                ind: number,
+                            ) => (
+                                <SwiperSlide
+                                    key={ind}
+                                    className={`h-[100%] w-[23%] bg-black max-sm:rounded-xl`}
+                                >
+                                    <Image
+                                        src={data ? CMS_URL + data.url : virat}
+                                        layout="fill"
+                                        onClick={() => {
+                                            router.push(
+                                                `/eventcluster/${data ? data.eventId : 0}/${
+                                                    data ? data.eventName : ''
+                                                }`,
+                                            );
+                                        }}
+                                        objectFit="cover"
+                                        objectPosition="center"
+                                        className={
+                                            'max-sm:rounded-xl md:opacity-60 ' + 'carousel-torch'
+                                        }
+                                        alt="history"
+                                    />
+                                </SwiperSlide>
+                            ),
+                        )}
                     </Swiper>
                 </div>
             </div>

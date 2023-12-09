@@ -11,7 +11,7 @@ import { FormInput } from './input';
 import Link from 'next/link';
 import { useCallback, useState, useContext } from 'react';
 import { UserApi } from '../../../fest-web-client/client/src';
-import { apiConfig, authConfig } from '@/utils/ApiConfig';
+import { authConfig } from '@/utils/ApiConfig';
 import { useRouter } from 'next/navigation';
 import { userContext } from '@/contexts/UserContext';
 import { DAUTH_CLIENT_ID, DAUTH_REDIRECT_URI, API_URL } from '@/config/config';

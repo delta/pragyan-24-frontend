@@ -13,7 +13,7 @@ const events = ({ params }: { params: { event: number; name: string } }) => {
             <p
                 className={`${styles.eventClusterName} font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 transition-all`}
             >
-                {params.name}
+                {params.name.replace('%20', ' ')}
             </p>
             <div className="flex w-full h-[60vh] justify-center items-center">
                 <ClusterCarousel id={params.event} name={params.name} />

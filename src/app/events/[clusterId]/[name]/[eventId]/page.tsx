@@ -14,7 +14,7 @@ const events = ({ params }: { params: { clusterId: number; name: string; eventId
             <p
                 className={`${styles.eventClusterName} font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 transition-all`}
             >
-                {params.name}
+                {params.name.replace('%20', ' ')}
             </p>
             <div className={`mt-12 w-full ${styles.slide}`}>
                 <Carousel id={params.clusterId} eventId={params.eventId} />

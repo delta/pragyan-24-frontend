@@ -53,11 +53,16 @@ export const getGallery = async () => {
     let details: any = [];
     // eslint-disable @typescript-eslint/ban-ts-comment
     //@ts-ignore
-
     detailArray.forEach((data: any) => {
         let detail = data.attributes.gallery;
         let dummy = detail.data[0].attributes;
-        details.push({ url: dummy.url, width: dummy.width, height: dummy.height });
+        details.push({
+            url: dummy.url,
+            width: dummy.width,
+            height: dummy.height,
+            eventId: data.attributes.Event_ID,
+            eventName: data.attributes.Event_Name,
+        });
     });
     return details;
 };

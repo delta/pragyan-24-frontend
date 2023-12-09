@@ -11,7 +11,6 @@ import textBox from '@/assets/images/clusterTextBox.png';
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import MediaQuery from 'react-responsive';
 import { getClusterNames } from '@/utils/events_cms';
 
 const Clusters = () => {
@@ -67,130 +66,127 @@ const Clusters = () => {
                     </p>
                     <Image src={portal} alt="portal" draggable={false} className={styles.portal} />
                 </motion.div>
-                <div className={styles.hourCover}>
-                    <MediaQuery minDeviceWidth={768}>
-                        {position.map((e, ind) => (
+                <div className={styles.hourCover + ' max-md:hidden'}>
+                    {position.map((e, ind) => (
+                        <motion.div
+                            key={ind}
+                            onMouseLeave={onMouseLeave}
+                            onMouseEnter={() => {
+                                onMouseEnter(ind);
+                            }}
+                            transition={{ delay: 0.2 + ind * 0.1 }}
+                            onClick={() => {
+                                const dummy = [...position];
+                                dummy[ind] = { x: '45%', y: '30%', opacity: 0 };
+                                setPositon(dummy);
+                                setTimeout(() => {
+                                    router.push(
+                                        `/eventcluster/${
+                                            details.length > ind ? details[ind].id : 0
+                                        }/${details.length > ind ? details[ind].name : ''}`,
+                                    );
+                                }, 1000);
+                            }}
+                            initial={{ left: '45%', opacity: 0 }}
+                            animate={{ left: e.x, top: e.y, opacity: e.opacity }}
+                            style={{ position: 'absolute' }}
+                            className={styles.cover}
+                        >
                             <motion.div
-                                key={ind}
-                                onMouseLeave={onMouseLeave}
-                                onMouseEnter={() => {
-                                    onMouseEnter(ind);
-                                }}
-                                transition={{ delay: 0.2 + ind * 0.1 }}
-                                onClick={() => {
-                                    const dummy = [...position];
-                                    dummy[ind] = { x: '45%', y: '30%', opacity: 0 };
-                                    setPositon(dummy);
-                                    setTimeout(() => {
-                                        router.push(
-                                            `/eventcluster/${
-                                                details.length > ind ? details[ind].id : 0
-                                            }/${details.length > ind ? details[ind].name : ''}`,
-                                        );
-                                    }, 1000);
-                                }}
-                                initial={{ left: '45%', opacity: 0 }}
-                                animate={{ left: e.x, top: e.y, opacity: e.opacity }}
-                                style={{ position: 'absolute' }}
-                                className={styles.cover}
+                                initial={{ opacity: 0, bottom: '-4rem' }}
+                                animate={{ opacity: 1, bottom: '-3rem' }}
+                                transition={{ delay: 0.7 + ind * 0.1 }}
+                                style={{ position: 'relative' }}
                             >
-                                <motion.div
-                                    initial={{ opacity: 0, bottom: '-4rem' }}
-                                    animate={{ opacity: 1, bottom: '-3rem' }}
-                                    transition={{ delay: 0.7 + ind * 0.1 }}
-                                    style={{ position: 'relative' }}
-                                >
-                                    <Image
-                                        src={textBox}
-                                        alt="textBox"
-                                        draggable={false}
-                                        className={styles.textBox}
-                                    />
-                                    <p className={styles.clusterName}>
-                                        {details.length > ind ? details[ind].name : 'ROBOREX'}
-                                    </p>
-                                </motion.div>
-
-                                {isHovering == ind ? (
-                                    <Image
-                                        src={hourglassYellow}
-                                        alt="portal"
-                                        draggable={false}
-                                        className={styles.hourglass}
-                                    />
-                                ) : (
-                                    <Image
-                                        src={hourglassBlue}
-                                        alt="portal"
-                                        draggable={false}
-                                        className={styles.hourglass}
-                                    />
-                                )}
+                                <Image
+                                    src={textBox}
+                                    alt="textBox"
+                                    draggable={false}
+                                    className={styles.textBox}
+                                />
+                                <p className={styles.clusterName}>
+                                    {details.length > ind ? details[ind].name : 'ROBOREX'}
+                                </p>
                             </motion.div>
-                        ))}
-                    </MediaQuery>
 
-                    <MediaQuery maxDeviceWidth={767}>
-                        {positionMobile.map((e, ind) => (
+                            {isHovering == ind ? (
+                                <Image
+                                    src={hourglassYellow}
+                                    alt="portal"
+                                    draggable={false}
+                                    className={styles.hourglass}
+                                />
+                            ) : (
+                                <Image
+                                    src={hourglassBlue}
+                                    alt="portal"
+                                    draggable={false}
+                                    className={styles.hourglass}
+                                />
+                            )}
+                        </motion.div>
+                    ))}
+                </div>
+                <div className={styles.hourCover + ' md:hidden'}>
+                    {positionMobile.map((e, ind) => (
+                        <motion.div
+                            key={ind}
+                            onMouseLeave={onMouseLeave}
+                            onMouseEnter={() => {
+                                onMouseEnter(ind);
+                            }}
+                            transition={{ delay: 0.2 + ind * 0.1 }}
+                            onClick={() => {
+                                const dummy = [...positionMobile];
+                                dummy[ind] = { x: '45%', y: '30%', opacity: 0 };
+                                setPositonMobile(dummy);
+                                setTimeout(() => {
+                                    router.push(
+                                        `/eventcluster/${
+                                            details.length > ind ? details[ind].id : 0
+                                        }/${details.length > ind ? details[ind].name : ''}`,
+                                    );
+                                }, 1000);
+                            }}
+                            initial={{ left: '45%', opacity: 0 }}
+                            animate={{ left: e.x, top: e.y, opacity: e.opacity }}
+                            style={{ position: 'absolute' }}
+                            className={styles.cover}
+                        >
                             <motion.div
-                                key={ind}
-                                onMouseLeave={onMouseLeave}
-                                onMouseEnter={() => {
-                                    onMouseEnter(ind);
-                                }}
-                                transition={{ delay: 0.2 + ind * 0.1 }}
-                                onClick={() => {
-                                    const dummy = [...positionMobile];
-                                    dummy[ind] = { x: '45%', y: '30%', opacity: 0 };
-                                    setPositonMobile(dummy);
-                                    setTimeout(() => {
-                                        router.push(
-                                            `/eventcluster/${
-                                                details.length > ind ? details[ind].id : 0
-                                            }/${details.length > ind ? details[ind].name : ''}`,
-                                        );
-                                    }, 1000);
-                                }}
-                                initial={{ left: '45%', opacity: 0 }}
-                                animate={{ left: e.x, top: e.y, opacity: e.opacity }}
-                                style={{ position: 'absolute' }}
-                                className={styles.cover}
+                                initial={{ opacity: 0, bottom: '-4rem' }}
+                                animate={{ opacity: 1, bottom: '-3rem' }}
+                                transition={{ delay: 0.7 + ind * 0.1 }}
+                                style={{ position: 'relative' }}
                             >
-                                <motion.div
-                                    initial={{ opacity: 0, bottom: '-4rem' }}
-                                    animate={{ opacity: 1, bottom: '-3rem' }}
-                                    transition={{ delay: 0.7 + ind * 0.1 }}
-                                    style={{ position: 'relative' }}
-                                >
-                                    <Image
-                                        src={textBox}
-                                        alt="textBox"
-                                        draggable={false}
-                                        className={styles.textBox}
-                                    />
-                                    <p className={styles.clusterName}>
-                                        {details.length > ind ? details[ind].name : 'ROBOREX'}
-                                    </p>
-                                </motion.div>
-
-                                {isHovering == ind ? (
-                                    <Image
-                                        src={hourglassYellow}
-                                        alt="portal"
-                                        draggable={false}
-                                        className={styles.hourglass}
-                                    />
-                                ) : (
-                                    <Image
-                                        src={hourglassBlue}
-                                        alt="portal"
-                                        draggable={false}
-                                        className={styles.hourglass}
-                                    />
-                                )}
+                                <Image
+                                    src={textBox}
+                                    alt="textBox"
+                                    draggable={false}
+                                    className={styles.textBox}
+                                />
+                                <p className={styles.clusterName}>
+                                    {details.length > ind ? details[ind].name : 'ROBOREX'}
+                                </p>
                             </motion.div>
-                        ))}
-                    </MediaQuery>
+
+                            {isHovering == ind ? (
+                                <Image
+                                    src={hourglassYellow}
+                                    alt="portal"
+                                    draggable={false}
+                                    className={styles.hourglass}
+                                />
+                            ) : (
+                                <Image
+                                    src={hourglassBlue}
+                                    alt="portal"
+                                    draggable={false}
+                                    className={styles.hourglass}
+                                />
+                            )}
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </div>
