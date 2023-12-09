@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +11,7 @@ import styles from './AuthLayout.module.css';
 // import { userContext } from "../../contexts/UserContext";
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ formType }) => {
-    const [form, setForm] = React.useState<FormType>("SIGN UP");
+    const [form, setForm] = React.useState<FormType>(formType);
     return (
         <div className={styles.authWrapper}>
             <div className={styles.authContainer}>
@@ -34,13 +36,17 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ formType }) => {
                             <div className={styles.formHeaderText}>
                                 SYSTEM{' '}
                                 <span className={styles.formHeaderTextHighLight}>
-                                    {formType === 'LOGIN' ? 'LOGIN' : 'SIGN UP'}
+                                    {form === 'LOGIN' ? 'LOGIN' : 'SIGN UP'}
                                 </span>
                             </div>
                         </div>
                         <div className={styles.formBodyContainer}>
                             <div className={styles.formArea}>
-                                {formType === 'LOGIN' ? <Login></Login> : <SignUp setForm={setForm}></SignUp>}
+                                {form === 'LOGIN' ? (
+                                    <Login setForm={setForm}></Login>
+                                ) : (
+                                    <SignUp setForm={setForm}></SignUp>
+                                )}
                             </div>
                         </div>
                     </div>

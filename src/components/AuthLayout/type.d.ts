@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 interface AuthLayoutProps {
     formType: 'LOGIN' | 'SIGN UP';
 }
@@ -5,7 +7,7 @@ interface AuthLayoutProps {
 type FormType = 'LOGIN' | 'SIGN UP';
 
 interface SignupFormProps {
-	setForm: (form: FormType) => void;
+    setForm: (form: FormType) => void;
 }
 
 interface FormProps {
@@ -15,48 +17,48 @@ interface FormProps {
     wrapperClassName?: string;
     label: string;
     inputType?: string;
-	options?: string[];
-	initialValue?: string;
+    options?: string[];
+    initialValue?: string;
 }
 
 interface LoginFormRequest {
     userEmail: string;
-    userPass: string;
+    userPassword: string;
 }
 
 interface RegisterFormType {
-	user_name: string;
-	user_email: string;
-	user_fullname: string;
-	user_password: string;
-	user_sex: string;
-	user_nationality: string;
-	user_address: string;
-	user_pincode: string;
-	user_state: string;
-	user_phno: string;
-	user_degree: string;
-	user_year: string;
-	user_college: string;
-	user_othercollege?: string;
-	user_city: string;
-	user_sponsor?: string;
-	user_voucher_name?: string;
-	user_referral_code?: string;
-	recaptcha_code?: string;
-	is_app?: number;
+    userName: string;
+    userEmail: string;
+    userFullName: string;
+    userPassword: string;
+    userSex: string;
+    userNationality: string;
+    userAddress: string;
+    userPincode: string;
+    userState: string;
+    userPhno: string;
+    userDegree: string;
+    userYear: string;
+    userCollege: string;
+    userOtherCollege?: string;
+    userCity: string;
+    userSponsor?: string;
+    userVoucherName?: string;
+    userReferralCode?: string;
+    recaptcha_code?: string;
+    is_app?: number;
 }
 
 interface College {
-	id: number;
-	college_name: string;
+    id: number;
+    college_name: string;
 }
 
 interface LoginFormType {
-	user_email: string;
-	user_pass: string;
+    user_email: string;
+    user_pass: string;
 }
 
 interface ReCaptchaState {
-	handleFormFields: (field: string, value: string) => void;
+    handleFormFields: (field: string, value: string) => void;
 }

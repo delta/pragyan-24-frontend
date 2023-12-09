@@ -1,16 +1,151 @@
+/* eslint-disable */
+'use client';
+
 import React from 'react';
 // import Modal from "react-modal";
 import styles from './form.module.css';
+// import DAuthLogin from '@/utils/dauthlogin';
 // import { Recaptcha } from "../../ReCaptcha";
 // import DAuthLogin from "../../DauthLogin/DauthLogin";
 import { FormInput } from './input';
 import Link from 'next/link';
+import { useCallback, useState, useContext } from 'react';
+import { UserApi } from '../../../fest-web-client/client/src';
+import { apiConfig, authConfig } from '@/utils/ApiConfig';
+import { useRouter } from 'next/navigation';
+import { userContext } from '@/contexts/UserContext';
+import { DAUTH_CLIENT_ID, DAUTH_REDIRECT_URI, API_URL } from '@/config/config';
 
-export const Login: React.FC = () => {
+enum AuthStatusEnum {
+    PRE,
+    START,
+    WAITING,
+    ACCEPTED,
+    REJECTED,
+    AUTH,
+    ERROR,
+}
+
+export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
     const [loginForm, setLoginForm] = React.useState<LoginFormRequest>({
         userEmail: '',
-        userPass: '',
+        userPassword: '',
     });
+
+    const isMobile = false;
+
+    const userApi = new UserApi(authConfig);
+    const [authStatus, setAuthStatus] = useState(AuthStatusEnum.PRE);
+    const { setuserID, setIsLoggedIn } = useContext(userContext);
+
+    const router = useRouter();
+
+    const generateDauthAuthorizeUrl = () => {
+        const dauthAuthorizeURL = new URL('https://auth.delta.nitt.edu/authorize');
+
+        const dauthQueryParameters = {
+            client_id: DAUTH_CLIENT_ID,
+            redirect_uri: DAUTH_REDIRECT_URI,
+            response_type: 'code',
+            state: 'code',
+            grant_type: 'authorization_code',
+            scope: 'email+openid+profile+user',
+            nonce: '',
+        };
+
+        const appendQueryParametersToURL = (url: URL, queryParams: Object) => {
+            Object.keys(queryParams).forEach(query => {
+                url.searchParams.append(query, (queryParams as any)[query]);
+            });
+        };
+
+        appendQueryParametersToURL(dauthAuthorizeURL, dauthQueryParameters);
+
+        return dauthAuthorizeURL;
+    };
+
+    const sendAuthCodeToServer = useCallback(async (code: string) => {
+        try {
+            setAuthStatus(AuthStatusEnum.WAITING);
+            //backend url
+            userApi
+                .dAuthUserLogin(code)
+                .then(res => console.log(res))
+                .catch(e => console.log(e));
+        } catch (err) {
+            console.log(err);
+            setAuthStatus(AuthStatusEnum.ERROR);
+        }
+    }, []);
+
+    const handleLogin = useCallback(async () => {
+        try {
+            setAuthStatus(AuthStatusEnum.WAITING);
+            //backend url
+            userApi
+                .authUserLogin(loginForm)
+                .then(res => console.log(res))
+                .catch(e => console.log(e));
+        } catch (err) {
+            console.log(err);
+            setAuthStatus(AuthStatusEnum.ERROR);
+        }
+    }, []);
+
+    const BASE_URL = typeof window !== 'undefined' ? window.location.origin : null;
+
+    const receiveMessage = useCallback(
+        async (event: MessageEvent) => {
+            if (event.origin !== BASE_URL) {
+                return;
+            }
+            const { data } = event;
+            if (data.source === 'dauth-login-callback') {
+                if (!data.code) {
+                    setAuthStatus(AuthStatusEnum.REJECTED);
+                } else {
+                    setAuthStatus(AuthStatusEnum.ACCEPTED);
+                    sendAuthCodeToServer(data.code);
+                }
+            }
+        },
+        [BASE_URL, sendAuthCodeToServer],
+    );
+
+    const [windowObjectReference, setWindowObjectReference] = useState<Window | null>(null);
+    const [previousUrl, setPreviousUrl] = useState<string | null>(null);
+
+    const openSignInWindow = useCallback(
+        (url: string, name: string) => {
+            window.removeEventListener('message', receiveMessage);
+
+            const strWindowFeatures = isMobile
+                ? '_blank'
+                : 'toolbar=no, menubar=no, width=600, height=700, top=100, left=100';
+
+            if (windowObjectReference === null || windowObjectReference.closed) {
+                setWindowObjectReference(window.open(url, name, strWindowFeatures));
+            } else if (previousUrl !== url) {
+                setWindowObjectReference(window.open(url, name, strWindowFeatures));
+                windowObjectReference?.focus();
+            } else {
+                windowObjectReference.focus();
+            }
+            setAuthStatus(AuthStatusEnum.WAITING);
+
+            window.addEventListener('message', receiveMessage, false);
+
+            setPreviousUrl(url);
+        },
+        [previousUrl, receiveMessage, windowObjectReference],
+    );
+
+    const generateDauthStringAndOpenUrl = useCallback(() => {
+        const dauthURL = generateDauthAuthorizeUrl();
+        openSignInWindow(dauthURL.toString(), 'dauthURL');
+        setAuthStatus(AuthStatusEnum.START);
+    }, [openSignInWindow]);
+
     // const [modalIsOpen, setIsOpen] = React.useState(false);
     // const [forgotPasswordEmail, setForgotPasswordEmail] = React.useState("");
     // const [forgotPasswordRecaptcha, setForgotPasswordRecaptcha] =
@@ -54,32 +189,10 @@ export const Login: React.FC = () => {
     // };
 
     const handleFormSubmit = () => {
-        if (!loginForm.userPass)
-            // TODO:customErrorToast("Please enter your password");
-            ``;
+        console.log(loginForm.userPassword);
+        if (!loginForm.userPassword) console.log('Please enter your password');
         else {
-            // fetch(`${BACKEND_URL}/auth/web`, {
-            // 	method: "POST",
-            // 	credentials: "include",
-            // 	headers: {
-            // 		"Content-Type": "application/json",
-            // 	},
-            // 	body: JSON.stringify(loginForm),
-            // })
-            // 	.then((res) => res.json())
-            // 	.then((data) => {
-            // 		if (data.status_code === 200) {
-            // 			setIsLoggedIn(true);
-            // 			setuserID(data.message.user_id);
-            // 			customSuccessToast("Successfully logged in :)");
-            // 			router.push("/");
-            // 		} else customErrorToast(data.message);
-            // 	})
-            // 	.catch(() =>
-            // 		customErrorToast(
-            // 			"There was a problem logging you in :( Check your credentials and try again."
-            // 		)
-            // 	);
+            handleLogin();
         }
     };
 
@@ -101,7 +214,7 @@ export const Login: React.FC = () => {
                         name="email"
                         inputType="email"
                         onChange={e => {
-                            handleFormChange('user_email', e.target.value);
+                            handleFormChange('userEmail', e.target.value);
                         }}
                     />
                     <FormInput
@@ -109,7 +222,7 @@ export const Login: React.FC = () => {
                         name="password"
                         inputType="password"
                         onChange={e => {
-                            handleFormChange('user_pass', e.target.value);
+                            handleFormChange('userPassword', e.target.value);
                         }}
                     />
                 </div>
@@ -122,14 +235,22 @@ export const Login: React.FC = () => {
                     </div>
                     <div>
                         <span className={styles.newHere}>New Here?</span>
-                        <Link href="/signup" className={styles.authRedirect}>
+                        <div
+                            className={styles.authRedirect}
+                            onClick={() => {
+                                setForm('SIGN UP');
+                            }}
+                        >
                             Sign Up
-                        </Link>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.formFieldSubmitContainer}>
                     <div className={styles.buttonContainer}>
-                        <button className={styles.submitButton} onClick={handleFormSubmit}>
+                        <button
+                            className={styles.submitButton}
+                            onClick={() => generateDauthStringAndOpenUrl()}
+                        >
                             Login with DAuth
                         </button>
                         <button className={styles.submitButton} onClick={handleFormSubmit}>
