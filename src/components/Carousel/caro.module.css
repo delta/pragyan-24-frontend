@@ -139,9 +139,9 @@
     transition: 0.2s;
 }
 
-.mainSlide::-webkit-scrollbar {
+.content::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .tabs{
     height: 50%;

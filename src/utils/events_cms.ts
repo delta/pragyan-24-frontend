@@ -24,6 +24,7 @@ export const getClusterDetails = async (id: number) => {
             location: content.location,
             name: content.name,
             price: content.price_money,
+            id: content.id,
             image: content.Image.data?.attributes,
         });
     });
@@ -42,5 +43,21 @@ export const getClusterNames = async () => {
         details.push({ name: detail.Cluster_Name, id: data.id });
     });
 
+    return details;
+};
+
+export const getGallery = async () => {
+    let res = await axios.get(`${CMS_URL}/api/galleries?populate=*`);
+    let detailArray = res.data.data;
+    //@ts-ignore
+    let details: any = [];
+    // eslint-disable @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes.gallery;
+        let dummy = detail.data[0].attributes;
+        details.push({ url: dummy.url, width: dummy.width, height: dummy.height });
+    });
     return details;
 };

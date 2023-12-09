@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 'use client';
 import { Keyboard, Navigation } from 'swiper/modules';
 
@@ -14,12 +16,17 @@ import { useEffect, useState } from 'react';
 
 SwiperCore.use([Navigation, Keyboard]);
 
-const Carousel = ({ id }: { id: number }) => {
+const Carousel = ({ id, eventId }: { id: number; eventId: number }) => {
     const [details, setDetails] = useState([]);
-
+    const [initialSlide, setInitialSlide] = useState(0);
     const getDetails = async () => {
         const res = await getClusterDetails(id);
         setDetails(res);
+        res.forEach((data, ind) => {
+            if (data.ind == eventId) {
+                setInitialSlide(ind);
+            }
+        });
     };
 
     useEffect(() => {
@@ -34,6 +41,7 @@ const Carousel = ({ id }: { id: number }) => {
                 nextEl: `.${styles.rightArrow}`,
                 prevEl: `.${styles.leftArrow}`,
             }}
+            initialSlide={initialSlide}
             keyboard={{ enabled: true }}
             className="w-full h-full flex justify-center"
         >

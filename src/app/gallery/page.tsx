@@ -9,11 +9,23 @@ import 'swiper/css/bundle';
 import { NavBar, SideBar } from '@/components';
 import Image from 'next/image';
 import virat from '../../assets/images/virat.jpg';
-import { WheelEvent, TouchEvent, useState, useRef } from 'react';
+import { WheelEvent, TouchEvent, useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { getGallery } from '@/utils/events_cms';
+import { CMS_URL } from '@/config/config';
 
 const History = () => {
-    const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const [images, setImages] = useState([]);
+
+    const getImages = async () => {
+        const res = await getGallery();
+        setImages(res);
+    };
+
+    useEffect(() => {
+        getImages();
+    }, []);
+
     const breakpoints = {
         100: {
             slidesPerView: 1,
@@ -129,13 +141,13 @@ const History = () => {
                         breakpoints={breakpoints}
                         className="h-[100%] w-[100%]"
                     >
-                        {slides.map(slide => (
+                        {images.map((data: { url: number }, ind: number) => (
                             <SwiperSlide
-                                key={slide}
+                                key={ind}
                                 className={`h-[100%] w-[23%] bg-black max-sm:rounded-xl`}
                             >
                                 <Image
-                                    src={virat}
+                                    src={data ? CMS_URL + data.url : virat}
                                     layout="fill"
                                     objectFit="cover"
                                     objectPosition="center"

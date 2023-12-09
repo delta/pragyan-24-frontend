@@ -4,9 +4,9 @@ import Back from '@/assets/images/Back.png';
 import BackEnlarge from '@/assets/images/BackEnlarge.png';
 import ImageChanger from '@/components/BackButton/back';
 import Carousel from '@/components/Carousel/carousel';
-import styles from '../../carousel.module.css';
+import styles from '../../../carousel.module.css';
 
-const events = ({ params }: { params: { event: number; name: string } }) => {
+const events = ({ params }: { params: { clusterId: number; name: string; eventId: number } }) => {
     return (
         <div className={`min-h-screen w-full text-center lg:p-7 p-5 event + ${styles.event}`}>
             <NavBar />
@@ -17,7 +17,7 @@ const events = ({ params }: { params: { event: number; name: string } }) => {
                 {params.name}
             </p>
             <div className={`mt-12 w-full ${styles.slide}`}>
-                <Carousel id={params.event} />
+                <Carousel id={params.clusterId} eventId={params.eventId} />
             </div>
         </div>
     );

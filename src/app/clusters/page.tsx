@@ -83,7 +83,7 @@ const Clusters = () => {
                                     setPositon(dummy);
                                     setTimeout(() => {
                                         router.push(
-                                            `/events/${
+                                            `/eventcluster/${
                                                 details.length > ind ? details[ind].id : 0
                                             }/${details.length > ind ? details[ind].name : ''}`,
                                         );
@@ -145,7 +145,7 @@ const Clusters = () => {
                                     setPositonMobile(dummy);
                                     setTimeout(() => {
                                         router.push(
-                                            `/events/${
+                                            `/eventcluster/${
                                                 details.length > ind ? details[ind].id : 0
                                             }/${details.length > ind ? details[ind].name : ''}`,
                                         );
