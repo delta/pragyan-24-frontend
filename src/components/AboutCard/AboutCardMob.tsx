@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './AboutCard.module.css';
 import AboutContent from './AboutContent.json';
 
-const AboutCardMob = () => {
+const AboutCardMob: React.FC<AboutCardProps> = ({ cardRef }) => {
     const content: string = AboutContent.content;
     const content2: string = AboutContent.content2;
     return (
@@ -12,6 +12,7 @@ const AboutCardMob = () => {
                 ' ' +
                 'md:hidden flex justify-center items-center p-4 py-10 text-center AboutCardContent z-0'
             }
+            ref={cardRef}
         >
             <div className={styles.topLeft + ' ' + styles.edge}></div>
             <div className={styles.topRight + ' ' + styles.edge}></div>

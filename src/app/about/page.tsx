@@ -4,15 +4,16 @@ import Image from 'next/image';
 import bigmascot from '../../assets/images/bigmascot.png';
 import { motion } from 'framer-motion';
 import { AboutCard, AboutCardMob, NavBar, SideBar } from '@/components';
-import { WheelEvent, TouchEvent, useState, useEffect } from 'react';
+import { WheelEvent, TouchEvent, useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 const About = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [scrollAllowed, setScrollAllowed] = useState<boolean>(true);
+    const contentCard = useRef<HTMLDivElement>(null);
     const router = useRouter();
     const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
-        if (!isScrolled) {
+        if (!isScrolled && !contentCard.current?.contains(event.target as Node)) {
             event.stopPropagation();
             if (event.deltaY > 0) {
                 setTimeout(() => {
@@ -31,7 +32,6 @@ const About = () => {
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
     const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
-        console.log('hello');
         setTouchEnd(null);
         setTouchStart(event.targetTouches[0].clientY);
     };
@@ -40,8 +40,12 @@ const About = () => {
         setTouchEnd(event.targetTouches[0].clientY);
     };
 
-    const handleTouchEnd = () => {
-        if (touchStart === null || touchEnd === null) {
+    const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+        if (
+            touchStart === null ||
+            touchEnd === null ||
+            contentCard.current?.contains(event.target as Node)
+        ) {
             return;
         }
         const distance = touchStart - touchEnd;
@@ -92,8 +96,8 @@ const About = () => {
                 <div className="font-ROG xl:text-8xl lg:text-7xl md:text-6xl sm:text-4xl text-2xl">
                     ABOUT US
                 </div>
-                <AboutCard />
-                <AboutCardMob />
+                <AboutCard cardRef={contentCard} />
+                <AboutCardMob cardRef={contentCard} />
             </div>
             <SideBar number={'02'} content={'The Present'} />
         </div>

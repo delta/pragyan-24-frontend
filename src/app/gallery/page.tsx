@@ -37,6 +37,7 @@ const History = () => {
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
     const shadowRef = useRef<HTMLDivElement>(null);
+    const carouselRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
     const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
         if (!isScrolled) {
@@ -74,8 +75,12 @@ const History = () => {
         shadowRef.current.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
     };
 
-    const handleTouchEnd = () => {
-        if (touchStart === null || touchEnd === null) {
+    const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+        if (
+            touchStart === null ||
+            touchEnd === null ||
+            carouselRef.current?.contains(event.target as Node)
+        ) {
             return;
         }
         const distance = touchStart - touchEnd;
@@ -109,6 +114,7 @@ const History = () => {
             <div className="flex w-[100%] h-[50%] items-center justify-center">
                 <div
                     className={`h-[100%] w-[75%] flex items-center justify-center ${styles.carousel}`}
+                    ref={carouselRef}
                 >
                     <Swiper
                         modules={[Autoplay, Pagination, Navigation]}
