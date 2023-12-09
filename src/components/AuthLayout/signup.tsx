@@ -16,18 +16,18 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
     const [colleges, setColleges] = React.useState<College[]>([]);
     const [confirmPassword, setConfirmPassword] = React.useState<string>('');
     const [registerForm, setRegisterForm] = React.useState<RegisterFormType>({
-        userName: '',
+        userName: 'username',
         userEmail: '',
         userFullName: '',
         userPassword: '',
-        userSex: 'Male',
+        userSex: 'MALE',
         userNationality: '',
         userAddress: '',
         userPincode: '',
         userState: '',
         userPhno: '',
         userDegree: 'BTech',
-        userYear: '1st Year',
+        userYear: 2020,
         userCollege: 'NIT TRICHY',
         userOtherCollege: '',
         userCity: '',
@@ -74,9 +74,22 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
         console.log('submitting');
         userApi
             .authUserRegister({
-                userName: registerForm.userName,
-                userPassword: registerForm.userPassword,
-                userEmail: registerForm.userEmail,
+                user_name: registerForm.userName,
+                user_othercollege: registerForm.userCollege,
+                user_referral_code: registerForm.userReferralCode,
+                user_password: registerForm.userPassword,
+                user_email: registerForm.userEmail,
+                user_fullname: registerForm.userFullName,
+                user_sex: registerForm.userSex,
+                user_nationality: registerForm.userNationality,
+                user_address: registerForm.userAddress,
+                user_pincode: registerForm.userPincode,
+                user_state: registerForm.userState,
+                user_city: registerForm.userCity,
+                user_phone: registerForm.userPhno,
+                user_degree: registerForm.userDegree,
+                user_year: registerForm.userYear,
+                user_college: registerForm.userCollege,
             })
             .then(res => console.log(res))
             .catch(e => console.log(e));
@@ -261,7 +274,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                         <FormSelect
                             label="GENDER *"
                             initialValue={registerForm.userSex}
-                            options={['Male', 'Female', 'Other']}
+                            options={['MALE', 'FEMALE', 'OTHER']}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
                                 handleFormFields('userSex', e.target.value);

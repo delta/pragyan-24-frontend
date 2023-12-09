@@ -1,8 +1,8 @@
 import React from 'react';
 import AboutContent from './AboutContent.json';
 
-const AboutCard: React.FC<AboutCardProps> = ({ cardRef }) => {
-    const content = AboutContent.content;
+const AboutCard = () => {
+    const content = AboutContent.content + AboutContent.content2;
     return (
         <div
             ref={cardRef}

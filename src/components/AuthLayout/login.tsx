@@ -68,7 +68,8 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
         try {
             setAuthStatus(AuthStatusEnum.WAITING);
             //backend url
-            userApi
+            const authApi = new UserApi(authConfig);
+            authApi
                 .dAuthUserLogin(code)
                 .then(res => console.log(res))
                 .catch(e => console.log(e));
@@ -78,19 +79,27 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
         }
     }, []);
 
-    const handleLogin = useCallback(async () => {
+    const handleLogin = useCallback(() => {
         try {
             setAuthStatus(AuthStatusEnum.WAITING);
             //backend url
-            userApi
-                .authUserLogin(loginForm)
-                .then(res => console.log(res))
+            console.log(loginForm);
+
+            const authApi = new UserApi(authConfig);
+            authApi
+                .authUserLogin({
+                    user_email: loginForm.userEmail,
+                    user_password: loginForm.userPassword,
+                })
+                .then(res => {
+                    console.log('successfully logged In');
+                })
                 .catch(e => console.log(e));
         } catch (err) {
             console.log(err);
             setAuthStatus(AuthStatusEnum.ERROR);
         }
-    }, []);
+    }, [loginForm]);
 
     const BASE_URL = typeof window !== 'undefined' ? window.location.origin : null;
 
@@ -226,6 +235,8 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
                         }}
                     />
                 </div>
+                {loginForm.userEmail}
+                {loginForm.userPassword}
                 <div className={styles.formFieldExtras}>
                     <div
                         className={styles.forgotPassword}

@@ -38,7 +38,7 @@ interface RegisterFormType {
     userState: string;
     userPhno: string;
     userDegree: string;
-    userYear: string;
+    userYear: number;
     userCollege: string;
     userOtherCollege?: string;
     userCity: string;
