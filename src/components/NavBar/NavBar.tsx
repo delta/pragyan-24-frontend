@@ -35,7 +35,9 @@ const NavBar = () => {
     const [isOpened, setIsOpened] = useState(false);
     const [authButton, setAuthButton] = useState<JSX.Element>(<LoginButton />);
     const [mobileAuthButton, setMobileAuthButton] = useState<JSX.Element>(
-        <LoginButtonMobile text="LOGIN" />,
+        <Link href="/login">
+            <LoginButtonMobile text="LOGIN" />
+        </Link>,
     );
 
     useEffect(() => {
@@ -54,7 +56,11 @@ const NavBar = () => {
                 );
             } else {
                 setAuthButton(<LoginButton />);
-                setMobileAuthButton(<LoginButtonMobile text="LOGIN" />);
+                setMobileAuthButton(
+                    <Link href="/login">
+                        <LoginButtonMobile text="LOGIN" />
+                    </Link>,
+                );
             }
         }
     }, []);

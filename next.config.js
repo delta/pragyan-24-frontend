@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '',
-  images: {
-    domains: ['localhost'],
-  },
+    trailingSlash: true,
+    basePath: '',
+    assetPrefix: '',
+    images: {
+        domains: ['localhost', 'pragyan.org'],
+    },
 };
 
 export default nextConfig;
