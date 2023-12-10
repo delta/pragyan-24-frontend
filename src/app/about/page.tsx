@@ -11,9 +11,10 @@ const About = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [scrollAllowed, setScrollAllowed] = useState<boolean>(true);
     const contentCard = useRef<HTMLDivElement>(null);
+    const contentCardDesktop = useRef<HTMLParagraphElement>(null);
     const router = useRouter();
     const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
-        if (!isScrolled && !contentCard.current?.contains(event.target as Node)) {
+        if (!isScrolled && !contentCardDesktop.current?.contains(event.target as Node)) {
             event.stopPropagation();
             if (event.deltaY > 0) {
                 setTimeout(() => {
@@ -96,7 +97,7 @@ const About = () => {
                 <div className="font-ROG xl:text-8xl lg:text-7xl md:text-6xl sm:text-4xl text-2xl">
                     ABOUT US
                 </div>
-                <AboutCard cardRef={contentCard} />
+                <AboutCard cardRef={contentCardDesktop} />
                 <AboutCardMob cardRef={contentCard} />
             </div>
             <SideBar number={'02'} content={'The Present'} />

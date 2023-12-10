@@ -1,5 +1,5 @@
-/* eslint-disable */
-
+/* eslint-disable camelcase */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -12,17 +12,17 @@ import { EventApi } from '../../../fest-web-client/client/src';
 import { apiConfig } from '@/utils/ApiConfig';
 
 //@ts-ignore
-const SlideData = ({ details }: { details: any }) => {
+const SlideData: React.FC<SlideDataProps> = ({ details }) => {
     const [index, setIndex] = useState(1);
     const [isActive, setIsActive] = useState(1);
     const [data, setData] = useState(details.content[0]);
-    console.log(details);
     const handleRegister = () => {
         try {
             //backend url
             const authApi = new EventApi(apiConfig);
             authApi
                 .eventRegister({
+                    // @ts-ignore-next-line
                     event_id: details.id,
                     team_members: ['TODO'],
                     tema_name: 'todo',
@@ -55,7 +55,7 @@ const SlideData = ({ details }: { details: any }) => {
                 setIsActive(4);
                 break;
         }
-    }, [index]);
+    }, [index, details.content]);
 
     return (
         <div className={`${styles.slideElem} flex justify-center align-middle`}>

@@ -1,15 +1,64 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import pragyanlogo from '../../assets/images/main-logo.png';
 import pragyanlogomobile from '../../assets/images/main-logo-mobile.png';
 import hamburgerIcon from '../../assets/images/hamburgerMenu.svg';
-import LoginButton from '../LoginButton/LoginButton';
+import LoginButtonMobile from '../MobileAuthButton/LoginButton';
 import Link from 'next/link';
 import Menu from '@/components/Menu/Menu';
+import styles from './navbar.module.css';
 
 const NavBar = () => {
+    const LoginButton = () => {
+        return (
+            <Link href="/login" className={`${styles.navLink} max-lg:hidden`}>
+                LOGIN
+            </Link>
+        );
+    };
+
+    const LogoutButton = () => {
+        return (
+            <div
+                className={`${styles.navLink} max-lg:hidden`}
+                onClick={() => {
+                    localStorage.removeItem('token');
+                    window.location.reload();
+                }}
+            >
+                LOGOUT
+            </div>
+        );
+    };
+
     const [isOpened, setIsOpened] = useState(false);
+    const [authButton, setAuthButton] = useState<JSX.Element>(<LoginButton />);
+    const [mobileAuthButton, setMobileAuthButton] = useState<JSX.Element>(
+        <LoginButtonMobile text="LOGIN" />,
+    );
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const token = localStorage.getItem('token');
+            if (token) {
+                setAuthButton(<LogoutButton />);
+                setMobileAuthButton(
+                    <LoginButtonMobile
+                        text="LOGOUT"
+                        onClick={() => {
+                            localStorage.removeItem('token');
+                            window.location.reload();
+                        }}
+                    />,
+                );
+            } else {
+                setAuthButton(<LoginButton />);
+                setMobileAuthButton(<LoginButtonMobile text="LOGIN" />);
+            }
+        }
+    }, []);
+
     return (
         <div className="w-full flex h-14 box-border px-5 lg:px-7 z-10">
             <Menu isOpened={isOpened} setIsOpened={setIsOpened} />
@@ -30,19 +79,18 @@ const NavBar = () => {
                 </Link>
             </div>
             <div className="flex basis-1/2 lg:justify-between justify-end items-center pl-16 lg:pr-7 max-lg:gap-5 font-Orbitron xl:text-xl lg:text-lg text-sm">
-                <Link href="/home" className="max-lg:hidden">
-                    HOME
+                <Link href="/clusters" className={`${styles.navLink} max-lg:hidden`}>
+                    EVENTS
                 </Link>
-                <Link href="/contact" className="max-lg:hidden">
-                    CONTACT US
+                <Link href="/about" className={`${styles.navLink} max-lg:hidden`}>
+                    ABOUT
                 </Link>
-                <Link href="/faqs" className="max-lg:hidden">
+                {/* <Link href="/faqs" className="max-lg:hidden">
                     FAQs
-                </Link>
-                <Link href="/login" className="max-lg:hidden">
-                    LOGIN
-                </Link>
-                <LoginButton />
+                </Link> */}
+
+                {authButton}
+                {mobileAuthButton}
                 <Image
                     src={hamburgerIcon}
                     alt="Hamburger Icon"

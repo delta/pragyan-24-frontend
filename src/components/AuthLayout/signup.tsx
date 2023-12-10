@@ -74,6 +74,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
         console.log('submitting');
         userApi
             .authUserRegister({
+                // @ts-ignore-next-line
                 user_name: registerForm.userName,
                 user_othercollege: registerForm.userCollege,
                 user_referral_code: registerForm.userReferralCode,

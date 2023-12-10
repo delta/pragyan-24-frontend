@@ -20,8 +20,8 @@ export const apiConfig = new Configuration({
                 const headers = context.init.headers;
                 context.init.headers = {
                     ...headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
                 };
-                context.init.credentials = 'include';
                 return context;
             },
             post: async context => {
@@ -29,7 +29,6 @@ export const apiConfig = new Configuration({
                 if (statusCode === 401 || statusCode === 403) {
                     localStorage.removeItem('token');
                     window.location.href = `${HOME_URL}/login`;
-                    window.history.forward();
                     window.location.reload();
                 }
                 if (statusCode >= 400) {

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Login } from './login';
 import { SignUp } from './signup';
 import Arrow from '../../assets/images/arrow_back_auth.svg';
-import PragyanLogo from '../../assets/images/main-logo-22-white.svg';
+import PragyanLogo from '../../assets/images/main-logo.png';
 import styles from './AuthLayout.module.css';
 // import { userContext } from "../../contexts/UserContext";
 
@@ -16,7 +16,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ formType }) => {
         <div className={styles.authWrapper}>
             <div className={styles.authContainer}>
                 <div className={styles.authHeader}>
-                    <Link className={styles.homeNavLink} href="/">
+                    <Link className={styles.homeNavLink} href="/home">
                         <Image src={Arrow} alt="Arrow Left" width={20} height={20} />
                         <span className={styles.homeNavLinkText}>Home</span>
                     </Link>

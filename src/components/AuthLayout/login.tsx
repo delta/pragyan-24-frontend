@@ -82,12 +82,10 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
     const handleLogin = useCallback(() => {
         try {
             setAuthStatus(AuthStatusEnum.WAITING);
-            //backend url
-            console.log(loginForm);
-
             const authApi = new UserApi(authConfig);
             authApi
                 .authUserLogin({
+                    // @ts-ignore-next-line
                     user_email: loginForm.userEmail,
                     user_password: loginForm.userPassword,
                 })

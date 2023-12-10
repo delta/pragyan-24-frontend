@@ -20,7 +20,7 @@ const ImageChanger = (props: ImageChangerProps) => {
             alt="Back to cluster"
             className={`${styles.Back} xl:w-52 lg:w-44 md:w-32 sm:w-24 w-16 absolute left-28 top-32 max-md:hidden`}
             onClick={() => {
-                router.back();
+                router.push('/clusters');
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
