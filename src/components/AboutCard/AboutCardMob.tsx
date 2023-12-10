@@ -4,7 +4,6 @@ import AboutContent from './AboutContent.json';
 
 const AboutCardMob: React.FC<AboutCardProps> = ({ cardRef }) => {
     const content: string = AboutContent.content;
-    const content2: string = AboutContent.content2;
     return (
         <div
             className={
@@ -19,7 +18,7 @@ const AboutCardMob: React.FC<AboutCardProps> = ({ cardRef }) => {
             <div className={styles.bottomLeft + ' ' + styles.edge}></div>
             <div className={styles.bottomRight + ' ' + styles.edge}></div>
             <div className={styles.content + ' ' + 'w-full h-full p-3 overflow-y-scroll relative'}>
-                {content} + {content2}
+                {content}
             </div>
         </div>
     );
