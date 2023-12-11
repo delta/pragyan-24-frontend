@@ -95,6 +95,7 @@ body {
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
@@ -112,6 +113,7 @@ body {
     from {
         background-color: initial;
     }
+
     to {
         background-color: #000;
     }
@@ -128,6 +130,7 @@ body {
     0% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
@@ -158,6 +161,7 @@ body {
         background-position: center;
         background-repeat: no-repeat;
     }
+
     .AboutCard {
         background: url('../assets/images/aboutCardMOB.png');
         background-repeat: no-repeat;
@@ -173,9 +177,11 @@ body {
 .rings {
     animation: rings 0.7s;
 }
+
 .rings2 {
     animation: rings2 0.7s;
 }
+
 .fullrings {
     animation: fullrings 0.7s;
 }
@@ -184,6 +190,7 @@ body {
     0% {
         opacity: 0.6;
     }
+
     100% {
         opacity: 1;
     }
@@ -193,6 +200,7 @@ body {
     0% {
         transform: translateY(-30vh);
     }
+
     90% {
         transform: translateY(20vh);
     }
@@ -212,9 +220,11 @@ body {
     0% {
         opacity: 0;
     }
+
     90% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -225,13 +235,16 @@ body {
         mask-image: radial-gradient(circle, #000 90%, transparent 90%);
         mask-position: 0% 0%;
     }
+
     80% {
         mask-position: 0% 800px;
     }
+
     81% {
         mask-image: none;
         opacity: 0.4;
     }
+
     100% {
         opacity: 1;
     }
@@ -273,4 +286,8 @@ body {
     .about {
         min-height: max(100vh, 860px);
     }
+}
+
+.markdown > * {
+    all: revert;
 }
