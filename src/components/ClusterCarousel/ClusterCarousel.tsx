@@ -121,10 +121,7 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
                                     height={Math.min(data.image?.height, 100)}
                                     objectPosition="center"
                                     objectFit="contain"
-                                    style={{
-                                        height: Math.min(data.image?.height, 400).toString() + 'px',
-                                    }}
-                                    className={'rounded-lg'}
+                                    className={`rounded-lg lg:max-h[20vh] lg:max-w-[20vw]`}
                                     alt="cluster"
                                     onClick={() => {
                                         router.push(`/events/${id}/${name}/${data.id}`);

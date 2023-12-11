@@ -18,7 +18,7 @@ const FooterItem = ({ link, imageSrc }: { link: string; imageSrc: string }) => {
     );
 };
 
-const images = [
+const socialLinks = [
     {
         src: twitter,
         link: 'https://twitter.com/nitt_pragyan',
@@ -44,7 +44,7 @@ const images = [
 const Social = () => {
     return (
         <div className="flex justify-around items-center">
-            {images.map((image, index) => (
+            {socialLinks.map((image, index) => (
                 <FooterItem key={index} link={image.link} imageSrc={image.src} />
             ))}
         </div>
