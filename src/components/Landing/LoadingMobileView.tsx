@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import offLight from '@/assets/images/OffLight.svg';
 import onlight from '@/assets/images/OnLight.svg';
-import greenbutton from '@/assets/images/PressButton.svg';
+import greenbutton from '@/assets/images/PressButton.png';
 
 const LoadingMobileView = ({
     month,

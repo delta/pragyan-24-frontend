@@ -196,7 +196,6 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
     // };
 
     const handleFormSubmit = () => {
-        console.log(loginForm.userPassword);
         if (!loginForm.userPassword) console.log('Please enter your password');
         else {
             handleLogin();

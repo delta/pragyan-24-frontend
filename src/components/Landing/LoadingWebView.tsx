@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import offLight from '@/assets/images/OffLight.svg';
 import onlight from '@/assets/images/OnLight.svg';
-import greenbutton from '@/assets/images/PressButton.svg';
+import greenbutton from '@/assets/images/PressButton.png';
 
 const LoadingWebView = ({
     month,
@@ -46,7 +46,7 @@ const LoadingWebView = ({
                             {isButtonClicked ? `????????????` : 'READY TO TRAVEL?'}
                         </div>
                     </div>
-                    <div className=" w-[80%] h-[27%] loadingdivs flex justify-end relative ml-[5%] items-start xl:pt-[1%]">
+                    <div className=" w-[70%] h-[27%] loadingdivs flex justify-end relative ml-[5%] items-start pb-[5%] xl:pb-[0] xl:pt-[1%]">
                         <Image
                             src={greenbutton}
                             onClick={() => {
@@ -56,7 +56,7 @@ const LoadingWebView = ({
                             }}
                             alt="button"
                             className={
-                                ' h-[30%] xl:h-[50%] w-[20%] hover:cursor-pointer ' +
+                                ' h-[35%] xl:h-[40%] w-[12%] hover:cursor-pointer ' +
                                 (isButtonClicked ? ' ' : 'greenbutton')
                             }
                         />

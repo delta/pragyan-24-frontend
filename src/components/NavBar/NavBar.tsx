@@ -9,7 +9,11 @@ import Link from 'next/link';
 import Menu from '@/components/Menu/Menu';
 import styles from './navbar.module.css';
 
-const NavBar = () => {
+interface NavBarProps {
+    NavRef?: React.RefObject<HTMLDivElement>;
+}
+
+const NavBar = ({ NavRef }: NavBarProps) => {
     const LoginButton = () => {
         return (
             <Link href="/login" className={`${styles.navLink} max-lg:hidden`}>
@@ -66,7 +70,7 @@ const NavBar = () => {
     }, []);
 
     return (
-        <div className="w-full flex h-14 box-border px-5 lg:px-7 z-10">
+        <div className="w-full flex h-14 box-border px-5 lg:px-7 z-10" ref={NavRef}>
             <Menu isOpened={isOpened} setIsOpened={setIsOpened} />
             <div className="flex basis-1/2 justify-start items-center lg:px-5">
                 <Link href="/home">

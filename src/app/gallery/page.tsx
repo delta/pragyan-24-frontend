@@ -48,11 +48,12 @@ const History = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const navBarRef = useRef<HTMLDivElement>(null);
     const shadowRef = useRef<HTMLDivElement>(null);
     const carouselRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
     const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
-        if (!isScrolled) {
+        if (!isScrolled && !navBarRef.current?.contains(event.target as Node)) {
             event.stopPropagation();
             if (event.deltaY < 0) {
                 setTimeout(() => {
@@ -91,7 +92,8 @@ const History = () => {
         if (
             touchStart === null ||
             touchEnd === null ||
-            carouselRef.current?.contains(event.target as Node)
+            carouselRef.current?.contains(event.target as Node) ||
+            navBarRef.current?.contains(event.target as Node)
         ) {
             return;
         }
@@ -121,7 +123,7 @@ const History = () => {
         >
             <div className={styles.torch} ref={shadowRef}></div>
             <div className="absolute top-0 w-full p-5">
-                <NavBar />
+                <NavBar NavRef={navBarRef} />
             </div>
             <div className="flex w-[100%] h-[50%] items-center justify-center">
                 <div

@@ -93,7 +93,7 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                 <div className={`${styles.mainSlide} flex justify-center flex-col align-middle`}>
                     <div className={`flex justify-center w-full h-5/6 ${styles.slideInfo}`}>
                         <div
-                            className={`flex justify-center items-center flex-col w-1/3 h-full p-7 max-lg:hidden ${styles.slideIntro}`}
+                            className={`flex justify-center items-center flex-col w-1/3 h-full p-7 gap-5 max-lg:hidden ${styles.slideIntro}`}
                         >
                             <div className="font-ROG 2xl:text-2xl xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs h-1/6 transition-all">
                                 {details.name}
@@ -103,7 +103,7 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                                 width={details.image?.width}
                                 height={details.image?.height}
                                 alt="image about event"
-                                className="h-5/6 w-full rounded-xl"
+                                className="h-[75%] w-full rounded-xl"
                             />
                         </div>
                         <div
