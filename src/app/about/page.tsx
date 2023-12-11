@@ -11,10 +11,15 @@ const About = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [scrollAllowed, setScrollAllowed] = useState<boolean>(true);
     const contentCard = useRef<HTMLDivElement>(null);
+    const navBarRef = useRef<HTMLDivElement>(null);
     const contentCardDesktop = useRef<HTMLParagraphElement>(null);
     const router = useRouter();
     const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
-        if (!isScrolled && !contentCardDesktop.current?.contains(event.target as Node)) {
+        if (
+            !isScrolled &&
+            !contentCardDesktop.current?.contains(event.target as Node) &&
+            !navBarRef.current?.contains(event.target as Node)
+        ) {
             event.stopPropagation();
             if (event.deltaY > 0) {
                 setTimeout(() => {
@@ -45,7 +50,8 @@ const About = () => {
         if (
             touchStart === null ||
             touchEnd === null ||
-            contentCard.current?.contains(event.target as Node)
+            contentCard.current?.contains(event.target as Node) ||
+            navBarRef.current?.contains(event.target as Node)
         ) {
             return;
         }
@@ -82,7 +88,7 @@ const About = () => {
             onTouchEnd={scrollAllowed ? handleTouchEnd : undefined}
         >
             {/* <div className="flex w-full relative z-10"> */}
-            <NavBar />
+            <NavBar NavRef={navBarRef} />
             {/* </div> */}
             <motion.div
                 z-index={-1}

@@ -71,7 +71,6 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
         //     // customErrorToast("Please verify that you are not a robot");
         //     return;
         // }
-        console.log('submitting');
         userApi
             .authUserRegister({
                 // @ts-ignore-next-line

@@ -6,13 +6,13 @@ import rings from '@/assets/images/rings.svg';
 import { NavBar, SideBar } from '@/components';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { WheelEvent, TouchEvent, useState } from 'react';
+import { WheelEvent, TouchEvent, useState, useRef } from 'react';
 
 export default function Home() {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const router = useRouter();
     const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
-        if (!isScrolled) {
+        if (!isScrolled && !navBarRef.current?.contains(event.target as Node)) {
             event.stopPropagation();
             if (event.deltaY > 0) {
                 setTimeout(() => {
@@ -25,6 +25,7 @@ export default function Home() {
 
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const navBarRef = useRef<HTMLDivElement>(null);
 
     const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
         setTouchEnd(null);
@@ -35,8 +36,12 @@ export default function Home() {
         setTouchEnd(event.targetTouches[0].clientY);
     };
 
-    const handleTouchEnd = () => {
-        if (touchStart === null || touchEnd === null) {
+    const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+        if (
+            touchStart === null ||
+            touchEnd === null ||
+            navBarRef.current?.contains(event.target as Node)
+        ) {
             return;
         }
         const distance = touchStart - touchEnd;
@@ -63,7 +68,7 @@ export default function Home() {
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
             >
-                <NavBar />
+                <NavBar NavRef={navBarRef} />
                 <div
                     className={
                         'max-lg:w-[60%] max-xl:w-[45%] max-2xl:w-[35%] w-[22%] h-[50%] absolute left-1/2 -translate-x-1/2 flex justify-center top-[15%] max-h-[90vh]' +
