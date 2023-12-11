@@ -5,3 +5,5 @@ export const BASEPATH = '';
 export const PREFER_DEV_OVERRIDE = '';
 export const HOME_URL = '';
 export const CMS_URL = 'http://localhost:1337';
+export const RECAPTCHA_SITE_KEY = '';
+export const RECAPTCHA_SECRET_KEY = '';

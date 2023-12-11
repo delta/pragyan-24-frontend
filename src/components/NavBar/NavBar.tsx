@@ -8,6 +8,7 @@ import LoginButtonMobile from '../MobileAuthButton/LoginButton';
 import Link from 'next/link';
 import Menu from '@/components/Menu/Menu';
 import styles from './navbar.module.css';
+import toast from 'react-hot-toast';
 
 interface NavBarProps {
     NavRef?: React.RefObject<HTMLDivElement>;
@@ -28,6 +29,7 @@ const NavBar = ({ NavRef }: NavBarProps) => {
                 className={`${styles.navLink} max-lg:hidden`}
                 onClick={() => {
                     localStorage.removeItem('token');
+                    toast.success('Successfully logged out.');
                     window.location.reload();
                 }}
             >

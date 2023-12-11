@@ -1,22 +1,35 @@
-/* eslint-disable */
-import React from 'react';
+/* eslint-disable camelcase */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { useEffect } from 'react';
 import styles from './form.module.css';
 import Image from 'next/image';
-// import { customErrorToast, customSuccessToast } from "../../Toaster";
 import ArrowSolid from '@/assets/images/Keyboard arrow right.svg';
-// import { Recaptcha } from "../../ReCaptcha";
-// import { API_URL } from '@/config/config';
 import { FormInput, FormSelect } from './input';
 import { authConfig } from '@/utils/ApiConfig';
 import { UserApi } from '../../../fest-web-client/client/src';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { RECAPTCHA_SITE_KEY, API_URL } from '@/config/config';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
     const userApi = new UserApi(authConfig);
     const [formPage, setFormPage] = React.useState<number>(1);
     const [colleges, setColleges] = React.useState<College[]>([]);
     const [confirmPassword, setConfirmPassword] = React.useState<string>('');
+    const router = useRouter();
+
+    const getColleges = async () => {
+        const res = await axios.get(`${API_URL}/api/colleges`);
+        setColleges(res.data.message);
+    };
+    useEffect(() => {
+        getColleges();
+    }, []);
+
     const [registerForm, setRegisterForm] = React.useState<RegisterFormType>({
-        userName: 'username',
+        userName: '',
         userEmail: '',
         userFullName: '',
         userPassword: '',
@@ -27,50 +40,25 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
         userState: '',
         userPhno: '',
         userDegree: 'BTech',
-        userYear: 2020,
-        userCollege: 'NIT TRICHY',
+        userYear: 2026,
+        userCollege: 'Other',
         userOtherCollege: '',
         userCity: '',
         userReferralCode: '',
         userSponsor: 'no',
-        recaptcha_code: '',
+        recaptcha_code: 'wrong-code',
         is_app: 0,
+        userVoucherName: '',
     });
 
-    React.useEffect(() => {
-        if (colleges && colleges.length > 0) return;
-        const fetchColleges = async () => {
-            // const response = await fetch(`${API_URL}/colleges`);
-            // if (response.ok) {
-            //     const data = await response.json();
-            //     if (!Array.isArray(data.message)) {
-            //         // customErrorToast("Error fetching college list");
-            //     } else {
-            //         data.message = [{ id: 0, college_name: 'Other' }].concat(data.message);
-            //         setColleges(data.message);
-            //         setRegisterForm(form => ({
-            //             ...form,
-            //             userCollege: data.message[0].college_name,
-            //         }));
-            //     }
-            // } else {
-            //     // customErrorToast(
-            //     // 	"Error connecting to the backend :( Check your connection and refresh the page"
-            //     // );
-            // }
-        };
-        fetchColleges();
-    }, [colleges]);
-
-    const handleFormFields = (field: string, value: string): void => {
+    const handleFormFields = (field: string, value: string | null): void => {
         setRegisterForm(form => ({ ...form, [field]: value }));
+    };
+    const handleCaptchaSubmission = (token: string | null) => {
+        handleFormFields('recaptcha_code', token);
     };
 
     const handleFormSubmit = (): void => {
-        // if (registerForm.recaptcha_code === '') {
-        //     // customErrorToast("Please verify that you are not a robot");
-        //     return;
-        // }
         userApi
             .authUserRegister({
                 // @ts-ignore-next-line
@@ -90,114 +78,99 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                 user_degree: registerForm.userDegree,
                 user_year: registerForm.userYear,
                 user_college: registerForm.userCollege,
+                user_recaptcha_code: registerForm.recaptcha_code,
+                user_voucher_code: registerForm.userVoucherName,
             })
             .then(res => console.log(res))
-            .catch(e => console.log(e));
-        // fetch(`${API_URL}/user/register`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(registerForm),
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.status_code === 200) {
-        //             // customSuccessToast(
-        //             // 	"Successfully created an account. Login with the given credentials"
-        //             // );
-        //             setForm('LOGIN');
-        //         } else {
-        //             // customErrorToast(data.message);
-        //         }
-        //     });
-        // .catch(() =>
-        // 	customErrorToast(
-        // 		"Registration failed :( Check your network connection and try again"
-        // 	)
-        // );
+            .catch(e => {
+                localStorage.setItem('token', e.message);
+                toast.success('Successfully created an account and logged In');
+                router.push('/home');
+            });
     };
 
     const validateFormPage = (page: number): void => {
         switch (page) {
             case 1:
-                // if (
-                //     !registerForm.userEmail ||
-                //     !registerForm.userEmail.match(
-                //         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                //     )
-                // ) {
-                //     // customErrorToast("Please enter a valid email address");
-                //     break;
-                // } else if (!registerForm.userPassword || registerForm.userPassword.length < 8) {
-                //     // customErrorToast(
-                //     // 	"Password must be atleast 8 characters long"
-                //     // );
-                //     break;
-                // } else if (registerForm.userPassword !== confirmPassword) {
-                //     // customErrorToast("Passwords do not match");
-                //     break;
-                // }
+                if (
+                    !registerForm.userEmail ||
+                    !registerForm.userEmail.match(
+                        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    )
+                ) {
+                    toast.error('Please enter a valid email address');
+                    break;
+                } else if (!registerForm.userPassword || registerForm.userPassword.length < 8) {
+                    toast.error('Password must be atleast 8 characters long');
+                    break;
+                } else if (registerForm.userPassword !== confirmPassword) {
+                    toast.error('Passwords do not match');
+                    break;
+                }
                 setFormPage(2);
                 break;
             case 2:
-                // if (!registerForm.userEmail) {
-                //     // customErrorToast("Please enter a username");
-                //     break;
-                // } else if (!registerForm.userFullName) {
-                //     // customErrorToast("Please enter your full name");
-                //     break;
-                // } else if (
-                //     !registerForm.userPhno ||
-                //     !/^\+?(0|[1-9]\d*)$/.test(registerForm.userPhno)
-                // ) {
-                //     // customErrorToast("Please enter a valid phone number");
-                //     break;
-                // }
+                if (!registerForm.userEmail) {
+                    toast.error('Please enter a username');
+                    break;
+                } else if (!registerForm.userFullName) {
+                    toast.error('Please enter your full name');
+                    break;
+                } else if (
+                    !registerForm.userPhno ||
+                    !/^\+?(0|[1-9]\d*)$/.test(registerForm.userPhno)
+                ) {
+                    toast.error('Please enter a valid phone number');
+                    break;
+                }
                 setFormPage(3);
                 break;
             case 3:
-                // if (registerForm.userCollege === 'Other' && !registerForm.userOtherCollege) {
-                //     // customErrorToast("Please enter your college name");
-                //     break;
-                // }
-                // if (registerForm.userCollege !== 'Other') {
-                //     setRegisterForm(form => ({
-                //         ...form,
-                //         userOtherCollege: '',
-                //     }));
-                // }
+                if (registerForm.userCollege === 'Other' && !registerForm.userOtherCollege) {
+                    toast.error('Please enter your college name');
+                    break;
+                }
+                if (registerForm.userCollege !== 'Other') {
+                    setRegisterForm(form => ({
+                        ...form,
+                        userOtherCollege: '',
+                    }));
+                }
                 setFormPage(4);
                 break;
             case 4:
-                // if (!registerForm.userNationality) {
-                //     // customErrorToast("Please enter your country");
-                //     break;
-                // }
+                if (!registerForm.userNationality) {
+                    toast.error('Please enter your country');
+                    break;
+                }
+                if (!registerForm.userYear) {
+                    toast.error('Please enter your graduation year');
+                }
                 setFormPage(5);
                 break;
             case 5:
-                // if (!registerForm.userState) {
-                //     // customErrorToast("Please enter your state");
-                //     break;
-                // } else if (!registerForm.userCity) {
-                //     // customErrorToast("Please enter your city");
-                //     break;
-                // } else if (!registerForm.userAddress) {
-                //     // customErrorToast("Please enter your address");
-                //     break;
-                // }
+                if (!registerForm.userState) {
+                    toast.error('Please enter your state');
+                    break;
+                } else if (!registerForm.userCity) {
+                    toast.error('Please enter your city');
+                    break;
+                } else if (!registerForm.userAddress) {
+                    toast.error('Please enter your address');
+                    break;
+                }
                 setFormPage(6);
                 break;
             case 6:
-                // if (
-                //     !registerForm.userPincode ||
-                //     !/^\+?(0|[1-9]\d*)$/.test(registerForm.userPincode)
-                // ) {
-                //     // customErrorToast("Please enter a valid pincode");
-                //     break;
-                // }
+                if (
+                    !registerForm.userPincode ||
+                    !/^\+?(0|[1-9]\d*)$/.test(registerForm.userPincode)
+                ) {
+                    toast.error('Please enter a valid pincode');
+                    break;
+                }
                 setFormPage(7);
+                break;
             default:
                 break;
         }
@@ -213,6 +186,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             label="EMAIL *"
                             name="email"
                             inputType="email"
+                            initialValue={registerForm.userEmail}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
                                 handleFormFields('userEmail', e.target.value);
@@ -222,6 +196,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             label="PASSWORD *"
                             name="password"
                             inputType="password"
+                            initialValue={registerForm.userPassword}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
                                 handleFormFields('userPassword', e.target.value);
@@ -231,6 +206,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             label="CONFIRM PASSWORD *"
                             name="confirm_password"
                             inputType="password"
+                            initialValue={confirmPassword}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
                                 setConfirmPassword(e.target.value);
@@ -244,15 +220,17 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             label="USERNAME *"
                             name="email"
                             inputType="text"
+                            initialValue={registerForm.userName}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
-                                handleFormFields('userEmail', e.target.value);
+                                handleFormFields('userName', e.target.value);
                             }}
                         />
                         <FormInput
                             label="FULL NAME *"
                             name="email"
                             inputType="text"
+                            initialValue={registerForm.userFullName}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
                                 handleFormFields('userFullName', e.target.value);
@@ -262,6 +240,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             label="PHONE NUMBER *"
                             name="text"
                             inputType="email"
+                            initialValue={registerForm.userPhno}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
                                 handleFormFields('userPhno', e.target.value);
@@ -291,16 +270,18 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             }
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
-                                handleFormFields('userEmail', e.target.value);
+                                handleFormFields('userCollege', e.target.value);
                             }}
                         />
                         <FormInput
                             label="COLLEGE NAME (if not in list)"
                             name="college"
+                            initialValue={registerForm.userOtherCollege}
+                            disabled={registerForm.userCollege !== 'Other'}
                             inputType="text"
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
-                                handleFormFields('userCollege', e.target.value);
+                                handleFormFields('userOtherCollege', e.target.value);
                             }}
                         />
                     </>
@@ -332,10 +313,10 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                                 handleFormFields('userDegree', e.target.value);
                             }}
                         />
-                        <FormSelect
-                            label="YEAR OF STUDY *"
+                        <FormInput
+                            label="YEAR OF GRADUATION *"
                             wrapperClassName={styles.signupFields}
-                            options={['1st Year', '2nd Year', '3rd Year', '4th Year', '5th Year']}
+                            initialValue={registerForm.userYear}
                             onChange={e => {
                                 handleFormFields('userYear', e.target.value);
                             }}
@@ -343,6 +324,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                         <FormInput
                             label="COUNTRY *"
                             inputType="text"
+                            initialValue={registerForm.userNationality}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
                                 handleFormFields('userNationality', e.target.value);
@@ -357,6 +339,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             name="state"
                             inputType="text"
                             wrapperClassName={styles.signupFields}
+                            initialValue={registerForm.userState}
                             onChange={e => {
                                 handleFormFields('userState', e.target.value);
                             }}
@@ -366,6 +349,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             name="city"
                             inputType="text"
                             wrapperClassName={styles.signupFields}
+                            initialValue={registerForm.userCity}
                             onChange={e => {
                                 handleFormFields('userCity', e.target.value);
                             }}
@@ -374,6 +358,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             label="ADDRESS *"
                             name="address"
                             inputType="text"
+                            initialValue={registerForm.userAddress}
                             wrapperClassName={styles.signupFields}
                             onChange={e => {
                                 handleFormFields('userAddress', e.target.value);
@@ -388,15 +373,17 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             name="pincode"
                             inputType="text"
                             wrapperClassName={styles.signupFields}
+                            initialValue={registerForm.userPincode}
                             onChange={e => {
                                 handleFormFields('userPincode', e.target.value);
                             }}
                         />
                         <FormInput
-                            label="REFERRAL CODE *"
+                            label="REFERRAL CODE"
                             name="referralcode"
                             inputType="text"
                             wrapperClassName={styles.signupFields}
+                            initialValue={registerForm.userReferralCode}
                             onChange={e => {
                                 handleFormFields('userReferralCode', e.target.value);
                             }}
@@ -406,15 +393,22 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                 {formPage === 7 && (
                     <>
                         <FormInput
-                            label="VOUCHER NAME *"
+                            label="VOUCHER NAME*"
                             name="voucherName"
                             inputType="text"
+                            initialValue={registerForm.userVoucherName}
                             onChange={e => {
-                                handleFormFields('user_voucher_name', e.target.value);
+                                handleFormFields('userVoucherName', e.target.value);
                             }}
                         />
-                        {/* <Recaptcha handleFormFields={handleFormFields} /> */}
-                        <div> Bro Captch Bro </div>
+                        <div className={styles.captcha}>
+                            <ReCAPTCHA
+                                sitekey={RECAPTCHA_SITE_KEY}
+                                onChange={handleCaptchaSubmission}
+                                theme={'dark'}
+                            />
+                        </div>
+                        <div className={styles.extraSpace}></div>
                     </>
                 )}
             </div>

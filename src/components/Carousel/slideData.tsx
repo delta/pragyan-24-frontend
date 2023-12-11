@@ -10,17 +10,19 @@ import { CMS_URL } from '@/config/config';
 import Markdown from 'react-markdown';
 import { EventApi } from '../../../fest-web-client/client/src';
 import { apiConfig } from '@/utils/ApiConfig';
+import toast from 'react-hot-toast';
 
 //@ts-ignore
 const SlideData: React.FC<SlideDataProps> = ({ details }) => {
     const [index, setIndex] = useState(1);
     const [isActive, setIsActive] = useState(1);
     const [data, setData] = useState(details.content[0]);
+    const [registered, setRegistered] = useState<number[]>([]);
     const handleRegister = () => {
         try {
             //backend url
-            const authApi = new EventApi(apiConfig);
-            authApi
+            const eventAPI = new EventApi(apiConfig);
+            eventAPI
                 .eventRegister({
                     // @ts-ignore-next-line
                     event_id: details.id,
@@ -28,13 +30,38 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                     tema_name: 'todo',
                 })
                 .then(res => {
-                    console.log(res);
+                    // @ts-ignore-next-line
+                    toast.success(res.message);
+                    getRegisteredEvent();
+                })
+                .catch(e => toast.error(e.message));
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const getRegisteredEvent = () => {
+        try {
+            const eventAPI = new EventApi(apiConfig);
+            eventAPI
+                .userEventDetails({})
+                .then(res => {
+                    const names: number[] = [];
+                    // @ts-ignore-next-line
+                    res.message.forEach((element: { event_id: string }) => {
+                        names.push(parseInt(element.event_id));
+                    });
+                    setRegistered(names);
                 })
                 .catch(e => console.log(e));
         } catch (err) {
             console.log(err);
         }
     };
+
+    useEffect(() => {
+        getRegisteredEvent();
+    }, []);
 
     useEffect(() => {
         switch (index) {
@@ -146,7 +173,7 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                             <div
                                 className={`w-full h-4/5 font-Nunito 2xl:text-base xl:text-sm lg:text-sm sm:text-xs text-sm p-3 ${styles.content}`}
                             >
-                                <Markdown>{data}</Markdown>
+                                <Markdown className={styles.markdown}>{data}</Markdown>
                             </div>
                         </div>
                     </div>
@@ -165,10 +192,17 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                         <div
                             className={`flex justify-center w-2/3 h-full p-0 ${styles.registerBlock}`}
                         >
-                            <div
-                                className={`flex justify-center ${styles.registerButton}`}
-                                onClick={() => handleRegister()}
-                            ></div>
+                            {registered.includes(details.id) ? (
+                                <div
+                                    className={`flex justify-center ${styles.registeredButton}`}
+                                    onClick={() => handleRegister()}
+                                ></div>
+                            ) : (
+                                <div
+                                    className={`flex justify-center ${styles.registerButton}`}
+                                    onClick={() => handleRegister()}
+                                ></div>
+                            )}
                         </div>
                         <div className="flex justify-center align-bottom w-1/4 h-full max-lg:hidden">
                             <div className="font-OrbitronG 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm mt-auto mb-auto">

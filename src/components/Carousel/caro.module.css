@@ -139,9 +139,35 @@
     transition: 0.2s;
 }
 
-.content::-webkit-scrollbar {
-    display: none;
+.registeredButton{
+    background: url(../../assets/images/RegisteredButton.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: sticky;
+    width: 50%;
+    height: 45%;
+    margin: 0px;
+    padding: 0px;
+    margin-top: auto;
+    margin-bottom: 0px;
+    transition: 0.2s;
 }
+
+.content{
+    overflow-y: auto;
+}
+
+.content::-webkit-scrollbar {
+    background: transparent;
+    width: 2px;
+
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: cyan; 
+  }
 
 .tabs{
     height: 50%;
@@ -150,6 +176,10 @@
 
 .active{
     border-bottom: 2px solid white;
+}
+
+.markdown > * {
+    all: revert;
 }
 
 @media screen and (min-width : 1024px) {

@@ -7,6 +7,8 @@ export function FormInput({
     wrapperClassName,
     label,
     inputType,
+    disabled,
+    initialValue,
 }: FormProps) {
     return (
         <div className={`w-full flex flex-col justify-center mb-6 ${wrapperClassName}`}>
@@ -15,7 +17,9 @@ export function FormInput({
                 <input
                     className={`${styles.formInput} ${inputClassName}`}
                     onChange={onChange}
+                    disabled={disabled}
                     name={name}
+                    value={initialValue}
                     type={inputType ?? 'text'}
                 />
             </div>
@@ -30,6 +34,7 @@ export function FormSelect({
     wrapperClassName,
     label,
     options,
+    disabled,
 }: FormProps) {
     return (
         <div className={`w-full flex flex-col justify-center mb-6 ${wrapperClassName}`}>
@@ -39,12 +44,9 @@ export function FormSelect({
                     className={`${styles.formInput} ${inputClassName}`}
                     onChange={onChange}
                     value={initialValue}
+                    disabled={disabled}
                 >
-                    {options?.map((option, index) => (
-                        <option key={index} >
-                            {option}
-                        </option>
-                    ))}
+                    {options?.map((option, index) => <option key={index}>{option}</option>)}
                 </select>
             </div>
         </div>
