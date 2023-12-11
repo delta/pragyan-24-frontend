@@ -17,7 +17,13 @@ const AboutCardMob: React.FC<AboutCardProps> = ({ cardRef }) => {
             <div className={styles.topRight + ' ' + styles.edge}></div>
             <div className={styles.bottomLeft + ' ' + styles.edge}></div>
             <div className={styles.bottomRight + ' ' + styles.edge}></div>
-            <div className={styles.content + ' ' + 'w-full h-full p-3 overflow-y-scroll relative'}>
+            <div
+                className={
+                    styles.content +
+                    ' ' +
+                    'w-full h-full p-3 relative font-Nunito overflow-y-auto z-10'
+                }
+            >
                 {content}
             </div>
         </div>
