@@ -19,6 +19,7 @@ import leftArrow from '../../assets/images/leftArrow.png';
 import rightArrow from '../../assets/images/rightArrow.png';
 import { useEffect, useState } from 'react';
 import { getClusterDetails } from '@/utils/events_cms';
+import { CMS_URL } from '@/config/config';
 
 const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     const [details, setDetails] = useState<any>([]);
@@ -115,11 +116,7 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
                         >
                             <div className="w-full h-full lg:w-3/4 2xl:w-4/5 m-auto flex justify-center items-center">
                                 <Image
-                                    src={
-                                        data.image
-                                            ? 'http://localhost:1337' + data.image?.url
-                                            : temp
-                                    }
+                                    src={data.image ? CMS_URL + data.image?.url : temp}
                                     width={data.image?.width}
                                     height={Math.min(data.image?.height, 100)}
                                     objectPosition="center"
