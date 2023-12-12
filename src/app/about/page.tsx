@@ -87,7 +87,7 @@ const About = () => {
             onTouchMove={scrollAllowed ? handleTouchMove : undefined}
             onTouchEnd={scrollAllowed ? handleTouchEnd : undefined}
         >
-            <NavBar />
+            <NavBar NavRef={navBarRef} />
             <motion.div
                 z-index={-1}
                 className="flex flex-col justify-center items-center absolute w-screen top-0 left-0 -translate-x-[50%] -translate-y-[50%]"

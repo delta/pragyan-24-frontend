@@ -8,11 +8,10 @@ const Toast = () => {
             gutter={8}
             containerClassName="toasty"
             containerStyle={{
-                fontFamily: 'DotMatrix_TR',
+                fontFamily: 'Orbitron',
             }}
             toastOptions={{
                 className: '',
-
                 style: {
                     font: 'inherit',
                     fontSize: '1rem',
