@@ -3,7 +3,7 @@
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -24,6 +24,7 @@ import { CMS_URL } from '@/config/config';
 const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     const [details, setDetails] = useState<any>([]);
     const [index, setIndex] = useState(0);
+    const [swiper, setSwiper] = useState<any>(null);
     const getDetails = async () => {
         let res = await getClusterDetails(id);
         setDetails(res);
@@ -33,6 +34,12 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     useEffect(() => {
         getDetails();
     }, []);
+
+    useEffect(() => {
+        if (!details || !swiper) return;
+        swiper.activeIndex = 0;
+        console.log('resetting');
+    }, [details, swiper]);
 
     const breakpoints = {
         100: {
@@ -54,9 +61,9 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const [swiper, setSwiper] = useState<any>(null);
 
     const handleSlideChange = (index: number) => {
+        if (details.length > 0 && index) setIndex(index % details.length);
         const currentSlide = swiper?.slides[index];
         if (currentSlide) {
             currentSlide.style.transform = 'scale(1.0)';
@@ -80,15 +87,20 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     };
 
     const goToNextSlide = () => {
-        if (swiper) swiper.activeIndex = 1;
-        swiper?.slideNext();
-        setIndex((index + 1) % details.length);
+        if (details.length > 0) {
+            console.log(swiper.activeIndex);
+            swiper?.slideNext();
+            setIndex((index + 1) % details.length);
+        }
     };
 
     const goToPreviousSlide = () => {
-        if (swiper) swiper.activeIndex = 1;
-        swiper?.slidePrev();
-        setIndex((index - 1 + details.length) % details.length);
+        if (details.length > 0) {
+            console.log(swiper.activeIndex);
+            swiper?.slidePrev();
+            console.log((index - 1 + details.length) % details.length);
+            setIndex((index - 1 + details.length) % details.length);
+        }
     };
 
     return (

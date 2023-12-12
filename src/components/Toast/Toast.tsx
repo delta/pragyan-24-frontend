@@ -12,7 +12,6 @@ const Toast = () => {
             }}
             toastOptions={{
                 className: '',
-
                 style: {
                     font: 'inherit',
                     fontSize: '1rem',
