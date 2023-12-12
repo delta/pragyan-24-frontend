@@ -128,8 +128,10 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
                         <Image src={leftArrow} alt="<" />
                     </div>
                     <div
-                        className="font-Orbitron text-sm md:text-xl border-white border py-2 rounded-full w-[40vw] md:w-52 text-center overflow-hidden cursor-pointer"
-                        onClick={navigateToEvent}
+                        className="font-Orbitron text-sm md:text-xl border-white border py-2 rounded-full w-[40vw] md:w-52 text-center overflow-hidden"
+                        onClick={() => {
+                            router.push(`/events/${id}/${name}/${details[index].id}`);
+                        }}
                     >
                         {details[index] ? details[index].name : 'Loading'}
                     </div>

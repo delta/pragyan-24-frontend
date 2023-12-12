@@ -4,6 +4,8 @@ import AboutContent from './AboutContent.json';
 
 const AboutCardMob: React.FC<AboutCardProps> = ({ cardRef }) => {
     const content: string = AboutContent.content;
+    const content1: string = AboutContent.content1;
+    const content2: string = AboutContent.content2;
     return (
         <div
             className={
@@ -25,6 +27,12 @@ const AboutCardMob: React.FC<AboutCardProps> = ({ cardRef }) => {
                 }
             >
                 {content}
+                <br />
+                <br />
+                {content1}
+                <br />
+                <br />
+                {content2}
             </div>
         </div>
     );

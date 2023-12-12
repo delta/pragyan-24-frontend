@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "fest-web-client/*"
-  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
