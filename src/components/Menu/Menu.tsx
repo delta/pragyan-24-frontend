@@ -38,9 +38,9 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
     return (
         <div>
             {isOpened ? (
-                <div className="flex w-full justify-center items-center absolute z-10 top-0 left-0  bg-black">
+                <div className="flex w-full justify-center items-center absolute z-[1000] top-0 left-0  bg-black">
                     <div
-                        className="absolute top-10 right-10 z-[20] text-white text-3xl hover:cursor-pointer"
+                        className="absolute top-10 right-10 z-[1001] text-white text-3xl hover:cursor-pointer"
                         onClick={() => {
                             if (setIsOpened) setIsOpened(false);
                         }}
@@ -61,7 +61,7 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
                     />
 
                     <div
-                        className=" lg:top-1/5  absolute w-full lg:h-2/3 h-full"
+                        className=" lg:top-1/5  absolute w-full lg:h-3/4 h-full"
                         id={styles.menubg}
                     />
                     <ul
