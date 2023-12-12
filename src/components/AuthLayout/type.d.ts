@@ -1,13 +1,7 @@
-/* eslint-disable */
-
-interface AuthLayoutProps {
-    formType: 'LOGIN' | 'SIGN UP';
-}
-
 type FormType = 'LOGIN' | 'SIGN UP';
 
-interface SignupFormProps {
-    setForm: (form: FormType) => void;
+interface AuthLayoutProps {
+    formType: FormType;
 }
 
 interface FormProps {
@@ -58,6 +52,12 @@ interface College {
 interface LoginFormType {
     user_email: string;
     user_pass: string;
+}
+
+/* eslint-disable */
+interface SignupFormProps {
+    setForm: (form: FormType) => void;
+    // setForm: React.Dispatch<React.SetStateAction<FormType>>;
 }
 
 interface ReCaptchaState {

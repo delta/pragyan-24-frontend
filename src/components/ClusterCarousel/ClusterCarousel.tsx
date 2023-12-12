@@ -1,9 +1,7 @@
-/* eslint-disable */
-
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -22,11 +20,12 @@ import { getClusterDetails } from '@/utils/events_cms';
 import { CMS_URL } from '@/config/config';
 
 const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
-    const [details, setDetails] = useState<any>([]);
+    const [details, setDetails] = useState<ClusterDetailType[]>([]);
     const [index, setIndex] = useState(0);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [swiper, setSwiper] = useState<any>(null);
     const getDetails = async () => {
-        let res = await getClusterDetails(id);
+        const res = await getClusterDetails(id);
         setDetails(res);
     };
     const router = useRouter();
@@ -59,8 +58,6 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
             spaceBetween: 10,
         },
     };
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
     const handleSlideChange = (index: number) => {
         if (details.length > 0 && index) setIndex(index % details.length);
@@ -117,35 +114,30 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
                 className="w-full lg:w-2/3 xl:w-3/4 h-full flex items-center justify-center z-10"
                 onSlideChange={swiper => handleSlideChange(swiper?.activeIndex)}
             >
-                {details.map(
-                    (
-                        data: { image: { url: string; height: number; width: number }; id: number },
-                        ind: number,
-                    ) => (
-                        <SwiperSlide
-                            key={ind}
-                            className={`flex justify-center items-center bg-transparent rounded-lg`}
-                        >
-                            <div className="w-full h-full lg:w-3/4 2xl:w-4/5 m-auto flex justify-center items-center">
-                                <Image
-                                    src={data.image ? CMS_URL + data.image?.url : temp}
-                                    width={data.image?.width}
-                                    height={Math.min(data.image?.height, 100)}
-                                    objectPosition="center"
-                                    objectFit="contain"
-                                    className={`rounded-lg lg:max-h[20vh] lg:max-w-[20vw]`}
-                                    alt="cluster"
-                                    onClick={() => {
-                                        router.push(`/events/${id}/${name}/${data.id}`);
-                                    }}
-                                />
-                            </div>
-                        </SwiperSlide>
-                    ),
-                )}
+                {details.map((data: ClusterDetailType, ind: number) => (
+                    <SwiperSlide
+                        key={ind}
+                        className={`flex justify-center items-center bg-transparent rounded-lg`}
+                    >
+                        <div className="w-full h-full lg:w-3/4 2xl:w-4/5 m-auto flex justify-center items-center">
+                            <Image
+                                src={data.image ? CMS_URL + data.image?.url : temp}
+                                width={data.image?.width}
+                                height={Math.min(data.image?.height, 100)}
+                                objectPosition="center"
+                                objectFit="contain"
+                                className={`rounded-lg lg:max-h[20vh] lg:max-w-[20vw]`}
+                                alt="cluster"
+                                onClick={() => {
+                                    router.push(`/events/${id}/${name}/${data.id}`);
+                                }}
+                            />
+                        </div>
+                    </SwiperSlide>
+                ))}
             </Swiper>
             <Image src={rightPortal} className="absolute w-80 max-lg:hidden right-0" alt="<" />
-            <div className="fixed bottom-[12vh] left-1/2 -translate-x-1/2 flex justify-center lg:justify-between items-center md:px-10 px-5">
+            <div className="fixed bottom-[12vh] left-1/2 -translate-x-1/2 flex justify-center lg:justify-between items-center md:px-10 px-5 z-10">
                 <div
                     className="absolute -left-10 w-10 hover:scale-110 animate-pulse hover:cursor-pointer"
                     onClick={goToPreviousSlide}

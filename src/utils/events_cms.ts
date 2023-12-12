@@ -1,17 +1,15 @@
-/* eslint-disable */
 import axios from 'axios';
 import { CMS_URL } from '@/config/config';
 
 export const getClusterDetails = async (id: number) => {
-    let res = await axios.get(
+    const res = await axios.get(
         `${CMS_URL}/api/clusters/${id}?populate[Cluster_Details][populate][Events][populate]=*`,
     );
     let detail = res.data.data;
-    //@ts-ignore
-    let details: any = [];
+    const details: ClusterDetailType[] = [];
     detail = detail.attributes.Cluster_Details;
-    let events = detail.Events;
-    //@ts-ignore
+    const events = detail.Events;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     events.forEach((content: any) => {
         details.push({
             content: [
@@ -31,31 +29,14 @@ export const getClusterDetails = async (id: number) => {
     return details;
 };
 
-export const getClusterNames = async () => {
-    let res = await axios.get(`${CMS_URL}/api/clusters?populate=*`);
-    let detailArray = res.data.data;
-    //@ts-ignore
-    let details: any = [];
-    // eslint-disable @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    detailArray.forEach((data: any) => {
-        let detail = data.attributes.Cluster_Details;
-        details.push({ name: detail.Cluster_Name, id: data.id });
-    });
-
-    return details;
-};
-
 export const getGallery = async () => {
-    let res = await axios.get(`${CMS_URL}/api/galleries?populate=*`);
-    let detailArray = res.data.data;
-    //@ts-ignore
-    let details: any = [];
-    // eslint-disable @typescript-eslint/ban-ts-comment
-    //@ts-ignore
+    const res = await axios.get(`${CMS_URL}/api/galleries?populate=*`);
+    const detailArray = res.data.data;
+    const details: GalleryType[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     detailArray.forEach((data: any) => {
-        let detail = data.attributes.gallery;
-        let dummy = detail.data[0].attributes;
+        const detail = data.attributes.gallery;
+        const dummy = detail.data[0].attributes;
         details.push({
             url: dummy.url,
             width: dummy.width,
@@ -64,5 +45,18 @@ export const getGallery = async () => {
             eventName: data.attributes.Event_Name,
         });
     });
+    return details;
+};
+
+export const getClusterNames = async () => {
+    const res = await axios.get(`${CMS_URL}/api/clusters?populate=*`);
+    const detailArray = res.data.data;
+    const details: ClusterName[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    detailArray.forEach((data: any) => {
+        const detail = data.attributes.Cluster_Details;
+        details.push({ name: detail.Cluster_Name, id: data.id });
+    });
+
     return details;
 };
