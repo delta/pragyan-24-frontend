@@ -11,7 +11,7 @@
     background-size: 100% 100%;
     padding: 6rem;
     font-family: 'Orbitron', sans-serif;
-    min-height: 70%;
+    min-height: 85%;
 }
 
 .signupFields {
@@ -64,6 +64,10 @@
     color: #a3a4a3;
     padding: 0rem 1rem;
     clip-path: polygon(0 0, 100% 0, 100% 70%, 98% 90%, 2% 90%, 0% 70%);
+}
+
+.formInput:disabled {
+    background-color: grey;
 }
 
 .formRadioInputs {
@@ -184,9 +188,7 @@ div.formInput {
     cursor: pointer;
 }
 
-.signUpButton {
-    height: 2rem;
-}
+
 
 .resetFormContainer {
     display: flex;
@@ -214,6 +216,12 @@ div.formInput {
     font-weight: 600;
 }
 
+.signUpButton {
+    padding: 2rem;
+    width: 100%;
+    padding-bottom: 3.3rem;
+}
+
 @media screen and (max-width: 1300px) {
     .formContainer {
         max-width: 80%;
@@ -226,6 +234,23 @@ div.formInput {
     }
     .resetFormContainer {
         padding: 1rem;
+    }
+    
+    .signUpButton{
+        padding: 1rem;
+        padding-bottom: 2.2rem;
+        display: block;
+        transform-origin: 0 0;
+    }
+    .captcha{
+        transform: scale(0.6);
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        margin-top: 5rem;
+    }
+    .extraSpace{
+        margin-bottom: 4rem;
     }
 }
 

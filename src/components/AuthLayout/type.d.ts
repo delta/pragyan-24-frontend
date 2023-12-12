@@ -18,7 +18,8 @@ interface FormProps {
     label: string;
     inputType?: string;
     options?: string[];
-    initialValue?: string;
+    initialValue?: string | number;
+    disabled?: boolean;
 }
 
 interface LoginFormRequest {

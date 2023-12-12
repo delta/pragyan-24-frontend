@@ -1,49 +1,34 @@
-/* eslint-disable */
+/* eslint-disable camelcase */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client';
 
-import React from 'react';
-// import Modal from "react-modal";
+import { useCallback, useState } from 'react';
 import styles from './form.module.css';
-// import DAuthLogin from '@/utils/dauthlogin';
-// import { Recaptcha } from "../../ReCaptcha";
-// import DAuthLogin from "../../DauthLogin/DauthLogin";
 import { FormInput } from './input';
-import Link from 'next/link';
-import { useCallback, useState, useContext } from 'react';
 import { UserApi } from '../../../fest-web-client/client/src';
 import { authConfig } from '@/utils/ApiConfig';
 import { useRouter } from 'next/navigation';
-import { userContext } from '@/contexts/UserContext';
-import { DAUTH_CLIENT_ID, DAUTH_REDIRECT_URI, API_URL } from '@/config/config';
+import { DAUTH_CLIENT_ID, DAUTH_REDIRECT_URI } from '@/config/config';
+import toast from 'react-hot-toast';
 
-enum AuthStatusEnum {
-    PRE,
-    START,
-    WAITING,
-    ACCEPTED,
-    REJECTED,
-    AUTH,
-    ERROR,
+interface DauthQueryParameters {
+    [key: string]: string;
 }
 
 export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
-    const [loginForm, setLoginForm] = React.useState<LoginFormRequest>({
+    const [loginForm, setLoginForm] = useState<LoginFormRequest>({
         userEmail: '',
         userPassword: '',
     });
 
     const isMobile = false;
 
-    const userApi = new UserApi(authConfig);
-    const [authStatus, setAuthStatus] = useState(AuthStatusEnum.PRE);
-    const { setuserID, setIsLoggedIn } = useContext(userContext);
-
     const router = useRouter();
 
     const generateDauthAuthorizeUrl = () => {
         const dauthAuthorizeURL = new URL('https://auth.delta.nitt.edu/authorize');
 
-        const dauthQueryParameters = {
+        const dauthQueryParameters: DauthQueryParameters = {
             client_id: DAUTH_CLIENT_ID,
             redirect_uri: DAUTH_REDIRECT_URI,
             response_type: 'code',
@@ -53,9 +38,9 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
             nonce: '',
         };
 
-        const appendQueryParametersToURL = (url: URL, queryParams: Object) => {
-            Object.keys(queryParams).forEach(query => {
-                url.searchParams.append(query, (queryParams as any)[query]);
+        const appendQueryParametersToURL = (url: URL, queryParams: DauthQueryParameters) => {
+            Object.keys(queryParams).forEach((query: string) => {
+                url.searchParams.append(query, queryParams[query]);
             });
         };
 
@@ -66,22 +51,24 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
 
     const sendAuthCodeToServer = useCallback(async (code: string) => {
         try {
-            setAuthStatus(AuthStatusEnum.WAITING);
-            //backend url
             const authApi = new UserApi(authConfig);
             authApi
                 .dAuthUserLogin(code)
-                .then(res => console.log(res))
-                .catch(e => console.log(e));
+                //@ts-ignore
+                .then(res => {
+                    // @ts-ignore-next-line
+                    localStorage.setItem('token', res.message);
+                    toast.success('Logged In Successfully');
+                    router.push('/home');
+                })
+                .catch(e => toast.error(e.message));
         } catch (err) {
             console.log(err);
-            setAuthStatus(AuthStatusEnum.ERROR);
         }
     }, []);
 
     const handleLogin = useCallback(() => {
         try {
-            setAuthStatus(AuthStatusEnum.WAITING);
             const authApi = new UserApi(authConfig);
             authApi
                 .authUserLogin({
@@ -90,14 +77,16 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
                     user_password: loginForm.userPassword,
                 })
                 .then(res => {
-                    console.log('successfully logged In');
+                    // @ts-ignore-next-line
+                    localStorage.setItem('token', res.message);
+                    toast.success('Logged In Successfully');
+                    router.push('/home');
                 })
-                .catch(e => console.log(e));
+                .catch(e => toast.error(e.message));
         } catch (err) {
             console.log(err);
-            setAuthStatus(AuthStatusEnum.ERROR);
         }
-    }, [loginForm]);
+    }, [loginForm, router]);
 
     const BASE_URL = typeof window !== 'undefined' ? window.location.origin : null;
 
@@ -108,10 +97,7 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
             }
             const { data } = event;
             if (data.source === 'dauth-login-callback') {
-                if (!data.code) {
-                    setAuthStatus(AuthStatusEnum.REJECTED);
-                } else {
-                    setAuthStatus(AuthStatusEnum.ACCEPTED);
+                if (data.code) {
                     sendAuthCodeToServer(data.code);
                 }
             }
@@ -138,62 +124,22 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
             } else {
                 windowObjectReference.focus();
             }
-            setAuthStatus(AuthStatusEnum.WAITING);
 
             window.addEventListener('message', receiveMessage, false);
 
             setPreviousUrl(url);
         },
-        [previousUrl, receiveMessage, windowObjectReference],
+        [previousUrl, receiveMessage, windowObjectReference, isMobile],
     );
 
     const generateDauthStringAndOpenUrl = useCallback(() => {
         const dauthURL = generateDauthAuthorizeUrl();
         openSignInWindow(dauthURL.toString(), 'dauthURL');
-        setAuthStatus(AuthStatusEnum.START);
     }, [openSignInWindow]);
-
-    // const [modalIsOpen, setIsOpen] = React.useState(false);
-    // const [forgotPasswordEmail, setForgotPasswordEmail] = React.useState("");
-    // const [forgotPasswordRecaptcha, setForgotPasswordRecaptcha] =
-    // 	React.useState("");
-
-    // const handleRecaptcha = (_: string, value: string) => {
-    // 	setForgotPasswordRecaptcha(value);
-    // };
-
-    //const router = useRouter();
 
     const handleFormChange = (field: string, value: string) => {
         setLoginForm({ ...loginForm, [field]: value });
     };
-
-    // const handleForgotPassword = () => {
-    // 	if (!forgotPasswordRecaptcha) {
-    // 		// TODO: customErrorToast("Please verify that you are not a robot");
-    // 		return;
-    // 	}
-    // 	fetch(`${BACKEND_URL}/auth/sendPasswordResetLink`, {
-    // 		method: "POST",
-    // 		headers: {
-    // 			"Content-Type": "application/json",
-    // 		},
-    // 		body: JSON.stringify({
-    // 			email: forgotPasswordEmail,
-    // 			recaptcha_code: forgotPasswordRecaptcha,
-    // 		}),
-    // 	})
-    // 		.then((res) => res.json())
-    // 		.then((data) => {
-    // 			if (data.status_code === 200) {
-    // 				customSuccessToast(
-    // 					"Password reset link sent to your email"
-    // 				);
-    // 				setForgotPasswordEmail("");
-    // 			} else customErrorToast(data.message);
-    // 			setIsOpen(false);
-    // 		});
-    // };
 
     const handleFormSubmit = () => {
         if (!loginForm.userPassword) console.log('Please enter your password');
@@ -206,15 +152,6 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
         <>
             <div className={styles.formContainer}>
                 <div className={styles.formFields}>
-                    {/* <div className={styles.formField}>
-						<div className={styles.formLabel}>EMAIL *</div>
-						<input
-							className={styles.formInput}
-							onChange={(e) => {
-								handleFormChange("user_email", e.target.value);
-							}}
-						/>
-					</div> */}
                     <FormInput
                         label="Email *"
                         name="email"
@@ -232,8 +169,6 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
                         }}
                     />
                 </div>
-                {loginForm.userEmail}
-                {loginForm.userPassword}
                 <div className={styles.formFieldExtras}>
                     <div
                         className={styles.forgotPassword}
