@@ -80,6 +80,10 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
         }
     };
 
+    const navigateToEvent = () => {
+        router.push(`/events/${id}/${name}/${details[index].id}`);
+    };
+
     return (
         <div className="relative w-full md:w-3/4 h-full flex items-center justify-center max-2xl:px-10 max-md:p-2">
             <Image src={leftPortal} className="absolute max-lg:hidden left-0 w-80" alt="<" />
@@ -111,11 +115,9 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
                                     height={Math.min(data.image?.height, 100)}
                                     objectPosition="center"
                                     objectFit="contain"
-                                    className={`rounded-lg lg:max-h[20vh] lg:max-w-[20vw]`}
+                                    className={`rounded-lg lg:max-h[20vh] lg:max-w-[20vw] cursor-pointer`}
                                     alt="cluster"
-                                    onClick={() => {
-                                        router.push(`/events/${id}/${name}/${data.id}`);
-                                    }}
+                                    onClick={navigateToEvent}
                                 />
                             </div>
                         </SwiperSlide>
@@ -125,7 +127,10 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
                     <div className="prevArrow absolute -left-10 w-10 hover:scale-110 animate-pulse hover:cursor-pointer">
                         <Image src={leftArrow} alt="<" />
                     </div>
-                    <div className="font-Orbitron text-sm md:text-xl border-white border py-2 rounded-full w-[40vw] md:w-52 text-center overflow-hidden">
+                    <div
+                        className="font-Orbitron text-sm md:text-xl border-white border py-2 rounded-full w-[40vw] md:w-52 text-center overflow-hidden cursor-pointer"
+                        onClick={navigateToEvent}
+                    >
                         {details[index] ? details[index].name : 'Loading'}
                     </div>
                     <div className="nextArrow absolute -right-10 w-10 hover:scale-110 animate-pulse hover:cursor-pointer">
