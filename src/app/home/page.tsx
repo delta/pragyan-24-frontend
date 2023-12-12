@@ -112,8 +112,8 @@ export default function Home() {
                     draggable={false}
                     className="wingman lg:w-48 w-32 absolute inset-0 m-auto bottom-1/3"
                 />
-                <p className="font-ROG lg:text-5xl md:text-4xl sm:text-3xl text-xl">
-                    A TIMELESS ODYSSEY
+                <p className="font-ROG lg:text-5xl md:text-4xl sm:text-3xl text-xl tracking-wider">
+                    THE SAGA OF TIME
                 </p>
             </div>
             <SideBar content={'The Future'} number={'01'} />

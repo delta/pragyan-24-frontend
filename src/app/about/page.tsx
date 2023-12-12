@@ -87,9 +87,7 @@ const About = () => {
             onTouchMove={scrollAllowed ? handleTouchMove : undefined}
             onTouchEnd={scrollAllowed ? handleTouchEnd : undefined}
         >
-            {/* <div className="flex w-full relative z-10"> */}
             <NavBar NavRef={navBarRef} />
-            {/* </div> */}
             <motion.div
                 z-index={-1}
                 className="flex flex-col justify-center items-center absolute w-screen top-0 left-0 -translate-x-[50%] -translate-y-[50%]"
@@ -97,7 +95,11 @@ const About = () => {
                 animate={{ y: '-40%' }}
                 transition={{ duration: 1.5 }}
             >
-                <Image src={bigmascot} alt="bigmascot" className="xl:scale-90 scale-50" />
+                <Image
+                    src={bigmascot}
+                    alt="bigmascot"
+                    className="xl:scale-75 scale-[35%] md:scale-[50%]"
+                />
             </motion.div>
             <div className="flex flex-col md:justify-center max-md:mt-7 items-center h-full w-full m-0">
                 <div className="font-ROG xl:text-8xl lg:text-7xl md:text-6xl sm:text-4xl text-2xl">

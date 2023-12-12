@@ -16,13 +16,13 @@ SwiperCore.use([Navigation, Keyboard]);
 
 const Carousel = ({ id, eventId }: { id: number; eventId: number }) => {
     const [details, setDetails] = useState([]);
-    const [initialSlide, setInitialSlide] = useState(0);
+    const [initialSlideNumber, setInitialSlideNumber] = useState<number | null>(null);
     const getDetails = async () => {
         const res = await getClusterDetails(id);
         setDetails(res);
-        res.forEach((data: { ind: number }, ind: number) => {
-            if (data.ind == eventId) {
-                setInitialSlide(ind);
+        res.forEach((data: { id: number }, ind: number) => {
+            if (data.id == eventId) {
+                setInitialSlideNumber(ind);
             }
         });
     };
@@ -31,7 +31,7 @@ const Carousel = ({ id, eventId }: { id: number; eventId: number }) => {
         getDetails();
     }, []);
 
-    return (
+    return initialSlideNumber !== null ? (
         <Swiper
             spaceBetween={50}
             slidesPerView={1}
@@ -39,7 +39,7 @@ const Carousel = ({ id, eventId }: { id: number; eventId: number }) => {
                 nextEl: `.${styles.rightArrow}`,
                 prevEl: `.${styles.leftArrow}`,
             }}
-            initialSlide={initialSlide}
+            initialSlide={initialSlideNumber}
             keyboard={{ enabled: true }}
             className="w-full h-full flex justify-center"
         >
@@ -52,6 +52,8 @@ const Carousel = ({ id, eventId }: { id: number; eventId: number }) => {
             <div className={`${styles.rightArrow}`}></div>
             <div className={`${styles.leftArrow}`}></div>
         </Swiper>
+    ) : (
+        <p>Oombu</p>
     );
 };
 
