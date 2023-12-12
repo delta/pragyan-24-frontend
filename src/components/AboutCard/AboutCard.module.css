@@ -47,6 +47,14 @@
     border-radius: 2px;
 }
 
+@media screen and ((width > 600px) and (width < 1000px)) {
+    .parent {
+        width: 30rem;
+        height: 75%;
+    }
+    
+}
+
 /* .topWedge {
     width: 70px;
     height: 6.9px;

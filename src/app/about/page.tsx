@@ -98,7 +98,7 @@ const About = () => {
                 <Image
                     src={bigmascot}
                     alt="bigmascot"
-                    className="xl:scale-90 scale-[35%] md:scale-[50%]"
+                    className="xl:scale-75 scale-[35%] md:scale-[50%]"
                 />
             </motion.div>
             <div className="flex flex-col md:justify-center max-md:mt-7 items-center h-full w-full m-0">

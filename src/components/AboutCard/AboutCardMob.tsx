@@ -9,7 +9,7 @@ const AboutCardMob: React.FC<AboutCardProps> = ({ cardRef }) => {
             className={
                 styles.parent +
                 ' ' +
-                'md:hidden flex justify-center items-center p-4 py-10 text-center AboutCardContent z-0'
+                'lg:hidden flex justify-center items-center p-4 py-10 text-center AboutCardContent z-0'
             }
             ref={cardRef}
         >
