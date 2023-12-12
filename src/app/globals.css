@@ -18,7 +18,7 @@
 }
 
 @font-face {
-    font-family: 'Nunito' !important;
+    font-family: 'Nunito';
     src: url('../assets/fonts/Nunito-Regular.ttf');
 }
 
@@ -286,10 +286,6 @@ body {
     .about {
         min-height: max(100vh, 860px);
     }
-}
-
-.markdown>* {
-    all: revert;
 }
 
 ::-webkit-scrollbar {
