@@ -2,8 +2,7 @@
 
 'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -24,9 +23,9 @@ import { CMS_URL } from '@/config/config';
 const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     const [details, setDetails] = useState<any>([]);
     const [index, setIndex] = useState(0);
-    const [swiper, setSwiper] = useState<any>(null);
+    const [swiper, setSwiper] = useState<SwiperClass>();
     const getDetails = async () => {
-        let res = await getClusterDetails(id);
+        const res = await getClusterDetails(id);
         setDetails(res);
     };
     const router = useRouter();
@@ -34,12 +33,6 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     useEffect(() => {
         getDetails();
     }, []);
-
-    useEffect(() => {
-        if (!details || !swiper) return;
-        swiper.activeIndex = 0;
-        console.log('resetting');
-    }, [details, swiper]);
 
     const breakpoints = {
         100: {
@@ -60,46 +53,30 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
         },
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleSlideChange = (ind: number) => {
+        if (swiper) {
+            setIndex(ind);
 
-    const handleSlideChange = (index: number) => {
-        if (details.length > 0 && index) setIndex(index % details.length);
-        const currentSlide = swiper?.slides[index];
-        if (currentSlide) {
-            currentSlide.style.transform = 'scale(1.0)';
-            currentSlide.style.opacity = '1';
-            currentSlide.style.transition = 'transform 0.5s ease-in-out';
-        }
+            const currentSlide = swiper?.slides[ind];
+            if (currentSlide) {
+                currentSlide.style.transform = 'scale(1.0)';
+                currentSlide.style.opacity = '1';
+                currentSlide.style.transition = 'transform 0.5s ease-in-out';
+            }
 
-        const previousSlide = swiper?.slides[index - 1];
-        if (previousSlide) {
-            previousSlide.style.transform = 'scale(0.67)';
-            previousSlide.style.opacity = '0.4';
-            previousSlide.style.transition = 'transform 0.5s ease-in-out';
-        }
+            const previousSlide = swiper?.slides[ind - 1];
+            if (previousSlide) {
+                previousSlide.style.transform = 'scale(0.67)';
+                previousSlide.style.opacity = '0.4';
+                previousSlide.style.transition = 'transform 0.5s ease-in-out';
+            }
 
-        const nextSlide = swiper?.slides[index + 1];
-        if (nextSlide) {
-            nextSlide.style.transform = 'scale(0.67)';
-            nextSlide.style.opacity = '0.4';
-            nextSlide.style.transition = 'transform 0.5s ease-in-out';
-        }
-    };
-
-    const goToNextSlide = () => {
-        if (details.length > 0) {
-            console.log(swiper.activeIndex);
-            swiper?.slideNext();
-            setIndex((index + 1) % details.length);
-        }
-    };
-
-    const goToPreviousSlide = () => {
-        if (details.length > 0) {
-            console.log(swiper.activeIndex);
-            swiper?.slidePrev();
-            console.log((index - 1 + details.length) % details.length);
-            setIndex((index - 1 + details.length) % details.length);
+            const nextSlide = swiper?.slides[ind + 1];
+            if (nextSlide) {
+                nextSlide.style.transform = 'scale(0.67)';
+                nextSlide.style.opacity = '0.4';
+                nextSlide.style.transition = 'transform 0.5s ease-in-out';
+            }
         }
     };
 
@@ -108,14 +85,15 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
             <Image src={leftPortal} className="absolute max-lg:hidden left-0 w-80" alt="<" />
             <Swiper
                 onSwiper={setSwiper}
-                modules={[Pagination, Navigation]}
                 spaceBetween={0}
                 slidesPerView={1}
-                loop={true}
-                pagination={{ enabled: false }}
                 breakpoints={breakpoints}
                 className="w-full lg:w-2/3 xl:w-3/4 h-full flex items-center justify-center z-10"
                 onSlideChange={swiper => handleSlideChange(swiper?.activeIndex)}
+                navigation={{
+                    prevEl: '.prevArrow',
+                    nextEl: '.nextArrow',
+                }}
             >
                 {details.map(
                     (
@@ -143,25 +121,19 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
                         </SwiperSlide>
                     ),
                 )}
+                <div className="fixed bottom-[12vh] left-1/2 -translate-x-1/2 flex justify-center lg:justify-between items-center md:px-10 px-5 z-10">
+                    <div className="prevArrow absolute -left-10 w-10 hover:scale-110 animate-pulse hover:cursor-pointer">
+                        <Image src={leftArrow} alt="<" />
+                    </div>
+                    <div className="font-Orbitron text-sm md:text-xl border-white border py-2 rounded-full w-[40vw] md:w-52 text-center overflow-hidden">
+                        {details[index] ? details[index].name : 'Loading'}
+                    </div>
+                    <div className="nextArrow absolute -right-10 w-10 hover:scale-110 animate-pulse hover:cursor-pointer">
+                        <Image src={rightArrow} alt=">" />
+                    </div>
+                </div>
             </Swiper>
             <Image src={rightPortal} className="absolute w-80 max-lg:hidden right-0" alt="<" />
-            <div className="fixed bottom-[12vh] left-1/2 -translate-x-1/2 flex justify-center lg:justify-between items-center md:px-10 px-5">
-                <div
-                    className="absolute -left-10 w-10 hover:scale-110 animate-pulse hover:cursor-pointer"
-                    onClick={goToPreviousSlide}
-                >
-                    <Image src={leftArrow} alt="<" />
-                </div>
-                <div className="font-Orbitron text-sm md:text-xl border-white border py-2 rounded-full w-[40vw] md:w-52 text-center overflow-hidden">
-                    {details[index] ? details[index].name : 'Loading'}
-                </div>
-                <div
-                    className="absolute -right-10 w-10 hover:scale-110 animate-pulse hover:cursor-pointer"
-                    onClick={goToNextSlide}
-                >
-                    <Image src={rightArrow} alt=">" />
-                </div>
-            </div>
         </div>
     );
 };
