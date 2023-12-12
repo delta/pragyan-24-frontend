@@ -60,7 +60,9 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
     };
 
     useEffect(() => {
-        getRegisteredEvent();
+        if (localStorage.getItem('token')) {
+            getRegisteredEvent();
+        }
     }, []);
 
     useEffect(() => {
