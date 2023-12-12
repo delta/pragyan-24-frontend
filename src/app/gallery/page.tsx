@@ -1,7 +1,7 @@
 'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import styles from './history.module.css';
 import 'swiper/css';
 import 'swiper/css/bundle';
@@ -16,6 +16,14 @@ import { CMS_URL } from '@/config/config';
 
 const History = () => {
     const [images, setImages] = useState([]);
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const [swiper, setSwiper] = useState<SwiperClass>();
+    const navBarRef = useRef<HTMLDivElement>(null);
+    const shadowRef = useRef<HTMLDivElement>(null);
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const router = useRouter();
 
     const getImages = async () => {
         const res = await getGallery();
@@ -25,6 +33,15 @@ const History = () => {
     useEffect(() => {
         getImages();
     }, []);
+
+    useEffect(() => {
+        if (swiper) {
+            setTimeout(() => {
+                swiper.params.speed = 1500;
+                swiper.slideTo(1);
+            }, 1500);
+        }
+    }, [swiper]);
 
     const breakpoints = {
         100: {
@@ -45,13 +62,6 @@ const History = () => {
         },
     };
 
-    const [isScrolled, setIsScrolled] = useState<boolean>(false);
-    const [touchStart, setTouchStart] = useState<number | null>(null);
-    const [touchEnd, setTouchEnd] = useState<number | null>(null);
-    const navBarRef = useRef<HTMLDivElement>(null);
-    const shadowRef = useRef<HTMLDivElement>(null);
-    const carouselRef = useRef<HTMLDivElement>(null);
-    const router = useRouter();
     const simulateScroll = (event: WheelEvent<HTMLDivElement>) => {
         if (!isScrolled && !navBarRef.current?.contains(event.target as Node)) {
             event.stopPropagation();
@@ -131,15 +141,16 @@ const History = () => {
                     ref={carouselRef}
                 >
                     <Swiper
-                        modules={[Autoplay, Pagination, Navigation]}
+                        onSwiper={setSwiper}
+                        modules={[Autoplay]}
                         spaceBetween={40}
                         slidesPerView={4}
                         autoplay={{
                             delay: 1500,
-                            disableOnInteraction: true,
+                            disableOnInteraction: false,
                         }}
+                        speed={1500}
                         loop={true}
-                        pagination={{ enabled: false }}
                         breakpoints={breakpoints}
                         className="h-[100%] w-[100%]"
                     >
