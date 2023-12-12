@@ -29,7 +29,7 @@ export const apiConfig = new Configuration({
                 if (statusCode === 401 || statusCode === 403) {
                     localStorage.removeItem('token');
                     window.location.href = `${HOME_URL}/login`;
-                    window.location.reload();
+                    // window.location.reload();
                 }
                 if (statusCode >= 400) {
                     const body = await context.response.json();

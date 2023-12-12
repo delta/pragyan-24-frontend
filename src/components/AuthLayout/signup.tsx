@@ -63,7 +63,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
             .authUserRegister({
                 // @ts-ignore-next-line
                 user_name: registerForm.userName,
-                user_othercollege: registerForm.userCollege,
+                user_othercollege: registerForm.userOtherCollege,
                 user_referral_code: registerForm.userReferralCode,
                 user_password: registerForm.userPassword,
                 user_email: registerForm.userEmail,
