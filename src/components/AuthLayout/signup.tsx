@@ -81,11 +81,14 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                 user_recaptcha_code: registerForm.recaptcha_code,
                 user_voucher_code: registerForm.userVoucherName,
             })
-            .then(res => console.log(res))
-            .catch(e => {
-                localStorage.setItem('token', e.message);
+            .then(res => {
+                // @ts-ignore-next-line
+                localStorage.setItem('token', res.message);
                 toast.success('Successfully created an account and logged In');
                 router.push('/home');
+            })
+            .catch(e => {
+                toast.error(e.message);
             });
     };
 

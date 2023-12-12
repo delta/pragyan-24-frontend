@@ -175,7 +175,7 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                             <div
                                 className={`w-full h-4/5 font-Nunito 2xl:text-base xl:text-sm lg:text-sm sm:text-xs text-sm p-3 ${styles.content}`}
                             >
-                                <Markdown className={styles.markdown + ' markdown'}>{data}</Markdown>
+                                <Markdown className={styles.markdown}>{data}</Markdown>
                             </div>
                         </div>
                     </div>

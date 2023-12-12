@@ -7,7 +7,6 @@ import Carousel from '@/components/Carousel/carousel';
 import styles from '../../../carousel.module.css';
 
 const events = ({ params }: { params: { clusterId: number; name: string; eventId: number } }) => {
-    console.log(params.clusterId, params.name, params.eventId);
     return (
         <div className={`min-h-screen w-full text-center lg:p-7 p-5 event + ${styles.event}`}>
             <NavBar />

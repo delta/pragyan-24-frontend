@@ -145,7 +145,13 @@ const History = () => {
                     >
                         {images.map(
                             (
-                                data: { url: number; eventId: number; eventName: string },
+                                data: {
+                                    url: number;
+                                    eventId: number;
+                                    eventName: string;
+                                    clusterID: number;
+                                    clusterName: string;
+                                },
                                 ind: number,
                             ) => (
                                 <SwiperSlide
@@ -157,9 +163,7 @@ const History = () => {
                                         layout="fill"
                                         onClick={() => {
                                             router.push(
-                                                `/eventcluster/${data ? data.eventId : 0}/${
-                                                    data ? data.eventName : ''
-                                                }`,
+                                                `/events/${data.clusterID}/${data.clusterName}/${data.eventId}`,
                                             );
                                         }}
                                         objectFit="cover"

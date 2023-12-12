@@ -62,6 +62,8 @@ export const getGallery = async () => {
             height: dummy.height,
             eventId: data.attributes.Event_ID,
             eventName: data.attributes.Event_Name,
+            clusterID: data.attributes.Cluster_ID,
+            clusterName: data.attributes.Cluster_Name,
         });
     });
     return details;

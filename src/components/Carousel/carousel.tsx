@@ -53,7 +53,7 @@ const Carousel = ({ id, eventId }: { id: number; eventId: number }) => {
             <div className={`${styles.leftArrow}`}></div>
         </Swiper>
     ) : (
-        <p>Oombu</p>
+        <></>
     );
 };
 
