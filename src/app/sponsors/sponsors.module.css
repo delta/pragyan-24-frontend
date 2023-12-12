@@ -1,0 +1,96 @@
+.parent {
+  display: grid;
+}
+
+.foreground {
+  display: flex;
+  flex-direction: column;
+  gap:1px;
+}
+
+.foreground,
+.background {
+  width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;
+  grid-area: 1/1;
+  max-height: 86vh;
+}
+
+.sponsor {
+  color: #fff;
+  text-align: center;
+  font-family: ROG;
+  font-size: 74.8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top:60px;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backgroundText {
+  position: fixed;
+  top: 40%;
+  left: 50vw;
+  transform: translate(-50%, -25%);
+  text-align: center;
+  font-family: ROG;
+  font-size: 9.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffffff90;
+}
+
+.sponsorParent {
+  align-self: flex-end;
+  display: flex;
+  padding-left: 20px;
+  gap: 2px;
+  height: fit-content;
+  transform: translateY(-10%);
+}
+
+.sponsorButton {
+  margin-top: 90px;
+  height: fit-content;
+}
+
+.sponsorText {
+  margin-top: 90px;
+  text-align: center;
+  color: #fff;
+  text-align: center;
+  font-family: ROG;
+  font-size: 104.8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sponsorButtonUp {
+  position: absolute;
+  right: 30px;
+  margin-top: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsorList {
+  /* margin-top: 140px; */
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 100%;
+}
+.astro{
+  overflow: hidden;
+}
