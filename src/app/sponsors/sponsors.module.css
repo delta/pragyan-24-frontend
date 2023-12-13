@@ -2,12 +2,6 @@
   display: grid;
 }
 
-.foreground {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
 .foreground,
 .background {
   width: 100vw;
@@ -16,6 +10,16 @@
   grid-area: 1/1;
   max-height: 86vh;
 }
+
+.foreground {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+
+  height: 100%;
+  width: 100%;
+}
+
 
 .sponsor {
   color: #fff;
@@ -43,7 +47,6 @@
   justify-content: center;
   align-items: center;
   width: fit-content;
-  background-color: red;
 }
 
 .backgroundText {
@@ -74,13 +77,22 @@
   gap: 2px;
   height: fit-content;
   transform: translateY(-10%);
+  width: min-content;
+
+  @media screen and (max-width:560px) {
+    overflow: none;
+    padding-left: 0px;
+  }
 }
 
 .sponsorButton {
   margin-top: 90px;
-  height: fit-content;
   padding: 0px;
-
+  width: min-content;
+  height: min-content;
+  @media screen and (max-width:560px) {
+    transform: translateX(8%);
+  }
 }
 
 .sponsorText {
