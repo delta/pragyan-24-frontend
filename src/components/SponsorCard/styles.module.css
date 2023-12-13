@@ -1,5 +1,7 @@
 .parent {
     display: grid;
+    flex-shrink: 1;
+    flex-grow: 0;
 }
 
 .borderOverlay,

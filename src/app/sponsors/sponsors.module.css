@@ -90,8 +90,10 @@
   padding: 0px;
   width: min-content;
   height: min-content;
+
   @media screen and (max-width:560px) {
-    transform: translate(8%,-35%);
+    transform: translate(10%, -85%);
+    margin-top: 60px;
   }
 }
 
@@ -105,6 +107,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+
+  @media screen and (max-width:560px) {
+    font-size: 44px;
+  }
 }
 
 .sponsorButtonUp {
@@ -114,6 +121,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width:560px) {
+    transform: translate(10%, -45%);
+    margin-top: 60px;
+  }
 }
 
 .sponsorList {
@@ -121,6 +132,15 @@
   display: flex;
   flex-wrap: wrap;
   max-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  @media screen and (max-width:560px) {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    gap:5px;
+  }
 }
 
 .astro {
