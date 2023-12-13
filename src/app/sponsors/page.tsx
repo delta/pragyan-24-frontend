@@ -5,7 +5,7 @@ import Image from 'next/image';
 import astronaut from '../../assets/images/astronaut.svg';
 
 export default function Sponsors() {
-    const sponsorsList: SponsorCardProps[] = []; // change to let
+    const sponsorsList: SponsorCardProps[] = Array(30).fill({ logo: '', name: 'hiw' });
 
     // backend logic
     //  sponsorsList =   await(await fetch("backend url",{next:{tags:['collection']}})).json();

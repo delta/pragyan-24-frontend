@@ -91,7 +91,7 @@
   width: min-content;
   height: min-content;
   @media screen and (max-width:560px) {
-    transform: translateX(8%);
+    transform: translate(8%,-35%);
   }
 }
 
