@@ -278,6 +278,6 @@ div.formInput {
 
 @media screen and (max-width: 500px) {
     .registerFormContainer {
-        max-width: 80%;
+        max-width: 95%;
     }
 }

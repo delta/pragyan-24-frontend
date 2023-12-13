@@ -437,14 +437,12 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                         </div>
                     )}
                 </div>
-                <div className={styles.formPageNav}>
+                <div className={styles.formPageNav + ' max-sm:scale-105'}>
                     {formPage > 1 && (
                         <Image
                             className={`${styles.formPageNavArrow} ${styles.formPageNavArrowLeft}`}
                             src={ArrowSolid}
                             alt="Navigation Arrow Right"
-                            width={20}
-                            height={20}
                             onClick={() => setFormPage(formPage - 1)}
                         />
                     )}
@@ -453,8 +451,6 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             className={styles.formPageNavArrow}
                             src={ArrowSolid}
                             alt="Navigation Arrow Right"
-                            width={20}
-                            height={20}
                             onClick={() => validateFormPage(formPage)}
                         />
                     )}
