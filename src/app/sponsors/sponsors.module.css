@@ -5,7 +5,7 @@
 .foreground {
   display: flex;
   flex-direction: column;
-  gap:1px;
+  gap: 1px;
 }
 
 .foreground,
@@ -22,16 +22,28 @@
   text-align: center;
   font-family: ROG;
   font-size: 74.8px;
+
+  align-self: center;
+  width: fit-content;
+
+  @media screen and (max-width:560px) {
+    font-size: 34.8px;
+    text-align: center;
+  }
+
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   padding-top:60px;
+
 }
 
 .background {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: fit-content;
+  background-color: red;
 }
 
 .backgroundText {
@@ -48,6 +60,11 @@
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #ffffff90;
+
+  @media screen and (max-width:560px) {
+    font-size: 3rem;
+    overflow: hidden;
+  }
 }
 
 .sponsorParent {
@@ -62,6 +79,8 @@
 .sponsorButton {
   margin-top: 90px;
   height: fit-content;
+  padding: 0px;
+
 }
 
 .sponsorText {
@@ -91,6 +110,11 @@
   flex-wrap: wrap;
   max-height: 100%;
 }
-.astro{
+
+.astro {
   overflow: hidden;
+
+  @media screen and (max-width:560px) {
+    display: none;
+  }
 }
