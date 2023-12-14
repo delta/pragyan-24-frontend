@@ -2,11 +2,12 @@
 import Clock from '../Clock/Clock';
 import Social from './Social';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 
 const Footer = () => {
     const pathname = usePathname();
-    if (pathname === '/') {
+    const ommitedPaths = ['/login/', '/signup/'];
+
+    if (ommitedPaths.includes(pathname)) {
         return null;
     }
 
@@ -17,7 +18,14 @@ const Footer = () => {
             </div>
             <div className="lg:basis-3/5 flex justify-center items-center">
                 <p className="lg:text-lg sm:text-sm text-xs text-center">
-                    Made With &#x2665; by <Link href="https://delta.nitt.edu/">DELTA FORCE</Link>{' '}
+                    Made With <span className="text-red-500 scale-150">&#x2665;</span> by
+                    <a
+                        href="https://delta.nitt.edu/"
+                        className="animate-pulse text-green-600 hover:scale-150 ease-in-out"
+                    >
+                        {' '}
+                        DELTA FORCE
+                    </a>{' '}
                     and Graphique
                 </p>
             </div>
