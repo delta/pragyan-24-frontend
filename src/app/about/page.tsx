@@ -79,7 +79,7 @@ const About = () => {
     return (
         <div
             className={
-                'h-screen w-full text-center md:p-7 p-5 about flex flex-col overflow-y-hidden ' +
+                'h-screen w-full text-center max-sm:p-3 p-5 about flex flex-col overflow-y-hidden ' +
                 (isScrolled ? ' scrolled' : ' transitioned')
             }
             onWheel={scrollAllowed ? simulateScroll : undefined}

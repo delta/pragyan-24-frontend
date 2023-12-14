@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 const Footer = () => {
     const pathname = usePathname();
-    const ommitedPaths = ['/login/', '/signup/'];
+    const ommitedPaths = ['/login/', '/signup/', '/'];
 
     if (ommitedPaths.includes(pathname)) {
         return null;

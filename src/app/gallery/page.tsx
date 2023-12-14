@@ -132,7 +132,7 @@ const History = () => {
             onMouseMove={handleMouseMove}
         >
             <div className={styles.torch} ref={shadowRef}></div>
-            <div className="absolute top-0 w-full p-5">
+            <div className="absolute top-0 w-full max-sm:p-3 p-5">
                 <NavBar NavRef={navBarRef} />
             </div>
             <div className="flex w-[100%] h-[50%] items-center justify-center">
