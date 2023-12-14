@@ -54,17 +54,23 @@
     font-family: 'Orbitron';
     z-index: 100;
     position: absolute;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
     transition: 0.3s;
-}
+    width: 250px;
+}   
 
 .cover:hover > div .clusterName {
     font-size: 1.5rem;
     text-shadow: 1px 1px 30px white;
     bottom: 4.5rem;
+}
+
+
+.cover:hover > div .clusterName:nth-of-type(3) {
+    font-size: 0.3rem;
 }
 
 .cover:hover > div .textBox {
