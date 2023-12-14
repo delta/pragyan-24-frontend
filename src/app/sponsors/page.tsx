@@ -1,3 +1,4 @@
+'use client';
 import { NavBar, SponsorButton, SponsorCard } from '@/components';
 import styles from './sponsors.module.css';
 import Image from 'next/image';
@@ -5,7 +6,7 @@ import Image from 'next/image';
 import astronaut from '../../assets/images/astronaut.svg';
 
 export default function Sponsors() {
-    const sponsorsList: SponsorCardProps[] = [];
+    const sponsorsList: SponsorCardProps[] = Array(30).fill({ name: 'nextjs', logo: '/next.svg' });
 
     // backend logic
     //  sponsorsList =   await(await fetch("backend url",{next:{tags:['collection']}})).json();
