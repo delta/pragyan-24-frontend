@@ -25,7 +25,7 @@ export default function Sponsors() {
                             <div className={styles.sponsorText}>SPONSORS</div>
                             <div className={styles.sponsorList}>
                                 {sponsorsList.map((e: SponsorCardProps) => (
-                                    <SponsorCard name={e.name} logo={e.logo} key={e.l} />
+                                    <SponsorCard name={e.name} logo={e.logo} key={e.name} />
                                 ))}
                             </div>
                         </>
