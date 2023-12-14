@@ -6,8 +6,8 @@
 
 .borderOverlay,
 .sponsorParent {
-    width: 455px;
-    height: 340px;
+    width: 341px;
+    height:255px;
     grid-area: 1/1;
 }
 
@@ -34,8 +34,8 @@
 }
 
 .title {
-    width: 425px;
-    height: 85px;
+    width: 318px;
+    height: 64px;
     flex-shrink: 0;
     transform: translateY(-15%);
     background: rgba(57, 158, 184, 0.5);
@@ -52,8 +52,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 405px;
-    height: 65px;
+    width: 304px;
+    height: 49px;
     flex-shrink: 0;
     border: 5px solid rgba(255, 255, 255, 0.5);
     display: flex;
@@ -62,8 +62,8 @@
 }
 
 .body {
-    width: 425px;
-    height: 195px;
+    width: 319px;
+    height: 146px;
     flex-shrink: 0;
 
     border: 0.5px solid #fff;
@@ -71,4 +71,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding: 10px;
 }

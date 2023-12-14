@@ -9,9 +9,9 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const SponsorCard = ({ name, logo }: SponsorCardProps) => {
-    const [dim, setDim] = useState(0.75);
+    const [dim, setDim] = useState(1);
     useEffect(() => {
-        setDim(window.innerWidth < 560 ? 0.65 : 0.75);
+        setDim(window.innerWidth < 560 ? 0.65 : 1);
     }, []);
     return (
         <motion.div className={styles.parent} initial={{ scale: dim }}>

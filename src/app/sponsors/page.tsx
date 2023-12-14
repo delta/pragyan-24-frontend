@@ -5,7 +5,7 @@ import Image from 'next/image';
 import astronaut from '../../assets/images/astronaut.svg';
 
 export default function Sponsors() {
-    const sponsorsList: SponsorCardProps[] = [];
+    const sponsorsList: SponsorCardProps[] = Array(30).fill({ name: 'nextjs', logo: '/next.svg' });
 
     // backend logic
     //  sponsorsList =   await(await fetch("backend url",{next:{tags:['collection']}})).json();
@@ -23,10 +23,12 @@ export default function Sponsors() {
                                 <SponsorButton />
                             </div>
                             <div className={styles.sponsorText}>SPONSORS</div>
-                            <div className={styles.sponsorList}>
-                                {sponsorsList.map((e: SponsorCardProps) => (
-                                    <SponsorCard name={e.name} logo={e.logo} key={e.name} />
-                                ))}
+                            <div className={styles.parentList}>
+                                <div className={styles.sponsorList}>
+                                    {sponsorsList.map((e: SponsorCardProps) => (
+                                        <SponsorCard name={e.name} logo={e.logo} key={e.name} />
+                                    ))}
+                                </div>
                             </div>
                         </>
                     ) : (
