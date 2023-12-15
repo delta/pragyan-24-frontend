@@ -207,7 +207,7 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                             )}
                         </div>
                         <div className="flex justify-center align-bottom w-1/4 h-full max-lg:hidden">
-                            <div className="font-OrbitronG 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm mt-auto mb-auto">
+                            <div className="font-OrbitronG 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm mt-auto pb-[0.35rem]">
                                 PRIZE MONEY : {details.price}
                             </div>
                         </div>

@@ -180,7 +180,8 @@ const History = () => {
                                         objectFit="cover"
                                         objectPosition="center"
                                         className={
-                                            'max-sm:rounded-xl md:opacity-60 ' + 'carousel-torch'
+                                            'max-sm:rounded-xl md:opacity-60 md:hover:opacity-100 ' +
+                                            'carousel-torch'
                                         }
                                         alt="history"
                                     />
