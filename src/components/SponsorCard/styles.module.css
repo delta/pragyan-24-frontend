@@ -2,12 +2,16 @@
     display: grid;
     flex-shrink: 1;
     flex-grow: 0;
+
+    @media screen and (max-width:560px) {
+        transform: scale(0.65);
+    }
 }
 
 .borderOverlay,
 .sponsorParent {
     width: 341px;
-    height:255px;
+    height: 255px;
     grid-area: 1/1;
 }
 

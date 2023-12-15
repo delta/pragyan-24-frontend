@@ -20,10 +20,10 @@ export default function Sponsors() {
                 <div className={styles.foreground}>
                     {sponsorsList.length > 0 ? (
                         <>
+                            <div className={styles.sponsorText}>SPONSORS</div>
                             <div className={styles.sponsorButtonUp}>
                                 <SponsorButton />
                             </div>
-                            <div className={styles.sponsorText}>SPONSORS</div>
                             <div className={styles.parentList}>
                                 <div className={styles.sponsorList}>
                                     {sponsorsList.map((e: SponsorCardProps) => (
