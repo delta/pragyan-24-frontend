@@ -102,7 +102,7 @@ const NavBar = ({ NavRef }: NavBarProps) => {
                 </Link> */}
 
                 {authButton}
-                {mobileAuthButton}
+                <div className="lg:hidden">{mobileAuthButton}</div>
                 <Image
                     src={hamburgerIcon}
                     alt="Hamburger Icon"

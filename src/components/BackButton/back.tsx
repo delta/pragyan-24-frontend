@@ -18,7 +18,7 @@ const ImageChanger = (props: ImageChangerProps) => {
         <Image
             src={isHovered ? props.hoverImage : props.defaultImage}
             alt="Back to cluster"
-            className={`${styles.Back} xl:w-52 lg:w-44 md:w-32 sm:w-24 w-16 absolute left-28 top-32 max-md:hidden z-20`}
+            className={`${styles.Back} xl:w-52 lg:w-44 md:w-32 sm:w-24 w-16 absolute left-28 top-32 z-20 max-md:left-10 max-md:w-28`}
             onClick={() => {
                 router.push('/clusters');
             }}
