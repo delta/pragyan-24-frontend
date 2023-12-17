@@ -21,7 +21,15 @@ const SponsorCard = ({ name, logo }: SponsorCardProps) => {
                         <div className={styles.titleBorder}>{name} </div>
                     </div>
                     <div className={styles.body}>
-                        {logo != '' && <Image src={logo} alt={name} width={400} height={400} />}
+                        {logo != '' && (
+                            <Image
+                                src={logo}
+                                alt={name}
+                                width={400}
+                                height={400}
+                                className={styles.logo}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

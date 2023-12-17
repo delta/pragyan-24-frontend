@@ -35,6 +35,7 @@
     align-items: center;
 
     flex-direction: column;
+    gap:10px
 }
 
 .title {
@@ -77,4 +78,9 @@
     align-items: center;
 
     padding: 10px;
+}
+.logo{
+    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
 }
