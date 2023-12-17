@@ -10,7 +10,7 @@ const SponsorCard = ({ name, logo }: SponsorCardProps) => {
         <>
             <div className={styles.parent}>
                 <div className={styles.borderOverlay}>
-                    <div className="flex w-full justify-between">
+                    <div className={`flex w-full justify-between ${styles.topBorder}`}>
                         <Image src={topLeftBorder} alt="" className={styles.topLeftBorder} />
                         <Image src={topRightBorder} alt="" className={styles.topRightBorder} />
                     </div>

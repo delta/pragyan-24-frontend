@@ -20,7 +20,9 @@
     justify-content: space-between;
     flex-direction: column;
 }
-
+.topBorder{
+    transform: translateY(-7px);
+}
 .topRightBorder {
     top: 0px;
     right: 0px;
@@ -35,7 +37,6 @@
     align-items: center;
 
     flex-direction: column;
-    gap:10px
 }
 
 .title {
