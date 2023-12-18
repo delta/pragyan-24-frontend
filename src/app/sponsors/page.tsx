@@ -25,7 +25,7 @@ export default function Sponsors() {
                 </div>
                 <div className={styles.foreground}>
                     {sponsorsList.length > 0 ? (
-                        <>
+                        <div className="flex flex-col">
                             <div className={styles.sponsorText}>SPONSORS</div>
                             <div className={styles.sponsorButtonUp}>
                                 <SponsorButton />
@@ -37,7 +37,7 @@ export default function Sponsors() {
                                     ))}
                                 </div>
                             </div>
-                        </>
+                        </div>
                     ) : (
                         <>
                             <h1 className={styles.sponsor}>SPONSORS</h1>
