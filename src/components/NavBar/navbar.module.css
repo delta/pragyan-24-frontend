@@ -83,20 +83,20 @@
 }
 
 #mainContent {
-    animation: fadeInLast 3s ease-in-out;
+    animation: fadeInLast 1.5s ease-in-out;
 }
 
 #disk {
-    animation: fall 3s linear;
+    animation: fall 1.5s linear;
     z-index: 20;
 }
 
 #glow {
-    animation: fadeInFirst 3s ease-in-out;
+    animation: fadeInFirst 1.5s ease-in-out;
 }
 
 #menubg {
-    animation: fadeInLast 3s ease-in-out;
+    animation: fadeInLast 1.5s ease-in-out;
 }
 
 .li{

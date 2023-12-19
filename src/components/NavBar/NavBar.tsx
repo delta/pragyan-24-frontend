@@ -97,10 +97,12 @@ const NavBar = ({ NavRef }: NavBarProps) => {
                 <Link href="/about" className={`${styles.navLink} max-lg:hidden`}>
                     ABOUT
                 </Link>
-                {/* <Link href="/faqs" className="max-lg:hidden">
-                    FAQs
-                </Link> */}
-
+                <Link
+                    href={'https://pragyan.org/sangam-24/'}
+                    className={`${styles.navLink} max-lg:hidden`}
+                >
+                    SANGAM
+                </Link>
                 {authButton}
                 <div className="lg:hidden">{mobileAuthButton}</div>
                 <Image
