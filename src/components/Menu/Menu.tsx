@@ -29,7 +29,7 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
         // { name: 'Sponsors', link: '/sponsors' },
         { name: 'Sangam', link: 'https://pragyan.org/sangam-24/' },
         // { name: 'Campus Ambassador', link: '/campus-ambassador' },
-        // { name: 'Ingenium', link: '/ingenium' },
+        { name: 'Ingenium', link: 'https://pragyan.org/ingenium/' },
         { name: 'Patronages', link: '/patronages' },
         { name: 'Hospitality', link: '/hospitality' },
         { name: 'Campus', link: '/campus' },
