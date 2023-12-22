@@ -106,17 +106,24 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                         className={`h-5/6 w-full rounded-xl ${styles.eventImg}`}
                     />
                 </div>
+
                 <div className={`flex justify-between w-full ${styles.eventI}`}>
-                    <div className="flex justify-center items-center w-1/2 h-full">
-                        <div className="flex justify-begin items-center mt-auto mb-auto font-Orbitron 2xl:text-sm xl:text-xs lg:text-xs sm:text-xs text-xs w-full">
+                    <div className="flex justify-center flex-col items-center w-1/2 h-full">
+                        <div className="flex justify-begin items-center mt-auto mb-auto font-Orbitron 2xl:text-md xl:text-sm lg:text-sm sm:text-sm text-sm w-full">
                             {details.date}
                         </div>
+                        <div className="flex justify-begin items-center mt-auto mb-auto font-Orbitron 2xl:text-md xl:text-sm lg:text-sm sm:text-sm text-sm w-full">
+                            {' '}
+                            {details.location}{' '}
+                        </div>
                     </div>
-                    <div className="flex justify-end items-center mt-auto mb-auto font-Orbitron 2xl:text-sm xl:text-xs lg:text-xs sm:text-xs text-xs w-1/2">
-                        <span>
-                            <Image src={MapDrop} alt="Location" width={13} height={13} />
-                        </span>
-                        <span className="ml-2"> {details.location}</span>
+                    <div className="flex justify-center flex-col items-center w-1/2 h-full">
+                        <div className="flex justify-end items-center mt-auto mb-auto font-Orbitron 2xl:text-md xl:text-md lg:text-md md:text-md text-md w-full 2xl:font-black xl:font-black lg:font-black sm:font-black font-black">
+                            {details.price}
+                        </div>
+                        <div className="flex justify-end items-center mb-auto font-Orbitron 2xl:text-md xl:text-sm lg:text-sm sm:text-sm text-sm w-full mt-auto">
+                            Prize Money
+                        </div>
                     </div>
                 </div>
                 <div className={`${styles.mainSlide} flex justify-center flex-col align-middle`}>
