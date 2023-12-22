@@ -12,11 +12,11 @@
         0 0 40px #fff;
 }
 
-#menubg {
+/* #menubg {
     background: url('../../assets/images/menubg.png') no-repeat;
     background-size: fill;
     animation: fadeInLast 3s ease-in-out;
-}
+} */
 
 @keyframes fall {
     0% {
@@ -128,7 +128,7 @@
 } */
 
 @media (max-width: 1020px) {
-    #menubg {
+    .menubg {
         background: url('../../assets/images/bgphone.png') no-repeat;
         background-size: contain;
         animation: fadeInMobile 1.2s ease-out;
