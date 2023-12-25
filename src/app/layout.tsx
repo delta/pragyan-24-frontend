@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body>
-                <div className="w-full min-h-screen bg-[#070B12]">{children}</div>
+                <div className="w-full min-h-screen bg-[#070B12] page-layout">{children}</div>
                 <Footer />
                 <Toast />
             </body>

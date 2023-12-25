@@ -9,8 +9,8 @@ export default function SponsorButton() {
     return (
         <>
             <svg
-                width="390"
-                height="152"
+                width="300"
+                height="100"
                 viewBox="0 0 480 152"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

@@ -12,21 +12,10 @@
         0 0 40px #fff;
 }
 
-#mainContent {
-    animation: fadeInLast 3s ease-in-out;
-}
-#disk {
-    animation: fall 3s linear;
-}
-#glow {
-    animation: fadeInFirst 3s ease-in-out;
-}
-
 #menubg {
     background: url('../../assets/images/menubg.png') no-repeat;
-    background-size: contain;
+    background-size: fill;
     animation: fadeInLast 3s ease-in-out;
-    fill: 0.5;
 }
 
 @keyframes fall {
@@ -68,7 +57,32 @@
     }
 }
 
-#main-content {
+
+
+@keyframes fadeInMobile {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeInMobileMain {
+    0% {
+        opacity: 0;
+
+    }
+    30%{
+        opacity: 0;
+        transform: translateX(-20%);
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#mainContent {
     animation: fadeInLast 3s ease-in-out;
 }
 
@@ -83,6 +97,11 @@
 
 #menubg {
     animation: fadeInLast 3s ease-in-out;
+}
+
+.li{
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .li:nth-child(2n + 1) {
@@ -112,6 +131,10 @@
     #menubg {
         background: url('../../assets/images/bgphone.png') no-repeat;
         background-size: contain;
+        animation: fadeInMobile 1.2s ease-out;
+    }
+    #mainContent{
+        animation: fadeInMobileMain 1.2s ease-out;
     }
 
     .li:nth-child(2n + 1) {
@@ -124,6 +147,9 @@
     }
 
     #disk {
-        width: 100px;
+        display:none;
+    }
+    #glow{
+        display:none;
     }
 }

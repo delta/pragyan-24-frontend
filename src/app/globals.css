@@ -51,6 +51,10 @@ body {
     color: white;
 }
 
+.page-layout {
+    min-height: max(100vh, 760px);
+}
+
 .footer-bg {
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.45);
