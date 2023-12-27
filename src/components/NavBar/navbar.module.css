@@ -96,12 +96,7 @@
 }
 
 #menubg {
-    animation: fadeInLast 1.5s ease-in-out;
-}
-
-.li{
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    animation: fadeInLast 3s ease-in-out;
 }
 
 .li:nth-child(2n + 1) {

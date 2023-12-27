@@ -13,3 +13,5 @@ export { default as LoadingMobileView } from './Landing/LoadingMobileView';
 export { default as ClusterCarousel } from './ClusterCarousel/ClusterCarousel';
 export { default as Menu } from './Menu/Menu';
 export { default as AuthLayout } from './AuthLayout/AuthLayout';
+export { default as SponsorCard } from './SponsorCard/SponsorCard';
+export { default as SponsorButton } from './SponsorsButton/SponsorsButton';

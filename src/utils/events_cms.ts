@@ -68,3 +68,18 @@ export const getGallery = async () => {
     });
     return details;
 };
+
+export const getSponsors = async () => {
+    let res = await axios.get(`${CMS_URL}/api/sponsors?populate=*`);
+    let detailArray = res.data.data;
+    //@ts-ignore
+    let details: any = [];
+    // eslint-disable @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes;
+        details.push({ name: detail.name, logo: `${CMS_URL}${detail.logo.data.attributes.url}` });
+    });
+
+    return details;
+};

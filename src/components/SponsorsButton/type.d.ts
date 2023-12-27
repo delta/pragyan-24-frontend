@@ -1,0 +1,3 @@
+type SponsorButtonTypes = {
+    className: string;
+};
