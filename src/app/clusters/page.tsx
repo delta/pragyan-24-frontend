@@ -51,7 +51,7 @@ const Clusters = () => {
 
     return (
         <div className={styles.clusterBG + ' ' + 'h-screen w-screen p-0 flex justify-center '}>
-            <div className="absolute top-0 w-full p-5">
+            <div className="absolute top-0 w-full max-sm:p-3 p-5">
                 <NavBar />
             </div>
 

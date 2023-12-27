@@ -132,7 +132,7 @@ const History = () => {
             onMouseMove={handleMouseMove}
         >
             <div className={styles.torch} ref={shadowRef}></div>
-            <div className="absolute top-0 w-full p-5">
+            <div className="absolute top-0 w-full max-sm:p-3 p-5">
                 <NavBar NavRef={navBarRef} />
             </div>
             <div className="flex w-[100%] h-[50%] items-center justify-center">
@@ -180,7 +180,8 @@ const History = () => {
                                         objectFit="cover"
                                         objectPosition="center"
                                         className={
-                                            'max-sm:rounded-xl md:opacity-60 ' + 'carousel-torch'
+                                            'max-sm:rounded-xl md:opacity-60 md:hover:opacity-100 ' +
+                                            'carousel-torch'
                                         }
                                         alt="history"
                                     />

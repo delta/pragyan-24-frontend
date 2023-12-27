@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import content from '@/components/AboutCard/AboutContent.json';
 import Toast from '@/components/Toast/Toast';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
     title: "Pragyan '24 | Let's Celebrate Technology",
@@ -13,6 +14,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body>
+                {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
+                <Script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
+                    strategy="beforeInteractive"
+                ></Script>
+                {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
+                <Script
+                    src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"
+                    strategy="beforeInteractive"
+                ></Script>
                 <div className="w-full min-h-screen bg-[#070B12] page-layout">{children}</div>
                 <Footer />
                 <Toast />

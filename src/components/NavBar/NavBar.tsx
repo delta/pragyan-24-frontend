@@ -74,7 +74,7 @@ const NavBar = ({ NavRef }: NavBarProps) => {
     return (
         <div className="w-full flex h-14 box-border px-5 lg:px-7 z-10" ref={NavRef}>
             <Menu isOpened={isOpened} setIsOpened={setIsOpened} />
-            <div className="flex basis-1/2 justify-start items-center lg:px-5">
+            <div className="flex basis-1/3 justify-start items-center lg:px-5">
                 <Link href="/home">
                     <Image
                         src={pragyanlogo}
@@ -90,19 +90,27 @@ const NavBar = ({ NavRef }: NavBarProps) => {
                     />
                 </Link>
             </div>
-            <div className="flex basis-1/2 lg:justify-between justify-end items-center pl-16 lg:pr-7 max-lg:gap-5 font-Orbitron xl:text-xl lg:text-lg text-sm">
+            <div className="flex basis-2/3 lg:justify-between justify-end items-center pl-16 lg:pr-7 max-lg:gap-5 font-Orbitron xl:text-xl lg:text-lg text-sm">
                 <Link href="/clusters" className={`${styles.navLink} max-lg:hidden`}>
                     EVENTS
                 </Link>
                 <Link href="/about" className={`${styles.navLink} max-lg:hidden`}>
                     ABOUT
                 </Link>
-                {/* <Link href="/faqs" className="max-lg:hidden">
-                    FAQs
-                </Link> */}
-
+                <Link
+                    href={'https://pragyan.org/sangam-24/'}
+                    className={`${styles.navLink} max-lg:hidden`}
+                >
+                    SANGAM
+                </Link>
+                <Link
+                    href={'https://pragyan.org/ingenium/'}
+                    className={`${styles.navLink} max-lg:hidden`}
+                >
+                    INGENIUM
+                </Link>
                 {authButton}
-                {mobileAuthButton}
+                <div className="lg:hidden">{mobileAuthButton}</div>
                 <Image
                     src={hamburgerIcon}
                     alt="Hamburger Icon"

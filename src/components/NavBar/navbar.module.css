@@ -12,11 +12,11 @@
         0 0 40px #fff;
 }
 
-#menubg {
+/* #menubg {
     background: url('../../assets/images/menubg.png') no-repeat;
     background-size: fill;
     animation: fadeInLast 3s ease-in-out;
-}
+} */
 
 @keyframes fall {
     0% {
@@ -83,25 +83,20 @@
 }
 
 #mainContent {
-    animation: fadeInLast 3s ease-in-out;
+    animation: fadeInLast 1.5s ease-in-out;
 }
 
 #disk {
-    animation: fall 3s linear;
+    animation: fall 1.5s linear;
     z-index: 20;
 }
 
 #glow {
-    animation: fadeInFirst 3s ease-in-out;
+    animation: fadeInFirst 1.5s ease-in-out;
 }
 
 #menubg {
     animation: fadeInLast 3s ease-in-out;
-}
-
-.li{
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
 }
 
 .li:nth-child(2n + 1) {
@@ -128,7 +123,7 @@
 } */
 
 @media (max-width: 1020px) {
-    #menubg {
+    .menubg {
         background: url('../../assets/images/bgphone.png') no-repeat;
         background-size: contain;
         animation: fadeInMobile 1.2s ease-out;

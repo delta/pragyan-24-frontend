@@ -7,7 +7,7 @@ import styles from '../../eventcluster.module.css';
 
 const events = ({ params }: { params: { event: number; name: string } }) => {
     return (
-        <div className={`min-h-screen w-full text-center lg:p-7 p-5 event + ${styles.event}`}>
+        <div className={`min-h-screen w-full text-center max-sm:p-3 p-5 event + ${styles.event}`}>
             <NavBar />
             <ImageChanger defaultImage={Back} hoverImage={BackEnlarge} />
             <p

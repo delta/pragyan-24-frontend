@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 const Footer = () => {
     const pathname = usePathname();
-    const ommitedPaths = ['/login/', '/signup/'];
+    const ommitedPaths = ['/login/', '/signup/', '/'];
 
     if (ommitedPaths.includes(pathname)) {
         return null;
@@ -18,10 +18,11 @@ const Footer = () => {
             </div>
             <div className="lg:basis-3/5 flex justify-center items-center">
                 <p className="lg:text-lg sm:text-sm text-xs text-center">
-                    Made With <span className="text-red-500 scale-150">&#x2665;</span> by
+                    Made With <span className="text-red-500 scale-150 animate-pulse">&#x2665;</span>{' '}
+                    by
                     <a
                         href="https://delta.nitt.edu/"
-                        className="animate-pulse text-green-600 hover:scale-150 ease-in-out"
+                        className=" text-green-600 hover:scale-150 ease-in-out"
                     >
                         {' '}
                         DELTA FORCE
