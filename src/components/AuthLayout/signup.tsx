@@ -40,7 +40,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
         userState: '',
         userPhno: '',
         userDegree: 'BTech',
-        userYear: 2016,
+        userYear: 2026,
         userCollege: 'Other',
         userOtherCollege: '',
         userCity: '',
