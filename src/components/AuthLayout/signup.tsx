@@ -40,7 +40,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
         userState: '',
         userPhno: '',
         userDegree: 'BTech',
-        userYear: 2026,
+        userYear: 2016,
         userCollege: 'Other',
         userOtherCollege: '',
         userCity: '',
@@ -51,7 +51,7 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
         userVoucherName: '',
     });
 
-    const handleFormFields = (field: string, value: string | null): void => {
+    const handleFormFields = (field: string, value: string | null | number): void => {
         setRegisterForm(form => ({ ...form, [field]: value }));
     };
     const handleCaptchaSubmission = (token: string | null) => {
@@ -321,7 +321,10 @@ export const SignUp: React.FC<SignupFormProps> = ({ setForm }) => {
                             wrapperClassName={styles.signupFields}
                             initialValue={registerForm.userYear}
                             onChange={e => {
-                                handleFormFields('userYear', e.target.value);
+                                handleFormFields(
+                                    'userYear',
+                                    e.target.value.length === 0 ? 0 : parseInt(e.target.value),
+                                );
                             }}
                         />
                         <FormInput
