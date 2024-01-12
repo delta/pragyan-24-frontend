@@ -38,7 +38,7 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        if (window.innerWidth > 1024 && window.VANTA)
+        if (window.innerWidth > 1024 && window.VANTA && isOpened)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             window.VANTA.DOTS({
@@ -58,7 +58,7 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
                 spacing: 25.0,
                 waveSpeed: 5,
             });
-    });
+    }, [isOpened]);
 
     return (
         <>

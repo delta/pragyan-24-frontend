@@ -27,7 +27,7 @@ export const getClusterDetails = async (id: number) => {
             id: content.id,
             image: content.Image.data?.attributes,
             is_online_event: content.is_online_event,
-            online_event_link: content.online_event_link,
+            online_event_link: content.event_online_link,
         });
     });
     return details;
