@@ -201,7 +201,12 @@ const SlideData: React.FC<SlideDataProps> = ({ details }) => {
                         <div
                             className={`flex justify-center w-2/3 h-full p-0 ${styles.registerBlock}`}
                         >
-                            {registered.includes(details.id) ? (
+                            {details.is_online_event ? (
+                                <div
+                                    className={`flex justify-center ${styles.registerButton}`}
+                                    onClick={() => window.open(details.online_event_link, '_blank')}
+                                ></div>
+                            ) : registered.includes(details.id) ? (
                                 <div
                                     className={`flex justify-center ${styles.registeredButton}`}
                                     onClick={() => handleRegister()}

@@ -12,6 +12,8 @@ interface SlidePropDetails {
     date: string;
     location: string;
     price: string;
+    is_online_event: boolean;
+    online_event_link: string;
 }
 
 interface SlideDataProps {
