@@ -28,11 +28,11 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
         // { name: 'Guest Lectures', link: '/guest-lectures' },
         // { name: 'Sponsors', link: '/sponsors' },
         { name: 'Sangam', link: 'https://pragyan.org/sangam-24/' },
-        // { name: 'Campus Ambassador', link: '/campus-ambassador' },
         { name: 'Ingenium', link: 'https://pragyan.org/ingenium/' },
-        { name: 'Patronages', link: '/patronages' },
-        { name: 'Hospitality', link: '/hospitality' },
-        { name: 'Campus', link: '/campus' },
+        { name: 'Campus Ambassador', link: 'https://pragyan.org/pca/' },
+        // { name: 'Patronages', link: '/patronages' },
+        // { name: 'Hospitality', link: '/hospitality' },
+        // { name: 'Campus', link: '/campus' },
     ];
 
     useEffect(() => {
