@@ -85,3 +85,37 @@ export const getSponsors = async () => {
 
     return details;
 };
+
+export const getWorkshops = async () => {
+    let res = await axios.get(`${CMS_URL}/api/workshops?populate=*`);
+    let detailArray = res.data.data;
+    let details: any = [];
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes;
+        details.push({
+            name: detail.name,
+            image: detail.Image,
+            date: detail.date,
+            location: detail.location,
+            content: detail.Content,
+            details: detail.Details,
+            contact: detail.Contact,
+            faq: detail.FAQ,
+            registration_link: detail.Registration_link,
+        });
+    });
+    return details;
+};
+
+export const getWorkshopsIndex = async (name: string): Promise<number> => {
+    let res = await axios.get(`${CMS_URL}/api/workshops?populate=*`);
+    let detailArray = res.data.data;
+    let countId = 0;
+    let id = 0;
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes;
+        if (detail.name === name) id = countId;
+        countId++;
+    });
+    return id;
+};

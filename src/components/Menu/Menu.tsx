@@ -24,7 +24,7 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
 
     const menuItems = [
         { name: 'Events', link: '/clusters' },
-        // { name: 'Workshops', link: '/workshops' },
+        { name: 'Workshops', link: '/workshops' },
         // { name: 'Guest Lectures', link: '/guest-lectures' },
         // { name: 'Sponsors', link: '/sponsors' },
         { name: 'Sangam', link: 'https://pragyan.org/sangam-24/' },
