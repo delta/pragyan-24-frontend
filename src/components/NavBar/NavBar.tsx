@@ -90,7 +90,9 @@ const NavBar = ({ NavRef }: NavBarProps) => {
                     />
                 </Link>
             </div>
-            <div className="flex basis-2/3 lg:justify-between justify-end items-center pl-16 lg:pr-7 max-lg:gap-5 font-Orbitron xl:text-xl lg:text-lg text-sm">
+            <div
+                className={`flex basis-2/3 lg:justify-between justify-end items-center pl-18 lg:pr-7 font-Orbitron xl:text-xl lg:text-lg text-sm ${styles.navBar}`}
+            >
                 <Link href="/clusters" className={`${styles.navLink} max-lg:hidden`}>
                     EVENTS
                 </Link>
