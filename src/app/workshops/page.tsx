@@ -4,7 +4,7 @@ import { NavBar } from '@/components';
 import styles from './workshops.module.css';
 import { getWorkshops } from '@/utils/events_cms';
 import { useEffect, useState } from 'react';
-import WorkshopCards from '@/components/Workshop/WorkshopCards';
+import WorkshopCards from '@/components/WorkshopCard/WorkshopCards';
 
 const WorkShop = () => {
     const [details, setDetails] = useState<any>([]);
@@ -19,7 +19,7 @@ const WorkShop = () => {
     }, []);
 
     return (
-        <div>
+        <div className={`min-h-screen w-full text-center max-sm:p-3 p-5 event`}>
             <NavBar />
             <div className="font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 flex justify-center align-middle">
                 WORKSHOP

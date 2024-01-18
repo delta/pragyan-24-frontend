@@ -102,6 +102,7 @@ export const getWorkshops = async () => {
             contact: detail.Contact,
             faq: detail.FAQ,
             registration_link: detail.Registration_link,
+            is_online: detail.is_online,
         });
     });
     return details;

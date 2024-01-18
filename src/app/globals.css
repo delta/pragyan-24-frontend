@@ -58,6 +58,7 @@ body {
 .footer-bg {
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.45);
+    z-index: 100000;
 }
 
 .home {
