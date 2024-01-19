@@ -49,7 +49,7 @@ const WorkshopSlide = props => {
                 <div
                     className={`flex justify-center flex-col items-center w-1/3 h-auto p-7 ${styles.slideIntro1}`}
                 >
-                    <div className="font-ROG 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-lg sm:text-md max-lg:mt-4 text-md h-1/6 mt-4 mb-4 transition-all">
+                    <div className="font-ROG 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-lg sm:text-md max-lg:mt-4 text-md h-1/6 mt-4 mb-4 transition-all p-10">
                         {props.data.name}
                     </div>
                     <Image
@@ -79,11 +79,11 @@ const WorkshopSlide = props => {
                 <div
                     className={`${styles.mainSlide} flex justify-center flex-col align-middle p-0 h-full`}
                 >
-                    <div className={`flex justify-center w-full h-full ${styles.slideInfo}`}>
+                    <div className={`flex justify-center w-full h-5/6 ${styles.slideInfo}`}>
                         <div
-                            className={`flex justify-center items-center flex-col w-1/3 h-full p-7 gap-5 max-lg:hidden ${styles.slideIntro}`}
+                            className={`flex justify-center items-center flex-col w-1/3 h-full p-7 pt-4 gap-14 max-lg:hidden ${styles.slideIntro}`}
                         >
-                            <div className="font-ROG 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-md h-1/6 transition-all">
+                            <div className="font-ROG 2xl:text-2xl xl:text-2xl lg:text-xl md:text-xl sm:text-lg text-md h-1/6 transition-all min-w-0 flex-wrap whitespace-pre-wrap">
                                 {props.data.name}
                             </div>
                             <Image
