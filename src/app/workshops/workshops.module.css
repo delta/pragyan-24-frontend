@@ -1,0 +1,10 @@
+.bg{
+    background-image: url(../../assets/images/WORKSHOP.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 31px;
+    position: relative;
+    z-index: 100;
+    margin-left: 2%;
+    margin-right: 2%;
+}

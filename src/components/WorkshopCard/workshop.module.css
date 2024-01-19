@@ -1,0 +1,15 @@
+.workshopcard {
+    transform: translateY(-1.25%);
+    clip-path: polygon(0.7% 0%, 58% 0%, 100% 55% , 100% 97.5%, 9% 97.5%, 0.7% 86.5%);
+}
+
+.box {
+    cursor: pointer;
+}
+
+.box:hover {
+    text-shadow:
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #fff;
+}

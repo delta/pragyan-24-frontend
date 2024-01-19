@@ -1,0 +1,124 @@
+.rightArrow{
+    background: url(../../../assets/images/rightArrow.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 46.5%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+    height: 12%;
+    left: auto;
+    right: 0%;
+    transition: 0.3s all;
+}
+
+.leftArrow{
+    background: url(../../../assets/images/leftArrow.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 46.5%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+    height: 12%;
+    left: 0%;
+    right: auto;
+    transition: 0.3s all;
+}
+
+.leftArrow:hover{
+    background: url(../../../assets/images/leftArrowGlow.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 46.5%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+    height: 12%;
+    left: 0%;
+    right: auto;
+}
+
+.rightArrow:hover{
+    background: url(../../../assets/images/rightArrowGlow.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 46.5%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+    height: 12%;
+    left: auto;
+    right: 0%;
+}
+
+.leftArrow:active , .rightArrow:active{
+    transform: scale(0.75);
+}
+
+@media screen and (max-width : 1024px){
+    .rightArrow{
+        top: 22.5%;
+    }
+    .leftArrow{
+        top:22.5%;
+    }
+    .rightArrow:hover{
+        top: 22.5%;
+    }
+    .leftArrow:hover{
+        top:22.5%;
+    }
+}
+
+.event {
+    background: url('../../../assets/images/EventBG.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #070b12;
+  }
+
+.Back{
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.Back:active{
+  transform: scale(0.9); 
+}
+
+.slide{
+  height: 60vh;
+  margin-top: -1%;
+}
+
+@media screen and (max-width : 1024px){
+  .workshopClusterName{
+    margin-top: 2%;
+  }
+  .slide{
+    margin-top: -2%;
+    height: 75vh;
+  }
+}

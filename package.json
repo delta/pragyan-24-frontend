@@ -12,6 +12,7 @@
     "format": "prettier --write 'src/**/*.{ts,tsx,css,json}' --config ./.prettierrc"
   },
   "dependencies": {
+    "@fest-web-client/client": "./fest-web-client/client/",
     "axios": "^1.6.2",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",

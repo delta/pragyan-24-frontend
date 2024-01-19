@@ -9,7 +9,7 @@ const events = ({ params }: { params: { event: number; name: string } }) => {
     return (
         <div className={`min-h-screen w-full text-center max-sm:p-3 p-5 event + ${styles.event}`}>
             <NavBar />
-            <ImageChanger defaultImage={Back} hoverImage={BackEnlarge} />
+            <ImageChanger defaultImage={Back} hoverImage={BackEnlarge} page="event" />
             <p
                 className={`${styles.eventClusterName} font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 transition-all`}
             >
