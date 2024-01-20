@@ -102,13 +102,13 @@
 .li:nth-child(2n + 1) {
     margin-top: 5rem;
 }
-.li:nth-child(3n) {
+/* .li:nth-child(3n) {
     margin-top: 12rem;
-}
+} */
 
-.li:nth-child(3) {
+/* .li:nth-child(3) {
     margin-top: 0rem;
-}
+} */
 
 /* 
 @keyframes imagewipe {
@@ -146,12 +146,5 @@
     }
     #glow{
         display:none;
-    }
-}
-
-@media (min-width: 1680px){
-    .navBar{
-        margin-left: 22%;
-        flex-basis: 45%;
     }
 }

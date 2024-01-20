@@ -26,10 +26,11 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
         { name: 'Events', link: '/clusters' },
         { name: 'Workshops', link: '/workshops' },
         // { name: 'Guest Lectures', link: '/guest-lectures' },
-        // { name: 'Sponsors', link: '/sponsors' },
+        { name: 'Sponsors', link: '/sponsors' },
         { name: 'Sangam', link: 'https://pragyan.org/sangam-24/' },
         { name: 'Ingenium', link: 'https://pragyan.org/ingenium/' },
         { name: 'Campus Ambassador', link: 'https://pragyan.org/pca/' },
+        { name: 'Hackathon', link: 'https://pragyan.org/hackathon/' },
         // { name: 'Patronages', link: '/patronages' },
         // { name: 'Hospitality', link: '/hospitality' },
         // { name: 'Campus', link: '/campus' },
@@ -65,7 +66,7 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
             <div>
                 {isOpened ? (
                     <div
-                        className="flex w-full justify-center items-center absolute z-[1000] top-0 left-0 bg-black"
+                        className="flex w-full justify-center items-center absolute z-[1000000] top-0 left-0 bg-black"
                         id="waves"
                     >
                         <div
