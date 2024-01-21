@@ -20,6 +20,9 @@ export default function SponsorButton() {
                 onMouseLeave={() => {
                     setHover(false);
                 }}
+                onClick={() => {
+                    window.open('https://forms.gle/PaUmsgbjKX8ihBHi9');
+                }}
                 className="max-sm:scale-75"
             >
                 <path d="M84 16H0V100H84V16Z" fill="black" />
