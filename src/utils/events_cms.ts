@@ -113,6 +113,7 @@ export const getWorkshopsIndex = async (name: string): Promise<number> => {
     let detailArray = res.data.data;
     let countId = 0;
     let id = 0;
+    name = decodeURIComponent(name);
     detailArray.forEach((data: any) => {
         let detail = data.attributes;
         if (detail.name === name) id = countId;
