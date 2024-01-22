@@ -22,7 +22,7 @@ const WorkShop = () => {
         <div className={`min-h-screen w-full text-center max-sm:p-3 p-5 event`}>
             <NavBar />
             <div className="font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 flex justify-center align-middle">
-                WORKSHOP
+                WORKSHOPS
             </div>
             <div className={`${styles.bg} flex justify-around align-middle flex-wrap m-4`}>
                 {details ? (
