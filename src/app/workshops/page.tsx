@@ -5,6 +5,7 @@ import styles from './workshops.module.css';
 import { getWorkshops } from '@/utils/events_cms';
 import { useEffect, useState } from 'react';
 import WorkshopCards from '@/components/WorkshopCard/WorkshopCards';
+import Tilt from 'react-parallax-tilt';
 
 const WorkShop = () => {
     const [details, setDetails] = useState<any>([]);
@@ -26,7 +27,13 @@ const WorkShop = () => {
             </div>
             <div className={`${styles.bg} flex justify-around align-middle flex-wrap m-4`}>
                 {details ? (
-                    details.map((element: any) => <WorkshopCards key={element.id} data={element} />)
+                    details.map((element: any) => {
+                        return (
+                            <Tilt key={element.id}>
+                                <WorkshopCards key={element.id} data={element} />
+                            </Tilt>
+                        );
+                    })
                 ) : (
                     <></>
                 )}

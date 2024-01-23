@@ -2,7 +2,8 @@
     background-image: url(../../assets/images/WORKSHOP.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position-y: 31px;
+    background-position-y: 50%;
+    background-attachment: fixed;
     position: relative;
     z-index: 100;
     margin-left: 2%;

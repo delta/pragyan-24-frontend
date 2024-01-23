@@ -8,6 +8,11 @@ import { CMS_URL } from '@/config/config';
 const WorkshopCards = (props: any) => {
     const router = useRouter();
 
+    const changeDatefromDashtoSlash = (date: string) => {
+        const dateArray = date.split('-');
+        return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+    };
+
     const navigateToWorkshopEvents = () => {
         router.push(`/workshops/${props.data.name}`);
     };
@@ -32,6 +37,10 @@ const WorkshopCards = (props: any) => {
 
             <div className="absolute w-[50%] h-[50%] right-[3%] top-[20%] max-sm:leading-4 lg:text-3xl sm:text-xl text-sm font-ROG flex justify-center items-center">
                 {props.data.name}
+            </div>
+
+            <div className="absolute w-[50%] h-[50%] right-[0%] top-[60%] max-sm:leading-4 lg:text-xl sm:text-sm text-sm font-ROG flex justify-center items-center">
+                {changeDatefromDashtoSlash(props.data.date)}
             </div>
 
             <svg
