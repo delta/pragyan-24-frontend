@@ -85,6 +85,15 @@ export const getSponsors = async () => {
 
     return details;
 };
+export const getHospiDesc = async () => {
+    let res = await axios.get(`${CMS_URL}/api/hospitalities?populate=*`);
+    let detailArray = res.data.data;
+    // eslint-disable @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    return detailArray.map(e => {
+        return `${e.attributes.desc}`;
+    });
+};
 
 export const getWorkshops = async () => {
     let res = await axios.get(`${CMS_URL}/api/workshops?populate=*`);
