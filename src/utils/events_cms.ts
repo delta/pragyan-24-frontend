@@ -87,12 +87,17 @@ export const getSponsors = async () => {
 };
 export const getHospiDesc = async () => {
     let res = await axios.get(`${CMS_URL}/api/hospitalities?populate=*`);
+
     let detailArray = res.data.data;
+    //@ts-ignore
+    let details: any = [];
     // eslint-disable @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    return detailArray.map(e => {
-        return `${e.attributes.desc}`;
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes;
+        details.push({ name: detail.name, desc: `${detail.desc}` });
     });
+    return details;
 };
 
 export const getWorkshops = async () => {

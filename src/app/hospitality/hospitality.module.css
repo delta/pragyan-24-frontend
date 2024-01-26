@@ -18,10 +18,11 @@
     color: #FFF;
     text-align: center;
     font-family: ROG;
-    font-size: 8rem;
+    font-size: 5rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding:5px;
 
     @media screen and (min-width:768px) and (max-width:840px) {
         font-size: 84.8px;
