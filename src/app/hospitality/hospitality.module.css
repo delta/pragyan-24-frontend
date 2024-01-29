@@ -50,8 +50,19 @@
     line-height: normal;
     background-blend-mode: overlay, normal;
     backdrop-filter: blur(40px);
-    padding: 20px 0px;
+    padding: 25px 0px;
     background: linear-gradient(to right, #0a111a, #142436);
+    @media screen and (min-width:768px) and (max-width:840px) {
+        font-size: 16.8px;
+    }
+
+    @media screen and (max-width:560px) {
+        font-size: 15px;
+    }
+
+    @media screen and (max-width:300px) {
+        font-size: 15px;
+    }
 }
 
 .tabContent {
@@ -103,8 +114,20 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    overflow-y: auto;
     text-align: left;
+    word-break: break-word;
+    text-wrap: wrap;
+    @media screen and (min-width:768px) and (max-width:840px) {
+        font-size: 14.8px;
+    }
+
+    @media screen and (max-width:560px) {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width:300px) {
+        font-size: 14px;
+    }
 }
 
 .underline {

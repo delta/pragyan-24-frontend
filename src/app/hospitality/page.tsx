@@ -81,8 +81,8 @@ export default function Hospitality() {
                                     <Image
                                         src={leftArrow}
                                         alt="lArrow"
-                                        className="self-start"
-                                        width={40}
+                                        className="absolute left-[10px]"
+                                        width={35}
                                         onClick={() => {
                                             setTabSelected(
                                                 (content.length + tabSelected - 1) % content.length,
@@ -93,8 +93,8 @@ export default function Hospitality() {
                                     <Image
                                         src={rightArrow}
                                         alt="rArrow"
-                                        width={40}
-                                        className="self-end"
+                                        width={35}
+                                        className="absolute right-[10px]"
                                         onClick={() => {
                                             setTabSelected((tabSelected + 1) % content.length);
                                         }}
