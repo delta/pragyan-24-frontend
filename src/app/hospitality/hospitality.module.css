@@ -1,7 +1,8 @@
 .parent {
-    padding: 5px;
-    height: 100vh;
-    width: 100%;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
 }
 
 .content {
@@ -9,7 +10,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: max-content;
     width: 100%;
     gap: 30px;
 }
@@ -18,7 +18,7 @@
     color: #FFF;
     text-align: center;
     font-family: ROG;
-    font-size: 5rem;
+    font-size: 3.75rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -103,7 +103,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    overflow-y: scroll;
+    overflow-y: auto;
+    text-align: left;
 }
 
 .underline {
