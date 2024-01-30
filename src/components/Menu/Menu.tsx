@@ -32,7 +32,7 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
         { name: 'Campus Ambassador', link: 'https://pragyan.org/pca/' },
         { name: 'Hackathon', link: 'https://pragyan.org/hackathon/' },
         // { name: 'Patronages', link: '/patronages' },
-        // { name: 'Hospitality', link: '/hospitality' },
+        { name: 'Hospitality', link: '/hospitality' },
         // { name: 'Campus', link: '/campus' },
     ];
 

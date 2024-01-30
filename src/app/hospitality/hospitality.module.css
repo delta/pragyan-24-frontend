@@ -1,0 +1,138 @@
+.parent {
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+}
+
+.title {
+    color: #FFF;
+    text-align: center;
+    font-family: ROG;
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding:5px;
+
+    @media screen and (min-width:768px) and (max-width:840px) {
+        font-size: 84.8px;
+    }
+
+    @media screen and (max-width:560px) {
+        font-size: 44px;
+    }
+
+    @media screen and (max-width:300px) {
+        font-size: 34px;
+    }
+}
+
+.tabTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #FFF;
+    text-align: center;
+    font-family: Orbitron;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-blend-mode: overlay, normal;
+    backdrop-filter: blur(40px);
+    padding: 25px 0px;
+    background: linear-gradient(to right, #0a111a, #142436);
+    @media screen and (min-width:768px) and (max-width:840px) {
+        font-size: 16.8px;
+    }
+
+    @media screen and (max-width:560px) {
+        font-size: 15px;
+    }
+
+    @media screen and (max-width:300px) {
+        font-size: 15px;
+    }
+}
+
+.tabContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85vw;
+    gap: inherit;
+}
+
+.tabPane {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: inherit;
+    background-blend-mode: overlay, normal;
+    backdrop-filter: blur(40px);
+    padding: 20px 0px;
+    background: linear-gradient(to right, #0a111a, #142436);
+    z-index: 5;
+}
+
+.tabPaneWrapper {
+    width: 100%;
+    padding: 2px 2px;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at left bottom, #1F79CB, #2371B900),
+        radial-gradient(ellipse at right top, #1F79CB, #2371B900);
+}
+
+.tab {
+    color: #FFF;
+    text-align: center;
+    font-family: Orbitron;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.desc {
+    padding: 10px;
+    height: 55vh;
+    width: 100%;
+    color: #FFF;
+    font-family: Nunito;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+    word-break: break-word;
+    text-wrap: wrap;
+    overflow-y: auto;
+    @media screen and (min-width:768px) and (max-width:840px) {
+        font-size: 14.8px;
+    }
+
+    @media screen and (max-width:560px) {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width:300px) {
+        font-size: 14px;
+    }
+}
+
+.underline {
+    background-color: white;
+    height: 2px;
+    width: 0px;
+}
