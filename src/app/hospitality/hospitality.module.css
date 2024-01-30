@@ -117,6 +117,7 @@
     text-align: left;
     word-break: break-word;
     text-wrap: wrap;
+    overflow-y: auto;
     @media screen and (min-width:768px) and (max-width:840px) {
         font-size: 14.8px;
     }
