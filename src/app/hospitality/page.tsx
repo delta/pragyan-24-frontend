@@ -7,8 +7,14 @@ import leftArrow from '../../assets/images/leftArrow.png';
 import rightArrow from '../../assets/images/rightArrow.png';
 import Image from 'next/image';
 import { getHospiDesc } from '@/utils/events_cms';
+
+interface HospitalityDetails {
+    name: string;
+    desc: string;
+}
+
 export default function Hospitality() {
-    const [content, setContent] = useState([]);
+    const [content, setContent] = useState<HospitalityDetails[]>([]);
     const [mobile, setMobile] = useState(false);
     const [tabSelected, setTabSelected] = useState<number>(0);
 
