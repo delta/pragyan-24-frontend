@@ -1,4 +1,4 @@
-.rightArrow{
+.rightArrow {
     background: url(../../assets/images/rightArrow.png);
     background-size: contain;
     background-position: center;
@@ -17,9 +17,9 @@
     transition: 0.3s all;
 }
 
-.leftArrow{
+.leftArrow {
     background: url(../../assets/images/leftArrow.png);
-    background-size:contain;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;
@@ -36,9 +36,9 @@
     transition: 0.3s all;
 }
 
-.leftArrow:hover{
+.leftArrow:hover {
     background: url(../../assets/images/leftArrowGlow.png);
-    background-size:contain;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;
@@ -54,9 +54,9 @@
     right: auto;
 }
 
-.rightArrow:hover{
+.rightArrow:hover {
     background: url(../../assets/images/rightArrowGlow.png);
-    background-size:contain;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;
@@ -72,18 +72,19 @@
     right: 0%;
 }
 
-.leftArrow:active , .rightArrow:active{
+.leftArrow:active,
+.rightArrow:active {
     transform: scale(0.75);
 }
 
-.slideElem{
+.slideElem {
     width: 70%;
     height: 60vh;
     margin-left: auto;
     margin-right: auto;
 }
 
-.mainSlide{
+.mainSlide {
     background: url(../../assets/images/Slide.png);
     background-position: center;
     background-size: cover;
@@ -94,12 +95,13 @@
     overflow-y: hidden;
     overflow-x: hidden;
 }
-.eventSlide{
+
+.eventSlide {
     overflow-y: hidden;
     overflow-x: hidden;
 }
 
-.leftSC{
+.leftSC {
     background: url(../../assets/images/leftSandClock.png);
     background-position: center;
     background-size: contain;
@@ -108,7 +110,7 @@
     height: 108%;
 }
 
-.rightSC{
+.rightSC {
     background: url(../../assets/images/rightSandClock.png);
     background-position: center;
     background-size: contain;
@@ -117,13 +119,13 @@
     height: 108%;
 }
 
-.registerBlock{
+.registerBlock {
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-.registerButton{
+.registerButton {
     background: url(../../assets/images/RegisterButton.png);
     background-position: center;
     background-size: contain;
@@ -139,7 +141,7 @@
     transition: 0.2s;
 }
 
-.registeredButton{
+.registeredButton {
     background: url(../../assets/images/RegisteredButton.png);
     background-position: center;
     background-size: contain;
@@ -155,7 +157,7 @@
     transition: 0.2s;
 }
 
-.content{
+.content {
     overflow-y: auto;
 }
 
@@ -166,40 +168,41 @@
 }
 
 .content::-webkit-scrollbar-thumb {
-    background: cyan; 
-  }
+    background: cyan;
+}
 
-.tabs{
+.tabs {
     height: 50%;
     transition: color 0.3s ease-in-out;
 }
 
-.active{
+.active {
     border-bottom: 2px solid white;
 }
 
-.markdown > * {
+.markdown>* {
     all: revert;
 }
 
 @media screen and (min-width : 1024px) {
-    .slideIntro1{
+    .slideIntro1 {
         display: none;
-    }   
-    .eventI{
+    }
+
+    .eventI {
         display: none;
     }
 }
 
-.content{
-    overflow-x:hidden;
-    overflow-y:scroll;
+.content {
+    overflow-x: hidden;
+    overflow-y: scroll;
     text-align: justify;
     word-wrap: normal;
 }
 
-@media screen and (max-width : 1024px){
-    .slideInfo{
+@media screen and (max-width : 1024px) {
+    .slideInfo {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -208,65 +211,80 @@
         overflow-y: hidden;
         overflow-x: hidden;
     }
-    .slideIntro1{
+
+    .slideIntro1 {
         width: 100%;
-        padding:0%;
+        padding: 0%;
         margin: 0%;
     }
-    .slideEnd{
+
+    .slideEnd {
         position: sticky;
         margin-top: auto;
         margin-bottom: 0px;
     }
-    .eventImg{
+
+    .eventImg {
         width: 50%;
         height: auto;
         margin-left: auto;
         margin-right: auto;
     }
-    .slideElem{
+
+    .slideElem {
         width: 85%;
         height: 100%;
     }
-    .rightArrow{
+
+    .rightArrow {
         top: 22.5%;
     }
-    .leftArrow{
-        top:22.5%;
-    }
-    .rightArrow:hover{
+
+    .leftArrow {
         top: 22.5%;
     }
-    .leftArrow:hover{
-        top:22.5%;
+
+    .rightArrow:hover {
+        top: 22.5%;
     }
-    .tabs{
+
+    .leftArrow:hover {
+        top: 22.5%;
+    }
+
+    .tabs {
         height: 50%;
         font-size: 60%;
     }
-    .content{
+
+    .content {
         font-size: 14px;
     }
-    .eventDes{
+
+    .eventDes {
         padding: 8px;
     }
-    .registerBlock{
+
+    .registerBlock {
         width: 100%;
     }
-    .registerButton{
+
+    .registerButton {
         width: 75%;
     }
-    .mainSlide{
+
+    .mainSlide {
         margin-top: 5%;
     }
-    .eventI{
+
+    .eventI {
         margin-top: 1%;
     }
 }
 
 
 
-@media screen and (max-width : 600px){ 
+@media screen and (max-width : 600px) {
     .eventImg {
         width: 75%;
         height: auto;
