@@ -19,7 +19,7 @@ const ImageChanger = (props: ImageChangerProps) => {
         <Image
             src={isHovered ? props.hoverImage : props.defaultImage}
             alt="Back to cluster"
-            className={`${styles.Back} xl:w-52 lg:w-44 md:w-32 sm:w-24 w-16 absolute left-28 top-32 z-20 max-md:left-10 max-md:w-28`}
+            className={`${styles.Back} xl:w-52 lg:w-44 md:w-32 sm:w-24 w-16 absolute left-28 top-32 z-20 max-md:left-3 max-md:top-[6.9rem] max-md:w-24`}
             onClick={() => {
                 if (props.page === 'event') router.push('/clusters');
                 else if (props.page === 'workshop') router.push('/workshops');

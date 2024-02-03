@@ -10,7 +10,7 @@ import { CMS_URL } from '@/config/config';
 import Markdown from 'react-markdown';
 
 //@ts-ignore
-const WorkshopSlide = props => {
+const WorkshopSlideData = props => {
     const [index, setIndex] = useState(1);
     const [isActive, setIsActive] = useState(1);
     const [data, setData] = useState(props.data.details);
@@ -49,7 +49,7 @@ const WorkshopSlide = props => {
                 <div
                     className={`flex justify-center flex-col items-center w-1/3 h-auto p-7 ${styles.slideIntro1}`}
                 >
-                    <div className="font-ROG 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-lg sm:text-md max-lg:mt-4 text-md h-1/6 mt-4 mb-4 transition-all p-10">
+                    <div className="font-ROG 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-lg sm:text-md max-lg:mt-4 text-md h-1/6 mt-4 mb-4 transition-all">
                         {props.data.name}
                     </div>
                     <Image
@@ -144,28 +144,26 @@ const WorkshopSlide = props => {
                             </div>
                         </div>
                     </div>
-                    <div
-                        className={`flex justify-center h-1/6 m-0 p-0 max-lg:hidden ${styles.slideEnd}`}
-                    >
+                    <div className={`flex justify-center h-1/6 m-0 p-0 ${styles.slideEnd}`}>
                         <div className="flex justify-center align-middle flex-col w-full h-full max-lg:hidden">
                             <div className="flex justify-begin pl-20 align-middle mt-auto mb-auto font-Orbitron 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm w-full">
                                 <span> {props.data.date}</span>
                             </div>
-                            <div className="flex justify-begin pl-20 align-middle mt-auto mb-auto font-Orbitron 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm w-full">
+                            <div className="flex justify-center align-middle mt-auto mb-auto font-Orbitron 2xl:text-base xl:text-sm lg:text-sm sm:text-sm text-sm w-full">
                                 <span>
                                     <Image src={MapDrop} alt="Location" width={13} height={13} />
                                 </span>
                                 <span className="ml-2"> {props.data.location}</span>
                             </div>
                         </div>
-                    </div>
-                    <div
-                        className={`flex justify-center w-full h-full p-0 ${styles.registerBlock}`}
-                    >
                         <div
-                            className={`flex justify-center ${styles.registerButton}`}
-                            onClick={() => handleRegister()}
-                        ></div>
+                            className={`flex justify-center w-2/3 h-full p-0 ${styles.registerBlock}`}
+                        >
+                            <div
+                                className={`flex justify-center ${styles.registerButton}`}
+                                onClick={() => handleRegister()}
+                            ></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,4 +174,4 @@ const WorkshopSlide = props => {
     );
 };
 
-export default WorkshopSlide;
+export default WorkshopSlideData;

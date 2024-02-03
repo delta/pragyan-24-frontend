@@ -7,7 +7,7 @@ import ImageChanger from '@/components/BackButton/back';
 import styles from './workshop.module.css';
 import { Key, useEffect, useState } from 'react';
 import { getWorkshops, getWorkshopsIndex } from '@/utils/events_cms';
-import WorkshopSlide from '@/components/WorkshopSlide/workshopSlide';
+import WorkshopSlideData from '@/components/WorkshopSlideData/workshopSlideData';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper/core';
@@ -38,30 +38,32 @@ const WorkshopCarousel = ({ params }: { params: { workshop_name: string } }) => 
             <ImageChanger defaultImage={Back} hoverImage={BackEnlarge} page="workshop" />
 
             <p
-                className={`${styles.workshopClusterName} font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 mb-4  transition-all`}
+                className={`${styles.workshopClusterName} font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 mb-4 transition-all`}
             >
                 WORKSHOPS
             </p>
-            <Swiper
-                spaceBetween={50}
-                slidesPerView={1}
-                navigation={{
-                    nextEl: `.${styles.rightArrow}`,
-                    prevEl: `.${styles.leftArrow}`,
-                }}
-                initialSlide={initialSlideNumber}
-                keyboard={{ enabled: true }}
-                className="w-full h-full flex justify-center"
-            >
-                {details.map((elem: any, ind: Key | null | undefined) => (
-                    <SwiperSlide key={ind}>
-                        <WorkshopSlide data={elem} />
-                    </SwiperSlide>
-                ))}
+            <div className="-mt-[1%] w-full h-[60vh] max-lg:h-[75vh] max-lg:-mt-[2%]">
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    navigation={{
+                        nextEl: `.${styles.rightArrow}`,
+                        prevEl: `.${styles.leftArrow}`,
+                    }}
+                    initialSlide={initialSlideNumber}
+                    keyboard={{ enabled: true }}
+                    className="w-full h-full flex justify-center"
+                >
+                    {details.map((elem: any, ind: Key | null | undefined) => (
+                        <SwiperSlide key={ind}>
+                            <WorkshopSlideData data={elem} />
+                        </SwiperSlide>
+                    ))}
 
-                <div className={`${styles.rightArrow}`}></div>
-                <div className={`${styles.leftArrow}`}></div>
-            </Swiper>
+                    <div className={`${styles.rightArrow}`}></div>
+                    <div className={`${styles.leftArrow}`}></div>
+                </Swiper>
+            </div>
         </div>
     ) : (
         <></>
