@@ -1,0 +1,16 @@
+.card{
+    clip-path: polygon(56% 0, 100% 27%, 100% 100%, 0 100%, 0 0);
+    background-image: url('../../assets/images/kamartaj.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* border: 5px solid #72bbcc; */
+    /* box-shadow: 0 -10vh 0 0 #72bbcc; */
+}
+
+.outer{
+	box-shadow: inset 10px 0px 23px -9px #72bbcc;
+}
+
+.inner{
+    box-shadow: inset -10px 0px 23px -9px #72bbcc;
+}
