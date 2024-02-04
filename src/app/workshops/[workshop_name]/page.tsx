@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
-import { NavBar } from '@/components';
+import { Loader, NavBar } from '@/components';
 import Back from '@/assets/images/Back.png';
 import BackEnlarge from '@/assets/images/BackEnlarge.png';
 import ImageChanger from '@/components/BackButton/back';
@@ -66,7 +66,9 @@ const WorkshopCarousel = ({ params }: { params: { workshop_name: string } }) => 
             </div>
         </div>
     ) : (
-        <></>
+        <>
+            <Loader />
+        </>
     );
 };
 

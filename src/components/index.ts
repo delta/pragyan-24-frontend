@@ -15,3 +15,7 @@ export { default as Menu } from './Menu/Menu';
 export { default as AuthLayout } from './AuthLayout/AuthLayout';
 export { default as SponsorCard } from './SponsorCard/SponsorCard';
 export { default as SponsorButton } from './SponsorsButton/SponsorsButton';
+export { default as GLCarousel } from './GLSlide/GLSlide';
+export { default as GuestLectureCard } from './GuestLectureCard/GuestLectureCard';
+export { default as GLSlide } from './GLSlide/GLSlide';
+export { default as Loader } from './Loader/Loader';

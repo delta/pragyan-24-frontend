@@ -19,3 +19,7 @@
     font-style: normal;
     font-weight: 400;
 }
+
+.NTH:nth-of-type(2n) {
+    margin-top: 15vh;
+}
