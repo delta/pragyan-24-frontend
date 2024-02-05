@@ -39,7 +39,7 @@ const GuestLectures = () => {
             >
                 CROSSFIRE
             </div>
-            <div className=" w-full pl-5 pr-5 flex justify-evenly items-center mt-8 relative max-md:hidden">
+            <div className=" w-full pl-5 pr-5 flex justify-evenly items-center mt-8 relative max-lg:hidden">
                 {CrossfireDetails.map((element: any) => {
                     console.log(element);
                     return (
@@ -54,7 +54,8 @@ const GuestLectures = () => {
                     );
                 })}
             </div>
-            <div className="  w-full h-full flex flex-col gap-6 justify-evenly items-center mt-8 relative md:hidden">
+            {/* mobile */}
+            <div className="  w-full h-full flex flex-col gap-6 justify-evenly items-center mt-8 relative lg:hidden">
                 {CrossfireDetails.map((element: any) => {
                     console.log(element);
                     return (
@@ -74,7 +75,7 @@ const GuestLectures = () => {
             >
                 ILLUMINAIRE
             </div>
-            <div className=" w-full h-fit pl-5 pr-5 flex justify-evenly items-center relative max-md:hidden">
+            <div className=" w-full h-fit pl-5 pr-5 flex justify-evenly items-center relative max-lg:hidden">
                 {IlluminaireDetails.map((element: any) => {
                     return (
                         <div className={styles.NTH} key={element.id}>
@@ -88,7 +89,8 @@ const GuestLectures = () => {
                     );
                 })}
             </div>
-            <div className="  w-full h-full flex flex-col gap-6 justify-evenly items-center mt-8 relative md:hidden">
+            {/* mobile */}
+            <div className="  w-full h-full flex flex-col gap-6 justify-evenly items-center mt-8 relative lg:hidden">
                 {IlluminaireDetails.map((element: any) => {
                     console.log(element);
                     return (

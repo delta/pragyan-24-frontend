@@ -29,7 +29,7 @@ const WorkShop = () => {
                 {details ? (
                     details.map((element: any) => {
                         return (
-                            <Tilt key={element.id}>
+                            <Tilt gyroscope={true} key={element.id}>
                                 <WorkshopCards key={element.id} data={element} />
                             </Tilt>
                         );
