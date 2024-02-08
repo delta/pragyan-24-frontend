@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 'use client';
-import { NavBar } from '@/components';
+import { Loader, NavBar } from '@/components';
 import Image from 'next/image';
 import styles from './clusters.module.css';
 import portal from '@/assets/images/Portal.png';
@@ -48,6 +48,8 @@ const Clusters = () => {
     useEffect(() => {
         getDetails();
     }, []);
+
+    if (details.length == 0) return <Loader />;
 
     return (
         <div className={styles.clusterBG + ' ' + 'h-screen w-screen p-0 flex justify-center '}>

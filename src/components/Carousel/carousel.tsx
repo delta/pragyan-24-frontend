@@ -11,6 +11,7 @@ import styles from './caro.module.css';
 import SlideData from './slideData';
 import { getClusterDetails } from '@/utils/events_cms';
 import { useEffect, useState } from 'react';
+import { Loader } from '..';
 
 SwiperCore.use([Navigation, Keyboard]);
 
@@ -30,6 +31,8 @@ const Carousel = ({ id, eventId }: { id: number; eventId: number }) => {
     useEffect(() => {
         getDetails();
     }, []);
+
+    if (details.length === 0) return <Loader />;
 
     return initialSlideNumber !== null ? (
         <Swiper

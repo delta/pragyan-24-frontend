@@ -19,6 +19,7 @@ import rightArrow from '../../assets/images/rightArrow.png';
 import { useEffect, useState } from 'react';
 import { getClusterDetails } from '@/utils/events_cms';
 import { CMS_URL } from '@/config/config';
+import { Loader } from '..';
 
 const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     const [details, setDetails] = useState<any>([]);
@@ -83,6 +84,8 @@ const ClusterCarousel = ({ id, name }: { id: number; name: string }) => {
     const navigateToEvent = () => {
         router.push(`/events/${id}/${name}/${details[index].id}`);
     };
+
+    if (details.length === 0) return <Loader />;
 
     return (
         <div className="relative w-full md:w-3/4 h-full flex items-center justify-center max-2xl:px-10 max-md:p-2">
