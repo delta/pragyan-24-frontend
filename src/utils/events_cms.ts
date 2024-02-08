@@ -1,6 +1,7 @@
 /* eslint-disable */
 import axios from 'axios';
 import { CMS_URL } from '@/config/config';
+import { time } from 'console';
 
 export const getClusterDetails = async (id: number) => {
     let res = await axios.get(
@@ -85,6 +86,7 @@ export const getSponsors = async () => {
 
     return details;
 };
+
 export const getHospiDesc = async () => {
     let res = await axios.get(`${CMS_URL}/api/hospitalities?populate=*`);
 
@@ -133,5 +135,46 @@ export const getWorkshopsIndex = async (name: string): Promise<number> => {
         if (detail.name === name) id = countId;
         countId++;
     });
+    return id;
+};
+
+export const getGuestLectures = async () => {
+    let res = await axios.get(`${CMS_URL}/api/guest-lectures?populate=*`);
+    let detailArray = res.data.data;
+    let details: any = [];
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes;
+        details.push({
+            cluster_name: detail.cluster_name,
+            name: detail.name,
+            date: detail.date,
+            time: detail.time,
+            image: detail.image,
+            topic: detail.topic,
+            desc: detail.desc,
+            venue: detail.venue,
+        });
+    });
+    return details;
+};
+
+export const getGLIndex = async (name: string, gl_cluster: string): Promise<number> => {
+    let res = await axios.get(`${CMS_URL}/api/guest-lectures?populate=*`);
+    let detailArray = res.data.data;
+
+    detailArray = detailArray.filter((data: any) => {
+        return data.attributes.cluster_name === gl_cluster;
+    });
+
+    let countId = 0;
+    let id = 0;
+    name = decodeURIComponent(name);
+    console.log(name);
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes;
+        if (detail.name === name) id = countId;
+        countId++;
+    });
+    console.log(id);
     return id;
 };

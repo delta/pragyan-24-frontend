@@ -25,15 +25,14 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
     const menuItems = [
         { name: 'Events', link: '/clusters' },
         { name: 'Workshops', link: '/workshops' },
-        // { name: 'Guest Lectures', link: '/guest-lectures' },
-        { name: 'Sponsors', link: '/sponsors' },
+        { name: 'Guest Lectures', link: '/gl' },
         { name: 'Sangam', link: 'https://pragyan.org/sangam-24/' },
         { name: 'Ingenium', link: 'https://pragyan.org/ingenium/' },
         { name: 'Campus Ambassador', link: 'https://pragyan.org/pca/' },
-        { name: 'Hackathon', link: 'https://pragyan.org/hackathon/' },
+        // { name: 'Hackathon', link: 'https://pragyan.org/hackathon/' },
         // { name: 'Patronages', link: '/patronages' },
         { name: 'Hospitality', link: '/hospitality' },
-        // { name: 'Campus', link: '/campus' },
+        { name: 'Sponsors', link: '/sponsors' },
     ];
 
     useEffect(() => {

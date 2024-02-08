@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
-import { NavBar } from '@/components';
+import { Loader, NavBar } from '@/components';
 import styles from './workshops.module.css';
 import { getWorkshops } from '@/utils/events_cms';
 import { useEffect, useState } from 'react';
@@ -29,13 +29,15 @@ const WorkShop = () => {
                 {details ? (
                     details.map((element: any) => {
                         return (
-                            <Tilt key={element.id}>
+                            <Tilt gyroscope={true} key={element.id}>
                                 <WorkshopCards key={element.id} data={element} />
                             </Tilt>
                         );
                     })
                 ) : (
-                    <></>
+                    <>
+                        <Loader />
+                    </>
                 )}
             </div>
         </div>

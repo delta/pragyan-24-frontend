@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
-import { NavBar } from '@/components';
+import { Loader, NavBar } from '@/components';
 import Back from '@/assets/images/Back.png';
 import BackEnlarge from '@/assets/images/BackEnlarge.png';
 import ImageChanger from '@/components/BackButton/back';
@@ -35,7 +35,7 @@ const WorkshopCarousel = ({ params }: { params: { workshop_name: string } }) => 
     return initialSlideNumber !== null ? (
         <div className={`min-h-screen w-full text-center max-sm:p-3 p-5 event + ${styles.event}`}>
             <NavBar />
-            <ImageChanger defaultImage={Back} hoverImage={BackEnlarge} page="workshop" />
+            <ImageChanger defaultImage={Back} hoverImage={BackEnlarge} page="workshops" />
 
             <p
                 className={`${styles.workshopClusterName} font-ROG 2xl:text-6xl xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mt-12 mb-4 transition-all`}
@@ -66,7 +66,9 @@ const WorkshopCarousel = ({ params }: { params: { workshop_name: string } }) => 
             </div>
         </div>
     ) : (
-        <></>
+        <>
+            <Loader />
+        </>
     );
 };
 

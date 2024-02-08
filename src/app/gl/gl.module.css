@@ -1,0 +1,23 @@
+.bg {
+    background-image: url(../../assets/images/GUESTLECTURES.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 100;
+}
+
+.glname {
+    color: #72bbcc;
+    text-shadow:
+        0 0 20px #72bbcc,
+        0 0 30px #72bbcc,
+        0 0 40px #72bbcc;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.NTH:nth-of-type(2n) {
+    margin-top: 15vh;
+}

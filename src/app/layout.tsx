@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import content from '@/components/AboutCard/AboutContent.json';
 import Toast from '@/components/Toast/Toast';
 import Script from 'next/script';
+import { Suspense } from 'react';
+import Loading from './loading';
 
 export const metadata: Metadata = {
     title: "Pragyan '24 | Let's Celebrate Technology",
@@ -24,7 +26,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"
                     strategy="beforeInteractive"
                 ></Script>
-                <div className="w-full min-h-screen bg-[#070B12] page-layout">{children}</div>
+
+                <Suspense fallback={<Loading />}>
+                    <div className="w-full min-h-screen bg-[#070B12] page-layout">{children}</div>
+                </Suspense>
+
                 <Footer />
                 <Toast />
             </body>

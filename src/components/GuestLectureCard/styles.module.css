@@ -1,0 +1,7 @@
+.outer{
+	box-shadow: inset 10px 0px 23px -9px #72bbcc;
+}
+
+.inner{
+    box-shadow: inset -10px 0px 23px -9px #72bbcc;
+}
