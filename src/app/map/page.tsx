@@ -1,6 +1,6 @@
 'use client';
 import { NavBar } from '@/components';
-import styles from './clusters.module.css';
+import styles from './map.module.css';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
