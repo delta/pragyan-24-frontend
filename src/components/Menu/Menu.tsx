@@ -29,6 +29,8 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
         { name: 'Sangam', link: 'https://pragyan.org/sangam-24/' },
         { name: 'Ingenium', link: 'https://pragyan.org/ingenium/' },
         { name: 'Campus Ambassador', link: 'https://pragyan.org/pca/' },
+        { name: 'Map', link: '/map' },
+
         // { name: 'Hackathon', link: 'https://pragyan.org/hackathon/' },
         // { name: 'Patronages', link: '/patronages' },
         { name: 'Hospitality', link: '/hospitality' },

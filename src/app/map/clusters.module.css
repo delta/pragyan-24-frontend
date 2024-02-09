@@ -1,0 +1,22 @@
+
+
+.title{
+    margin-top: 7rem;
+}
+
+.leafletcontainer {
+	width: 50vw;
+	height: 60vh;
+	z-index: 380;
+    position: absolute;
+    top: 12rem;
+    right: 5rem;
+}
+
+@media only screen and (max-width:  992px) {
+    .leafletcontainer{
+        width: 100%;
+        height: 80vh;
+        right: 0rem;
+    }
+  }
