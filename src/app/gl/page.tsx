@@ -42,7 +42,6 @@ const GuestLectures = () => {
                 </div>
                 <div className=" w-full pl-5 pr-5 flex justify-evenly items-center mt-8 relative max-lg:hidden">
                     {CrossfireDetails.map((element: any) => {
-                        console.log(element);
                         return (
                             <div className={styles.NTH} key={element.id}>
                                 <GuestLecturesCard
@@ -58,7 +57,6 @@ const GuestLectures = () => {
                 {/* mobile */}
                 <div className="  w-full h-full flex flex-col gap-6 justify-evenly items-center mt-8 relative lg:hidden">
                     {CrossfireDetails.map((element: any) => {
-                        console.log(element);
                         return (
                             <div key={element.id} className="">
                                 <GuestLecturesCard
@@ -93,7 +91,6 @@ const GuestLectures = () => {
                 {/* mobile */}
                 <div className="  w-full h-full flex flex-col gap-6 justify-evenly items-center mt-8 relative lg:hidden">
                     {IlluminaireDetails.map((element: any) => {
-                        console.log(element);
                         return (
                             <div key={element.id} className="">
                                 <GuestLecturesCard

@@ -28,7 +28,6 @@ const GuestLecturesCard: React.FC<GlCardProps> = (props: GlCardProps) => {
                     backgroundRepeat: 'no-repeat',
                 }}
                 onClick={() => {
-                    console.log(props.cluster_name, props.name);
                     window.location.href = `/gl/${props.cluster_name}/${props.name}`;
                 }}
             >

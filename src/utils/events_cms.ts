@@ -168,13 +168,11 @@ export const getGLIndex = async (name: string, gl_cluster: string): Promise<numb
     let countId = 0;
     let id = 0;
     name = decodeURIComponent(name);
-    console.log(name);
     detailArray.forEach((data: any) => {
         let detail = data.attributes;
         if (detail.name === name) id = countId;
         countId++;
     });
-    console.log(id);
     return id;
 };
 
@@ -190,6 +188,5 @@ export const getPatronages = async () => {
             href: detail.href,
         });
     });
-    console.log(details);
     return details;
 };
