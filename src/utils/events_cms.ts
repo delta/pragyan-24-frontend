@@ -1,7 +1,6 @@
 /* eslint-disable */
 import axios from 'axios';
 import { CMS_URL } from '@/config/config';
-import { time } from 'console';
 
 export const getClusterDetails = async (id: number) => {
     let res = await axios.get(
@@ -177,4 +176,20 @@ export const getGLIndex = async (name: string, gl_cluster: string): Promise<numb
     });
     console.log(id);
     return id;
+};
+
+export const getPatronages = async () => {
+    let res = await axios.get(`${CMS_URL}/api/patronages?populate=*`);
+    let detailArray = res.data.data;
+    let details: any = [];
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes;
+        details.push({
+            name: detail.name,
+            src: detail.src.data.attributes.url,
+            href: detail.href,
+        });
+    });
+    console.log(details);
+    return details;
 };

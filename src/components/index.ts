@@ -19,3 +19,4 @@ export { default as GLCarousel } from './GLSlide/GLSlide';
 export { default as GuestLectureCard } from './GuestLectureCard/GuestLectureCard';
 export { default as GLSlide } from './GLSlide/GLSlide';
 export { default as Loader } from './Loader/Loader';
+export { default as Patronage } from './Patronage/Patronage';
