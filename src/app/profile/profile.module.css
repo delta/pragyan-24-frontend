@@ -1,0 +1,10 @@
+.glasses{
+    background-image: url('../../assets/images/glasses.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.deets::-webkit-scrollbar {
+    display: none !important;
+}
