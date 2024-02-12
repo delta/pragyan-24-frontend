@@ -8,7 +8,6 @@ import LoginButtonMobile from '../MobileAuthButton/LoginButton';
 import Link from 'next/link';
 import Menu from '@/components/Menu/Menu';
 import styles from './navbar.module.css';
-import toast from 'react-hot-toast';
 
 interface NavBarProps {
     NavRef?: React.RefObject<HTMLDivElement>;
@@ -28,12 +27,10 @@ const NavBar = ({ NavRef }: NavBarProps) => {
             <div
                 className={`${styles.navLink} max-lg:hidden`}
                 onClick={() => {
-                    localStorage.removeItem('token');
-                    toast.success('Successfully logged out.');
-                    window.location.reload();
+                    window.location.href = '/profile';
                 }}
             >
-                LOGOUT
+                PROFILE
             </div>
         );
     };
@@ -53,10 +50,9 @@ const NavBar = ({ NavRef }: NavBarProps) => {
                 setAuthButton(<LogoutButton />);
                 setMobileAuthButton(
                     <LoginButtonMobile
-                        text="LOGOUT"
+                        text="PROFILE"
                         onClick={() => {
-                            localStorage.removeItem('token');
-                            window.location.reload();
+                            window.location.href = '/profile';
                         }}
                     />,
                 );

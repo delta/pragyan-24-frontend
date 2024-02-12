@@ -61,6 +61,12 @@ body {
     z-index: 10000;
 }
 
+.profilebg{
+    background: url('../assets/images/profilebg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .home {
     background: url('../assets/images/kamartaj.png');
     background-size: contain;

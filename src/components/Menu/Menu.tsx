@@ -6,6 +6,7 @@ import MenuItem from '@/components/MenuItem/MenuItem';
 // import disk from '../../assets/images/disk.png';
 // import diskglow from '../../assets/images/diskglow.png';
 import styles from '../NavBar/navbar.module.css';
+import toast from 'react-hot-toast';
 
 interface MenuProps {
     isOpened: boolean;
@@ -14,13 +15,6 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
     const [width, setWidth] = useState<number>(0);
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setWidth(window.innerWidth);
-            window.addEventListener('resize', () => setWidth(window.innerWidth));
-        }
-    }, []);
 
     const menuItems = [
         { name: 'Events', link: '/clusters' },
@@ -34,6 +28,13 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
         { name: 'Hospitality', link: '/hospitality' },
         { name: 'Sponsors', link: '/sponsors' },
     ];
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setWidth(window.innerWidth);
+            window.addEventListener('resize', () => setWidth(window.innerWidth));
+        }
+    }, []);
 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -104,6 +105,17 @@ const Menu: React.FC<MenuProps> = ({ isOpened, setIsOpened }) => {
                                     </Link>
                                 </li>
                             ))}
+                            {localStorage.getItem('token') && (
+                                <div
+                                    onClick={() => {
+                                        localStorage.removeItem('token');
+                                        toast.success('Logged out successfully');
+                                        window.location.reload();
+                                    }}
+                                >
+                                    <MenuItem name="Logout" phone={width < 1020} />
+                                </div>
+                            )}
                         </ul>
                         <style>
                             {`
