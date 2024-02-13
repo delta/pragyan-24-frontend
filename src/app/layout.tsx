@@ -26,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"
                     strategy="beforeInteractive"
                 ></Script>
-
                 {/* <Suspense fallback={<Loading />}> */}
                 <div className="w-full min-h-screen bg-[#070B12] page-layout">{children}</div>
                 {/* </Suspense> */}
