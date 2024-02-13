@@ -3,9 +3,15 @@ import { NavBar } from '@/components';
 import styles from './map.module.css';
 import { motion } from 'framer-motion';
 import React from 'react';
+import Image from 'next/image';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import mainEvents from '@/assets/images/MapMainEvents.png';
+import mainBrain from '@/assets/images/mapBrain.png';
+import mainFood from '@/assets/images/mapFood.png';
+import mainSports from '@/assets/images/mapSports.png';
+import mapHome from '@/assets/images/mapHome.png';
 
 const Map = () => {
     const offline = '/assets/tiles/{z}/{x}/{y}.png';
@@ -29,6 +35,46 @@ const Map = () => {
                         MAP
                     </p>
                 </motion.div>
+            </div>
+            <div className={styles.legend}>
+                <div className={styles.legendTitle}>LEGEND</div>
+                <div className={styles.legendItem}>
+                    <Image src={mainEvents} alt="mainEvents" /> MAIN EVENTS
+                </div>
+                <div className={styles.legendItem}>
+                    <Image src={mainFood} alt="mainFood" /> FOOD
+                </div>
+                <div className={styles.legendItem}>
+                    <Image src={mainSports} alt="mainEvents" /> SPORTS FACILITIES
+                </div>
+                <div className={styles.legendItem}>
+                    <Image src={mapHome} alt="mainEvents" /> LODGING
+                </div>
+                <div className={styles.legendItem}>
+                    <Image src={mainBrain} alt="mainEvents" /> EDUCATIONAL BUILDING
+                </div>
+            </div>
+
+            <div className={styles.legendMobile}>
+                <div>
+                    <div className={styles.legendItemMobile}>
+                        <Image src={mainEvents} alt="mainEvents" /> MAIN EVENTS
+                    </div>
+                    <div className={styles.legendItemMobile}>
+                        <Image src={mainFood} alt="mainFood" /> FOOD
+                    </div>
+                    <div className={styles.legendItemMobile}>
+                        <Image src={mainSports} alt="mainEvents" /> SPORTS FACILITIES
+                    </div>
+                </div>
+                <div>
+                    <div className={styles.legendItemMobile}>
+                        <Image src={mapHome} alt="mainEvents" /> LODGING
+                    </div>
+                    <div className={styles.legendItemMobile}>
+                        <Image src={mainBrain} alt="mainEvents" /> EDUCATIONAL BUILDING
+                    </div>
+                </div>
             </div>
             <MapContainer
                 center={[0, 0]}
