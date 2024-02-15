@@ -39,7 +39,7 @@ const Profile = () => {
                                     <p className="text-[0.7rem] sm:text-lg text-[#B0B0B0]">
                                         WELCOME
                                         <span className="text-[1.2rem] sm:text-3xl ml-2 text-white">
-                                            {userName.split(' ')[0]}
+                                            {userName && userName.split(' ')[0]}
                                         </span>
                                     </p>
                                 </div>

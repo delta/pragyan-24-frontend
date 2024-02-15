@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { getHospiDesc } from '@/utils/events_cms';
 import Markdown from 'react-markdown';
 import Script from 'next/script';
+import { useRouter } from 'next/navigation';
 
 interface HospitalityDetails {
     name: string;
@@ -25,6 +26,7 @@ export default function Hospitality() {
     const [mobile, setMobile] = useState(false);
     const [tabSelected, setTabSelected] = useState<number>(0);
     const [noofDays, setNoofDays] = useState<number>(3);
+    const router = useRouter();
 
     function HandleRegisterChange(e: React.ChangeEvent<HTMLSelectElement>) {
         setNoofDays(parseInt(e.target.value));
@@ -39,6 +41,12 @@ export default function Hospitality() {
     useEffect(() => {
         getDetails();
     }, []);
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            router.push('/login');
+        }
+    });
 
     return (
         <>

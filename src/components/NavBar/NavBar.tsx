@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import pragyanlogo from '../../assets/images/main-logo.png';
 import pragyanlogomobile from '../../assets/images/main-logo-mobile.png';
 import hamburgerIcon from '../../assets/images/hamburgerMenu.svg';
@@ -14,6 +15,7 @@ interface NavBarProps {
 }
 
 const NavBar = ({ NavRef }: NavBarProps) => {
+    const router = useRouter();
     const LoginButton = () => {
         return (
             <Link href="/login" className={`${styles.navLink} max-lg:hidden`}>
@@ -27,7 +29,7 @@ const NavBar = ({ NavRef }: NavBarProps) => {
             <div
                 className={`${styles.navLink} max-lg:hidden`}
                 onClick={() => {
-                    window.location.href = '/profile';
+                    router.push('/profile');
                 }}
             >
                 PROFILE
@@ -52,7 +54,7 @@ const NavBar = ({ NavRef }: NavBarProps) => {
                     <LoginButtonMobile
                         text="PROFILE"
                         onClick={() => {
-                            window.location.href = '/profile';
+                            router.push('/profile');
                         }}
                     />,
                 );
