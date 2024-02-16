@@ -28,7 +28,7 @@ const GuestLecturesCard: React.FC<GlCardProps> = (props: GlCardProps) => {
                     backgroundRepeat: 'no-repeat',
                 }}
                 onClick={() => {
-                    window.location.href = `/gl/${props.cluster_name}/${props.name}`;
+                    window.location.href = `/24/gl/${props.cluster_name}/${props.name}`;
                 }}
             >
                 <div className={`${styles.inner} h-[100%] w-[100%] `}></div>
