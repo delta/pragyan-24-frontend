@@ -1,10 +1,13 @@
 'use client';
 import { CMS_URL } from '@/config/config';
 import Tilt from 'react-parallax-tilt';
+import { useRouter } from 'next/navigation';
 
 import styles from './styles.module.css';
 
 const GuestLecturesCard: React.FC<GlCardProps> = (props: GlCardProps) => {
+    const router = useRouter();
+
     return (
         <Tilt
             className={`${styles.tilt} w-72 h-[40vh] relative cursor-pointer`}
@@ -28,7 +31,7 @@ const GuestLecturesCard: React.FC<GlCardProps> = (props: GlCardProps) => {
                     backgroundRepeat: 'no-repeat',
                 }}
                 onClick={() => {
-                    window.location.href = `/24/gl/${props.cluster_name}/${props.name}`;
+                    router.push(`/gl/${props.cluster_name}/${props.name}`);
                 }}
             >
                 <div className={`${styles.inner} h-[100%] w-[100%] `}></div>
