@@ -47,26 +47,29 @@ const GLCarousel = ({ params }: { params: { gl_cluster: string; gl_name: string 
             >
                 {params.gl_cluster}
             </p>
-            <Swiper
-                spaceBetween={50}
-                slidesPerView={1}
-                navigation={{
-                    nextEl: `.${styles.rightArrow}`,
-                    prevEl: `.${styles.leftArrow}`,
-                }}
-                initialSlide={initialSlideNumber}
-                keyboard={{ enabled: true }}
-                className="w-full h-full flex justify-center"
-            >
-                {details.map((elem: any, ind: Key | null | undefined) => (
-                    <SwiperSlide key={ind}>
-                        <GLSlide data={elem} />
-                    </SwiperSlide>
-                ))}
+            {/* <div className={`mt-12 w-full ${styles.slide}`}> */}
+            <div className="-mt-[1%] w-full h-[60vh] max-lg:h-[75vh] max-lg:-mt-[2%]">
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    navigation={{
+                        nextEl: `.${styles.rightArrow}`,
+                        prevEl: `.${styles.leftArrow}`,
+                    }}
+                    initialSlide={initialSlideNumber}
+                    keyboard={{ enabled: true }}
+                    className="w-full h-full flex justify-center"
+                >
+                    {details.map((elem: any, ind: Key | null | undefined) => (
+                        <SwiperSlide key={ind}>
+                            <GLSlide data={elem} />
+                        </SwiperSlide>
+                    ))}
 
-                <div className={`${styles.rightArrow}`}></div>
-                <div className={`${styles.leftArrow}`}></div>
-            </Swiper>
+                    <div className={`${styles.rightArrow}`}></div>
+                    <div className={`${styles.leftArrow}`}></div>
+                </Swiper>
+            </div>
         </div>
     ) : (
         <Loader />
