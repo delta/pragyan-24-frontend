@@ -13,8 +13,8 @@ const Profile = () => {
         const profileApi = new ProfileApi(apiConfig);
         // eslint-disable-next-line
         profileApi.profileDetails().then((profileDetails: any) => {
-            setUserName(profileDetails.message.user_fullname);
-            setUserCollege(profileDetails.message.user_college);
+            setUserName(profileDetails.message.FullName);
+            setUserCollege(profileDetails.message.College.college_name);
         });
         // eslint-disable-next-line
         profileApi.profileQR().then((qr: any) => {
