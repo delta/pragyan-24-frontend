@@ -53,7 +53,7 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
         try {
             const authApi = new UserApi(authConfig);
             authApi
-                .dAuthUserLogin(code)
+                .dAuthUserLogin(code, '')
                 //@ts-ignore
                 .then(res => {
                     // @ts-ignore-next-line
