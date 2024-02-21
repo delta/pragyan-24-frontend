@@ -80,7 +80,32 @@ export const getSponsors = async () => {
     //@ts-ignore
     detailArray.forEach((data: any) => {
         let detail = data.attributes;
-        details.push({ name: detail.name, logo: `${CMS_URL}${detail.logo.data.attributes.url}` });
+        details.push({
+            name: detail.name,
+            logo: `${CMS_URL}${detail.logo.data[0].attributes.url}`,
+            title: detail.sponsor_title,
+            link: detail.redirect_link,
+        });
+    });
+
+    return details;
+};
+
+export const getMediaSponsors = async () => {
+    let res = await axios.get(`${CMS_URL}/api/media-sponsors?populate=*`);
+    let detailArray = res.data.data;
+    //@ts-ignore
+    let details: any = [];
+    // eslint-disable @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    detailArray.forEach((data: any) => {
+        let detail = data.attributes;
+        details.push({
+            name: detail.name,
+            logo: `${CMS_URL}${detail.logo.data[0].attributes.url}`,
+            title: detail.sponsor_title,
+            link: detail.redirect_link,
+        });
     });
 
     return details;

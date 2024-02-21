@@ -5,7 +5,7 @@ import topRightBorder from '../../assets/images/top-right-border.svg';
 import bottomBorder from '../../assets/images/bottom-border.svg';
 import Image from 'next/image';
 
-const SponsorCard = ({ name, logo }: SponsorCardProps) => {
+const SponsorCard = ({ name, logo, title, link }: SponsorCardProps) => {
     return (
         <>
             <div className={styles.parent}>
@@ -18,9 +18,9 @@ const SponsorCard = ({ name, logo }: SponsorCardProps) => {
                 </div>
                 <div className={styles.sponsorParent}>
                     <div className={styles.title}>
-                        <div className={styles.titleBorder}>{name} </div>
+                        <div className={styles.titleBorder}>{name}</div>
                     </div>
-                    <div className={styles.body}>
+                    <div className={styles.body} onClick={() => window.open(link)}>
                         {logo != '' && (
                             <Image
                                 src={logo}
@@ -30,6 +30,7 @@ const SponsorCard = ({ name, logo }: SponsorCardProps) => {
                                 className={styles.logo}
                             />
                         )}
+                        <div className={styles.sponsorTitle}>{title}</div>
                     </div>
                 </div>
             </div>

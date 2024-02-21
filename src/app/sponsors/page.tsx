@@ -4,16 +4,18 @@ import styles from './sponsors.module.css';
 import Image from 'next/image';
 
 import astronaut from '../../assets/images/astronaut.svg';
-import { getSponsors } from '@/utils/events_cms';
+import { getMediaSponsors, getSponsors } from '@/utils/events_cms';
 import { useEffect, useState } from 'react';
 
 export default function Sponsors() {
     const [sponsorsList, setSponsorsList] = useState<SponsorCardProps[]>([]);
+    const [mediaSponsorsList, setMediaSponsorsList] = useState<SponsorCardProps[]>([]);
     useEffect(() => {
-        const a = async () => {
+        const getSponsorsFromCMS = async () => {
             setSponsorsList(await getSponsors());
+            setMediaSponsorsList(await getMediaSponsors());
         };
-        a();
+        getSponsorsFromCMS();
     }, []);
 
     return (
@@ -24,7 +26,7 @@ export default function Sponsors() {
                     <h1 className={styles.backgroundText}>SPONSORS</h1>
                 </div>
                 <div className={styles.foreground}>
-                    {sponsorsList.length > 0 ? (
+                    {sponsorsList.length > 0 || mediaSponsorsList.length > 0 ? (
                         <div className="flex flex-col">
                             <div className={styles.sponsorText}>SPONSORS</div>
                             <div className={styles.sponsorButtonUp}>
@@ -33,7 +35,22 @@ export default function Sponsors() {
                             <div className={styles.parentList}>
                                 <div className={styles.sponsorList}>
                                     {sponsorsList.map((e: SponsorCardProps) => (
-                                        <SponsorCard name={e.name} logo={e.logo} key={e.name} />
+                                        <SponsorCard
+                                            name={e.name}
+                                            logo={e.logo}
+                                            title={e.title}
+                                            key={e.name}
+                                            link={e.link}
+                                        />
+                                    ))}
+                                    {mediaSponsorsList.map((e: SponsorCardProps) => (
+                                        <SponsorCard
+                                            name={e.name}
+                                            logo={e.logo}
+                                            key={e.name}
+                                            title={e.title}
+                                            link={e.link}
+                                        />
                                     ))}
                                 </div>
                             </div>
