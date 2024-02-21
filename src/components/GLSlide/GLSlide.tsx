@@ -8,6 +8,7 @@ import MapDrop from '../../assets/images/MapDrop.png';
 import styles from './glslide.module.css';
 import { CMS_URL } from '@/config/config';
 import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 //@ts-ignore
 const GLSlide = props => {
@@ -82,7 +83,9 @@ const GLSlide = props => {
                             <div
                                 className={`w-full h-5/6 font-Nunito 2xl:text-base xl:text-sm lg:text-sm sm:text-xs text-sm p-3 ${styles.content}`}
                             >
-                                <Markdown className={styles.markdown}>{props.data.desc}</Markdown>
+                                <Markdown className={styles.markdown} rehypePlugins={[rehypeRaw]}>
+                                    {props.data.desc}
+                                </Markdown>
                             </div>
                         </div>
                     </div>
