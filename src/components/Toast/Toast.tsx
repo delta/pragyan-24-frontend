@@ -9,6 +9,7 @@ const Toast = () => {
             containerClassName="toasty"
             containerStyle={{
                 fontFamily: 'Orbitron',
+                zIndex: 1000000,
             }}
             toastOptions={{
                 className: '',
@@ -21,7 +22,7 @@ const Toast = () => {
                     width: '500px',
                     backdropFilter: 'blur(10px)',
                     boxShadow: '0 0 3px #000000',
-                    zIndex: 100000,
+                    zIndex: 1000000,
                 },
 
                 success: {
