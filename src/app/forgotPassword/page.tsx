@@ -75,7 +75,7 @@ const ForgotPasswordPage: React.FC = () => {
                 <Modal
                     isOpen={true}
                     ariaHideApp={false}
-                    className="w-[50%] h-[50%] bg-[#1d1c1c] rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    className="md:w-[50%] md:h-[50%] bg-[#1d1c1c] rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 >
                     <div className={styles.resetFormContainer}>
                         <div className={styles.formFields}>

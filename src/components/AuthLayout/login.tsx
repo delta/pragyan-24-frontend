@@ -239,7 +239,7 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
                 isOpen={isOpen}
                 onRequestClose={() => setIsOpen(false)}
                 ariaHideApp={false}
-                className="w-[50%] h-[50%] bg-[#1a1a1a] rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                className="md:w-[50%] md:h-[50%] bg-[#1a1a1a] rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             >
                 <div className={styles.resetFormContainer}>
                     <div className={styles.formFields}>
@@ -255,7 +255,7 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
                                 }}
                             />
                         </div>
-                        <div className={styles.formField + ' flex items-center justify-center'}>
+                        <div className={' flex items-center justify-center'}>
                             {/* <Recaptcha handleFormFields={handleRecaptcha} /> */}
                             <ReCAPTCHA
                                 sitekey={RECAPTCHA_SITE_KEY}
