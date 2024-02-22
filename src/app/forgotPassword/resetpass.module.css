@@ -1,0 +1,89 @@
+.forgotPasswordPage {
+	background-color: #000000;
+	background-image: radial-gradient(#3391e880 2%, transparent 0%);
+	width: calc(100vw);
+	height: calc(100vh);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formFields {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.formField {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 8%;
+}
+
+.formField:last-child {
+	margin-bottom: 3%;
+}
+
+.formLabel {
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+	color: #e4e4e4;
+}
+
+.formInput {
+	background: #230d0e;
+	border: none;
+	border-left: 1rem solid #56d1da80;
+	border-right: 1rem solid #56d1da80;
+	height: 2.5rem;
+	width: 100%;
+	width: 100%;
+	color: #a3a4a3;
+	padding: 0rem 1rem;
+}
+
+.resetFormContainer {
+	display: flex;
+	flex-direction: column;
+	color: #242424;
+	font-family: "Space Grotesk", sans-serif;
+	padding: 2.5rem;
+	border: 1px solid #56d1da80;
+	margin: 1px;
+}
+
+.registerButton {
+	font-family: "Space Grotesk";
+	background-color: transparent;
+	border: none;
+	/* background: url("../../assets/button-bg.svg"); */
+	background-size: 100% 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	margin-top: 1rem;
+	color: #4aff1c;
+	font-size: 1.1rem;
+	padding: 0.8rem 0.8rem;
+	font-weight: 600;
+	border: 2px solid #56d1da80;
+	border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+	.resetFormContainer {
+		margin: 1.5rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.resetFormContainer {
+		padding: 1rem;
+	}
+}

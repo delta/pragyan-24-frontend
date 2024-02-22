@@ -6,10 +6,12 @@ import { useCallback, useState } from 'react';
 import styles from './form.module.css';
 import { FormInput } from './input';
 import { UserApi } from '../../../fest-web-client/client/src';
-import { authConfig } from '@/utils/ApiConfig';
+import { apiConfig, authConfig } from '@/utils/ApiConfig';
 import { useRouter } from 'next/navigation';
-import { DAUTH_CLIENT_ID, DAUTH_REDIRECT_URI } from '@/config/config';
+import { DAUTH_CLIENT_ID, DAUTH_REDIRECT_URI, RECAPTCHA_SITE_KEY } from '@/config/config';
 import toast from 'react-hot-toast';
+import Modal from 'react-modal';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 interface DauthQueryParameters {
     [key: string]: string;
@@ -20,6 +22,11 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
         userEmail: '',
         userPassword: '',
     });
+
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const [forgotPasswordEmail, setForgotPasswordEmail] = useState<string>('');
+    const [recaptchaToken, setRecaptchaToken] = useState<string>('');
 
     const isMobile = false;
 
@@ -148,6 +155,34 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
         }
     };
 
+    const handleForgotPassword = async () => {
+        const userApi = new UserApi(apiConfig);
+        try {
+            console.log(forgotPasswordEmail);
+            await userApi
+                .verifyEmail({
+                    // @ts-ignore-next-line
+                    user_email: forgotPasswordEmail,
+                    user_recaptcha_code: recaptchaToken,
+                })
+                .then(res => {
+                    // @ts-ignore-next-line
+                    toast.success(res.message);
+                })
+                .catch(e => {
+                    toast.error(e.message);
+                });
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const handleCaptchaSubmission = (token: string | null) => {
+        if (token) {
+            setRecaptchaToken(token);
+        }
+    };
+
     return (
         <>
             <div className={styles.formContainer}>
@@ -170,11 +205,8 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
                     />
                 </div>
                 <div className={styles.formFieldExtras}>
-                    <div
-                        className={styles.forgotPassword}
-                        // onClick={() => setIsOpen(true)}
-                    >
-                        <div>Forgot Password?</div>
+                    <div className={styles.forgotPassword} onClick={() => setIsOpen(true)}>
+                        <div className="font-ROG text-[#fffc47]">Forgot Password?</div>
                     </div>
                     <div>
                         <span className={styles.newHere}>New Here?</span>
@@ -203,36 +235,40 @@ export const Login: React.FC<SignupFormProps> = ({ setForm }) => {
                 </div>
                 <div className={styles.formFieldSubmitContainer}>{/* <DAuthLogin /> */}</div>
             </div>
-            {/* <Modal
-				isOpen={modalIsOpen}
-				onRequestClose={() => setIsOpen(false)}
-				ariaHideApp={false}
-			>
-				<div className={styles.resetFormContainer}>
-					<div className={styles.formFields}>
-						<div className={styles.formField}>
-							<div className={styles.formLabel}>Email*</div>
-							<input
-								className={styles.formInput}
-								type="email"
-								value={forgotPasswordEmail}
-								onChange={(e) => {
-									setForgotPasswordEmail(e.target.value);
-								}}
-							/>
-						</div>
-						<div className={styles.formField}>
-							<Recaptcha handleFormFields={handleRecaptcha} />
-						</div>
-					</div>
-					<button
-						className={styles.registerButton}
-						onClick={handleForgotPassword}
-					>
-						Reset Password
-					</button>
-				</div>
-			</Modal> */}
+            <Modal
+                isOpen={isOpen}
+                onRequestClose={() => setIsOpen(false)}
+                ariaHideApp={false}
+                className="w-[50%] h-[50%] bg-[#1a1a1a] rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            >
+                <div className={styles.resetFormContainer}>
+                    <div className={styles.formFields}>
+                        <div className={styles.formField}>
+                            <div className={styles.formLabel}>Email*</div>
+                            <input
+                                className={styles.formInput}
+                                type="email"
+                                value={forgotPasswordEmail}
+                                onChange={e => {
+                                    console.log(e.target.value);
+                                    setForgotPasswordEmail(e.target.value);
+                                }}
+                            />
+                        </div>
+                        <div className={styles.formField + ' flex items-center justify-center'}>
+                            {/* <Recaptcha handleFormFields={handleRecaptcha} /> */}
+                            <ReCAPTCHA
+                                sitekey={RECAPTCHA_SITE_KEY}
+                                onChange={handleCaptchaSubmission}
+                                theme={'dark'}
+                            />
+                        </div>
+                    </div>
+                    <button className={styles.registerButton} onClick={handleForgotPassword}>
+                        Reset Password
+                    </button>
+                </div>
+            </Modal>
         </>
     );
 };
